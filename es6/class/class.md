@@ -33,6 +33,55 @@ class mathHandle {
 var m = new mathHandle(1,2)
 console.log(m.add())
 ```
+类有2种表现形式：声明式和表达式。
+```js
+// 声明式
+class B {
+	
+}
+
+//表达式
+var B = class {
+	
+}
+
+// 命名表达式 B可以在外部使用，而B1只能在内部使用
+let B = class B1 {
+
+}
+
+```
+
+class是函数，是一等公民
+1. class可以作为参数传入
+```js
+let A = class {
+	constructor () {
+		
+	}
+}
+
+function test(class) {
+	return new class()
+}
+
+let a = test(A)
+```
+2. 通过立即调用类构造函数可以创建单例
+```js
+
+let a = new class {
+	constructor(name) {
+		this.name = name
+	}
+	sayname () {
+		return this.name
+	}
+}('dudu')
+
+console.log(a.sayname())
+```
+
 
 ###类的静态方法
 类的静态方法就是通过类来调用，而不是通过实例来调用
@@ -50,8 +99,8 @@ class parent {
 parent.tell()
 ```
 
-###类的静态s属性
-类的静态方法就是通过类来调用，而不是通过实例来调用
+###类的静态属性
+类的静态属性目前没有关键词，如果想实现，如下面
 
 ```js
 class parent {
@@ -63,7 +112,7 @@ class parent {
 	}
 }
 
-parent.tell()
+parent.type = '这个是静态的属性'
 ```
 
 
