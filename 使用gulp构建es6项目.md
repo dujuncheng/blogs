@@ -117,7 +117,7 @@ gulp.task('sass', function() {
     .pipe(sass())
     .pipe(gulp.dest('app/css'))
 })
-```
+``` 
 
 ### 监听文件
 Gulp提供watch方法给我们，语法如下：
@@ -169,6 +169,7 @@ gulp.task('watch', ['array', 'of', 'tasks', 'to', 'complete','before', 'watch'],
   // ...
 })
 ```
+
 
 应用下来是这样：
 ```
@@ -590,4 +591,5 @@ import gulp from 'gulp'
 
 gulp.task('default', ['build'])
 ```
+
 
