@@ -145,6 +145,59 @@ ajax.then(function() {
   console.log('error')
 })
 ```
+类似于promise面这种写法, 从Jquery时代就已经提出来了。
+
+1. 无法改变js异步和单线程的本质
+2. 只能从写法上杜绝callback
+3. 只是一种语法糖，但是解耦了代码
+4. 很好的体现了开放封闭原则（对拓展开放，对修改封闭）
+    
+    ```js
+       // 1.5之前的写法
+       var ajax = $.ajax({
+         url: 'xx',
+         success: function() {
+            // 对修改开放，对拓展封闭
+            console.log('1')
+            console.log('2')
+            console.log('3')
+         },
+         error: function() {
+           
+         }
+       })
+       // 1.5之后的写法
+       // 对修改封闭，对拓展封闭
+       ajax.then(function() {
+       	console.log('success')
+       }, function() {
+         console.log('error')
+       }).then(function() {
+         console.log('success')
+       },function() {
+         console.log('error')
+       })
+    ```
+    
+### 应用jQuery deferred
+现在有下面这段代码，我们使用使用jQuery deferred进行改造
+```js
+var task = function() {
+  console.log('执行完成')
+}
+setTimeout(task, 2000)
+```    
+下面是改造后的代码
+```js
+var wait = function() {
+  var task = function() {
+    console.log('执行完成')
+  }
+  setTimeout(task, 2000)
+}
+```
+
+
 ## promise 的基本使用和原理
 
 
