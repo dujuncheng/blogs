@@ -164,7 +164,7 @@ mathHanle.prototype.constructor === mathHanle // true
 
 
 class如何继承
-基本语法
+ - 基本语法
 ```js
 class animal {
 	constructor (name) {
@@ -189,6 +189,12 @@ const hashiqi = new dog('哈士奇')
 dog.say()
 dog.eat()
 ```
+
+ - 可以在派生类中重写父类的方法
+
+ - 父类中的静态成员，也可以继承到派生类中。静态成员继承只能通过派生类访问，不能通过派生类的实例访问。
+
+
 
 
 
