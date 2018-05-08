@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="7ac1e9c6-48cb-4e72-8717-b5269abe61da" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/es6/es6中的promise/es6中的promise.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/js的运行机制学习_任务队列、event_loop/js的运行机制学习_任务队列、event_loop.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/es6/class/es6中的class.md" afterPath="$PROJECT_DIR$/es6/es6中的class/es6中的class.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/es6/class/es6中的class.md" afterPath="$PROJECT_DIR$/es6/class/es6中的class.md" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,12 +19,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
+      <file leaf-file-name="es6中的promise.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/es6/es6中的promise/es6中的promise.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="80">
-                <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="98" />
+              <first_editor relative-caret-position="160">
+                <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -34,10 +36,10 @@
         </entry>
       </file>
       <file leaf-file-name="es6中的class.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/es6/class/es6中的class.md">
+        <entry file="file://$PROJECT_DIR$/es6/es6中的class/es6中的class.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="5132">
+              <first_editor relative-caret-position="670">
                 <caret line="409" column="36" lean-forward="false" selection-start-line="409" selection-start-column="36" selection-end-line="409" selection-end-column="36" />
                 <folding>
                   <marker date="1525768782661" expanded="true" signature="66:93" ph="{...}" />
@@ -125,6 +127,22 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="js的运行机制学习_任务队列、event_loop.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/javascript/js的运行机制学习_任务队列、event_loop/js的运行机制学习_任务队列、event_loop.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="0">
+                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+          <provider editor-type-id="Gfm">
+            <state />
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -139,6 +157,7 @@
         <option value="$PROJECT_DIR$/test_blog.md" />
         <option value="$PROJECT_DIR$/es6/class/class.md" />
         <option value="$PROJECT_DIR$/es6/class/es6中的class.md" />
+        <option value="$PROJECT_DIR$/es6/es6中的promise/es6中的promise.md" />
       </list>
     </option>
   </component>
@@ -162,7 +181,7 @@
     <option name="height" value="877" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -175,7 +194,37 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="blogs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blogs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blogs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blogs" type="462c0819:PsiDirectoryNode" />
+              <item name="es6" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blogs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blogs" type="462c0819:PsiDirectoryNode" />
+              <item name="es6" type="462c0819:PsiDirectoryNode" />
+              <item name="es6中的class" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blogs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blogs" type="462c0819:PsiDirectoryNode" />
+              <item name="javascript" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path" value="E:/node" />
@@ -223,7 +272,7 @@
       <workItem from="1525680239442" duration="48000" />
       <workItem from="1525681109532" duration="7430000" />
       <workItem from="1525744134934" duration="2854000" />
-      <workItem from="1525767067345" duration="1800000" />
+      <workItem from="1525767067345" duration="2673000" />
     </task>
     <task id="LOCAL-00001" summary="add readme.md">
       <created>1525662542895</created>
@@ -309,18 +358,25 @@
       <option name="project" value="LOCAL" />
       <updated>1525747130514</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="&#10;add  blog">
+      <created>1525770080464</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1525770080464</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16919000" />
+    <option name="totallyTimeSpent" value="17792000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="547" y="23" width="893" height="877" extended-state="0" />
     <layout>
       <window_info id="Key Promoter X" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="GfmBrowser" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24911869" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33887467" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -369,7 +425,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/es6/class/es6中的class.md">
+    <entry file="file://$PROJECT_DIR$/es6/es6中的class/es6中的class.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="3280">
@@ -470,7 +526,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/es6/class/es6中的class.md">
+    <entry file="file://$PROJECT_DIR$/es6/es6中的class/es6中的class.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="3296">
@@ -678,10 +734,38 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/es6/class/es6中的class.md">
+    <entry file="file://$PROJECT_DIR$/es6/es6中的promise/es6中的promise.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="5132">
+          <first_editor relative-caret-position="160">
+            <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="Gfm">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/js的运行机制学习_任务队列、event_loop/js的运行机制学习_任务队列、event_loop.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="Gfm">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/es6/es6中的class/es6中的class.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="670">
             <caret line="409" column="36" lean-forward="false" selection-start-line="409" selection-start-column="36" selection-end-line="409" selection-end-column="36" />
             <folding>
               <marker date="1525768782661" expanded="true" signature="66:93" ph="{...}" />
