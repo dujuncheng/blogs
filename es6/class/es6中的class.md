@@ -159,6 +159,48 @@ mathHanle.prototype.constructor === mathHanle // true
 
 ```
 
+下面是一个普通的类
+```js
+class Person {
+	constructor (name) {
+		this.name = name
+	}
+	say () {
+		console.log(this.name)
+	}
+}
+
+let person1 = new Person('person1')
+```
+下面使用es5的语法来改写
+```js
+let Pserson = (function() {
+  const Pserson = function(name) {
+  	
+  	// 确保必须用new关键字来调用
+  	if (typeof new.target == 'undifined') {
+  		throw  new Error('必须使用new关键字来调用')
+  	}
+    this.name = name
+  }
+  
+  Object.defineProperty(Pserson.prototype, 'say', {
+  	value: function() {
+      // 确保不会用new关键字来调用
+  	  if (typeof new.target !== undefined) {
+  	  	throw new Error('不要用new关键字来调用')
+  	  }
+  	  
+  	  console.log(this.name)
+  	},
+  	enumerable: false,
+  	writable: true,
+  	configurable: true
+  })
+}())
+```
+
+
 ### 继承
 构造函数如何继承
 
@@ -189,6 +231,9 @@ const hashiqi = new dog('哈士奇')
 dog.say()
 dog.eat()
 ```
+
+> 只能在派生类中使用super
+> 访问this前一定要调用 super
 
 #### 类方法遮蔽
 派生类中的方法和父类中的方法重名，派生类的实例调用该方法时为子类的方法。
