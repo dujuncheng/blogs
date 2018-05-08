@@ -207,8 +207,7 @@ let Pserson = (function() {
 
 
 ### 继承
-构造函数如何继承
-
+构造函数如何继承的问题可以参考我之前的博客
 
 class如何继承
  - 基本语法
@@ -221,7 +220,7 @@ class animal {
 		console.log('eat')
 	}
 }
-
+// extends关键字
 class dog extends animal {
 	constructor (name) {
 		super(name)
@@ -240,8 +239,9 @@ dog.eat()
 > 只能在派生类中使用super
 > 访问this前一定要调用 super
 
-#### 类方法遮蔽
-派生类中的方法和父类中的方法重名，派生类的实例调用该方法时为子类的方法。
+#### 继承中的类方法遮蔽
+如果派生类中的方法和父类中的方法重名，派生类的实例调用该方法时为子类的方法。
+比如下面的例子，Son继承了Parent, Son类中有和父类重名的方法，Son的实例调用的是Son的方法
 ```js
 class Parent{
 	constructor(w,h){
@@ -265,7 +265,7 @@ class Son extends Parent{
 let a = new Son(2,3)
 a.getArea()        // 5
 ```
-如果在派生类中想使用父类的重名防范，可以调动super.getArea()
+如果在派生类中想使用父类的重名方法，可以调动super.getArea()，如下面的例子
 ```js
 class Parent{
 	constructor(w,h){
@@ -289,10 +289,11 @@ class Son extends Parent{
 let a = new Son(2,3)
 a.getArea()        // 6
 ```
-#### 类静态成员的继承
+#### 继承中的静态成员
 父类中的静态成员，也可以继承到派生类中。
-静态成员继承只能通过派生类访问，不能通过派生类的实例访问。
+同样的，类的静态成员均不能通过实例来访问。静态成员继承只能通过派生类访问，不能通过派生类的实例访问
 
+如下例子，
 ```js
 class Rectangle {
 	constructor (w,h) {
@@ -321,10 +322,92 @@ a instanceof Square    // false
 a.getArea()            // 6
 ```
 
+#### 继承中的表达式
+extends很强大，只要有一个表达式可以解析为函数，并且具有[[constructor]]属性和原型，那么就可以用extends来继承（或称为派生）
+下面这个例子：
+```js
+// rectangle是一个有prototype的构造函数
+function Rectangle (w, h) {
+	this.w = w;
+	this.h = h;
+}
 
+Rectangle.prototype.getArea = function() {
+	return this.w * this.h
+}
 
+// 可以通过 extends 来继承
+class Square extends Rectangle {
+	constructor (w, h) {
+		super(w, h)
+	}
+}
 
+let a = new Square(2,3)
+a.getArea() // 6
+a instanceof Rectangle //TRUE
+```
+extends可以继承表达式这一特性，可以动态的确定类的继承目标，比如说对上面的例子稍微改造一下
+```js
+function Rectangle (w, h) {
+	this.w = w;
+	this.h = h;
+}
 
+Rectangle.prototype.getArea = function() {
+	return this.w * this.h
+}
+
+function getBase () {
+	return Rectangle
+}
+
+// getBase最终返回的还是一个类
+class Square extends getBase() {
+	constructor (w, h) {
+		super(w, h)
+	}
+}
+
+let a = new Square(2,3)
+a.getArea() // 6
+a instanceof Rectangle //TRUE
+```
+也可以像下面这个例子创建这样的mixin
+```js
+let mixin1 = {
+	serialize () {
+		return JSON.stringify(this)
+	}
+}
+
+let mixin2 = {
+	getArea () {
+		return this.x * this.y
+	}
+}
+
+// 下面是高能预警
+function getBase (...mixins) {
+  var base = function() {}
+  Object.assign(base.prototype, ...mixins)
+  return  base
+}
+
+// getBase最终返回的还是一个类
+class Square extends getBase(mixin1, mixin2) {
+	constructor (w, h) {
+		super()
+		this.w = w
+		this.y = y
+	}
+}
+
+let a = new Square(2,3)
+a.getArea() // 6
+a.serialize()  // "{"w": 2, "h" : 3}"
+```
+注：如果多个mixin对象有同样的属性，那么只有最后一个添加的属性被保留
 
 
 ### class和构造函数的区别
