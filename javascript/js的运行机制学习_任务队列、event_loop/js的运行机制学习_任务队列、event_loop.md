@@ -45,14 +45,106 @@
 1. event-loop的含义
     event-loop就是事件轮询。
     
+同步代码，直接执行，一行一行执行
+异步函数放在异步队列
+等待同步函数执行完毕之后轮询执行异步队列  
+
+```js
+setTimeout(function() {
+  console.log(100)
+},100)
+
+setTimeout(function() {
+  console.log(300)
+})
+console.log(200)
+
+// 上面的代码会依次输出
+200 
+300
+100
+```  
+上面的代码中，执行到第一个setTimeout时候，是一个异步任务, 100毫秒后放入任务队列
+然后代码执行到第二个setTimeout, 会马上添加到任务队列
+然后执行到200时，输出200
+
+也就是说，`console.log(100)`和`console.log(300)`都会被添加到异步队列，`console.log(100)`会在100毫秒后被添加到异步队列
+
+
+```js
+$.ajax({
+  url:' ',
+  success: function() {
+    console.log('a')
+  }
+})
+
+setTimeout(function() {
+  console.log('b')
+}, 100)
+
+setTimeout(function() {
+  console.log('c')
+})
+
+console.log('d')
+
+// 输出的顺序有可能是 d c b a 或者是 d c a b 
+```
+
+何时被放入异步队列
+1. 直接放入
+2. 定时器到时候了
+3. 拿到了请求
+
+
+
+
+## jquery的deferred
+jquery1.5的版本变化，前后的对比
+1.5之后，增加了jquery deferred
+deferred是promise的初步概念
+
+jquery 1.5之前的写法
+```js
+var ajax = $.ajax({
+  url: 'xx',
+  success: function() {
     
+  },
+  error: function() {
+    
+  }
+})
+console.log(ajax)  // 返回一个xhr对象
+```
+jquery 1.5之后的写法
+```js
+var ajax = $.ajax('data.json')
+ajax.done(function() {
+    console.log('success1')	
+}).fail(function() {
+    console.log('erro')
+}).done(function() {
+    console.log('success2')
+})
 
+console.log(ajax) // 返回一个deffered对象
+```
+上面的写法也可以改成下面的写法：
+```js
+var ajax = $.ajax('data.json')
 
-
-
-## 是否用过jquery的deferred
-
-
+ajax.then(function() {
+	console.log('success')
+}, function() {
+  console.log('error')
+}).then(function() {
+  console.log('success')
+},function() {
+  console.log('error')
+})
+```
 ## promise 的基本使用和原理
 
 
