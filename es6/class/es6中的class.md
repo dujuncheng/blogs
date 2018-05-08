@@ -83,7 +83,7 @@ console.log(a.sayname())
 ```
 
 
-###类的静态方法
+### 类的静态方法
 类的静态方法就是通过类来调用，而不是通过实例来调用
 
 ```js
@@ -99,7 +99,7 @@ class parent {
 parent.tell()
 ```
 
-###类的静态属性
+### 类的静态属性
 类的静态属性目前没有关键词，如果想实现，如下面
 
 ```js
@@ -116,7 +116,7 @@ parent.type = '这个是静态的属性'
 ```
 
 
-###getter 和 setter
+### getter 和 setter
 ```js
 class parent {
 	constructor (name) {
@@ -190,9 +190,87 @@ dog.say()
 dog.eat()
 ```
 
- - 可以在派生类中重写父类的方法
+#### 类方法遮蔽
+派生类中的方法和父类中的方法重名，派生类的实例调用该方法时为子类的方法。
+```js
+class Parent{
+	constructor(w,h){
+		this.w = w
+		this.h = h
+	}
+	getArea() {
+		return this.w * this.h
+	} 
+}
 
- - 父类中的静态成员，也可以继承到派生类中。静态成员继承只能通过派生类访问，不能通过派生类的实例访问。
+class Son extends Parent{
+	constructor(w,h){
+		super(w, h)
+	}
+	getArea() {
+		return this.w + this.h
+	} 
+}
+
+let a = new Son(2,3)
+a.getArea()        // 5
+```
+如果在派生类中想使用父类的重名防范，可以调动super.getArea()
+```js
+class Parent{
+	constructor(w,h){
+		this.w = w
+		this.h = h
+	}
+	getArea() {
+		return this.w * this.h
+	} 
+}
+
+class Son extends Parent{
+	constructor(w,h){
+		super(w, h)
+	}
+	getArea() {
+		return super.getArea()
+	} 
+}
+
+let a = new Son(2,3)
+a.getArea()        // 6
+```
+#### 类静态成员的继承
+父类中的静态成员，也可以继承到派生类中。
+静态成员继承只能通过派生类访问，不能通过派生类的实例访问。
+
+```js
+class Rectangle {
+	constructor (w,h) {
+		this.w = w;
+		this.h = h;
+	}
+	getArea () {
+		return this.w * this.h
+	}
+	
+	static create(w,h) {
+		return new Rectangle(w, h)
+	}
+}
+
+class Square extends Rectangle{
+	constructor(x,y) {
+		super(x,y)
+	}
+}
+
+let a = Square.create(2,3)
+
+a instanceof Rectangle // true
+a instanceof Square    // false
+a.getArea()            // 6
+```
+
 
 
 
