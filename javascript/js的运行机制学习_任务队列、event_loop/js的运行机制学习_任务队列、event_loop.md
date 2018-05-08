@@ -180,23 +180,127 @@ ajax.then(function() {
     ```
     
 ### 应用jQuery deferred
+
+deferred有两类api
+1. reject resolve
+2. then done fail
+
 现在有下面这段代码，我们使用使用jQuery deferred进行改造
-```js
-var task = function() {
-  console.log('执行完成')
-}
-setTimeout(task, 2000)
-```    
-下面是改造后的代码
 ```js
 var wait = function() {
   var task = function() {
     console.log('执行完成')
+    // 执行很多代码
+    
   }
   setTimeout(task, 2000)
 }
+
+wait()
+```    
+下面是改造后的代码
+```js
+function waitHandle() {
+  var dtd = $.Deferred()
+  
+  var wait = function (dtd) {
+  	var task = function () { 
+        console.log('执行完成')
+        // 执行很多代码
+        
+        dtd.resolve()
+      }
+      
+  	setTimeout(task, 2000)
+  	return dtd
+  }
+    
+    
+    return wait(dtd)
+}
+
+var w = waitHandle()
+w.then(function() {
+  console.log('ok1')
+},function() {
+  console.log('error1')
+})
+w.then(function() {
+  console.log('ok2')
+},function() {
+  console.log('error2')
+})
+```
+上面的代码就可以高拓展了，但是有个问题，如果有个致命的问题
+
+```js
+var w = waitHandle()
+
+// 在这里其他同事新增了代码
+w.reject()
+// 下面的结果会输出 error1, error2
+
+w.then(function() {
+  console.log('ok1')
+},function() {
+  console.log('error1')
+})
+w.then(function() {
+  console.log('ok2')
+},function() {
+  console.log('error2')
+})
 ```
 
+所以我们对上面的代码进行完善
+```js
+
+function waitHandle() {
+  let dtd = $.deferred()
+  function wait (dtd) {
+    function ajax () {
+      console.log('ajax success')
+      dtd.resolve()
+    }
+    
+    setTimeout(ajax, 1000)
+    // 这里是返回promise对象，而不是deferred对象
+    return dtd.promise()
+  }
+  return wait(dtd)
+}
+
+function waitHandle() {
+  var dtd = $.Deferred()
+  
+  var wait = function (dtd) {
+  	var task = function () { 
+        console.log('执行完成')
+        // 执行很多代码
+        
+        dtd.resolve()
+      }
+      
+  	setTimeout(task, 2000)
+  	return dtd
+  }
+    
+    
+    return wait(dtd)
+}
+
+var w = waitHandle()
+$.when(w).then(function() {
+  console.log('ok1')
+},function() {
+  console.log('error1')
+})
+$.when(w).then(function() {
+  console.log('ok2')
+},function() {
+  console.log('error2')
+})
+```
 
 ## promise 的基本使用和原理
 
