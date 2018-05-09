@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<button id='do'> Do long calc!</button>
+<div id='status'></div>
+
+<script>
+	btn = document.getElementById('do')
+  btn.addEventListener('click',function () {
+	  // 此处会触发redraw事件，但会放到队列里执行，直到long()执行完。
+	  document.getElementById('status').innerText ='calculating....'
+
+    setTimeout(function () {
+	    long();
+    }, 20)
+
+
+  },false)
+
+	function long(){
+		var result = 0
+		for (var i = 0; i<1000; i++){
+			for (var j = 0; j<1000; j++){
+				for (var k = 0; k<1000; k++){
+					result = result + i+j+k
+				}
+			}
+		}
+	}
+</script>
+</body>
+</html>
