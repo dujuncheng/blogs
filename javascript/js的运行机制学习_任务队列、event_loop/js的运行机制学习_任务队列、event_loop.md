@@ -245,77 +245,15 @@ this is a msg from a callback1
 1. 没有按照书写的方式执行，可读差
 2. 回调函数不容易模块化，回调函数不宜写的太复杂，要不然耦合度太高
 
-## 异步是通过event-loop来实现的
 
 
+# jQuery的deferred
 
-
-
-## 什么是event-loop
-1. event-loop的含义
-    event-loop就是事件轮询。
-    
-同步代码，直接执行，一行一行执行
-异步函数放在异步队列
-等待同步函数执行完毕之后轮询执行异步队列  
-
-```js
-setTimeout(function() {
-  console.log(100)
-},100)
-
-setTimeout(function() {
-  console.log(300)
-})
-console.log(200)
-
-// 上面的代码会依次输出
-200 
-300
-100
-```  
-上面的代码中，执行到第一个setTimeout时候，是一个异步任务, 100毫秒后放入任务队列
-然后代码执行到第二个setTimeout, 会马上添加到任务队列
-然后执行到200时，输出200
-
-也就是说，`console.log(100)`和`console.log(300)`都会被添加到异步队列，`console.log(100)`会在100毫秒后被添加到异步队列
-
-
-```js
-$.ajax({
-  url:' ',
-  success: function() {
-    console.log('a')
-  }
-})
-
-setTimeout(function() {
-  console.log('b')
-}, 100)
-
-setTimeout(function() {
-  console.log('c')
-})
-
-console.log('d')
-
-// 输出的顺序有可能是 d c b a 或者是 d c a b 
-```
-
-何时被放入异步队列
-1. 直接放入
-2. 定时器到时候了
-3. 拿到了请求
-
-
-
-
-## jquery的deferred
-jquery1.5的版本变化，前后的对比
-1.5之后，增加了jquery deferred
+## jQuery deferred的写法
+jquery1.5的版本发生了变化，子啊1.5之后，增加了jQuery deferred。
 deferred是promise的初步概念
 
-jquery 1.5之前的写法
+jQuery 1.5之前关于异步请求的写法
 ```js
 var ajax = $.ajax({
   url: 'xx',
@@ -355,12 +293,14 @@ ajax.then(function() {
   console.log('error')
 })
 ```
-类似于promise面这种写法, 从Jquery时代就已经提出来了。
+可以看出，这种写法很类似于promise的写法。promise最早的思想从Jquery时代就已经提出来了。
+
+但是也存在一些问题：
 
 1. 无法改变js异步和单线程的本质
 2. 只能从写法上杜绝callback
 3. 只是一种语法糖，但是解耦了代码
-4. 很好的体现了开放封闭原则（对拓展开放，对修改封闭）
+4. 很好的体现了*开放封闭原则*（对拓展开放，对修改封闭）
     
     ```js
        // 1.5之前的写法
@@ -389,11 +329,9 @@ ajax.then(function() {
        })
     ```
     
-### 应用jQuery deferred
+## 应用jQuery deferred
 
-deferred有两类api
-1. reject resolve
-2. then done fail
+
 
 现在有下面这段代码，我们使用使用jQuery deferred进行改造
 ```js
@@ -441,7 +379,7 @@ w.then(function() {
   console.log('error2')
 })
 ```
-上面的代码就可以高拓展了，但是有个问题，如果有个致命的问题
+上面的代码就可以高拓展了，但是有个问题，如果有个调皮的同事，给你改成下面这样：
 
 ```js
 var w = waitHandle()
@@ -461,8 +399,8 @@ w.then(function() {
   console.log('error2')
 })
 ```
-
-所以我们对上面的代码进行完善
+上面的代码就会gg了，
+所以我们对上面的代码进行完善，如下：
 ```js
 
 function waitHandle() {
