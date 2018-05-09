@@ -339,7 +339,6 @@ ajax.then(function() {
 ## 应用jQuery deferred
 
 
-
 现在有下面这段代码，我们使用使用jQuery deferred进行改造
 ```js
 var wait = function() {
