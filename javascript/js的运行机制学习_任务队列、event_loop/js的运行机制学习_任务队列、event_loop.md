@@ -1,7 +1,7 @@
 # 前言
 让`javascript`区别于其他编程语言的是js处理`IO`的方式。
 我们经常听`NodeJS`是一个基于`v8`引擎`非阻塞（non-bloking）`, `事件驱动(event-driven)`的平台。
-
+这些答案就在js的核心——event-loop
 
 # 同步、异步、阻塞、非阻塞的关系
 
