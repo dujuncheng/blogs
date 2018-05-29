@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="7ac1e9c6-48cb-4e72-8717-b5269abe61da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/数据结构/chapter1.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/数据结构/chapter1.md" afterPath="$PROJECT_DIR$/数据结构/chapter1.md" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,8 +24,8 @@
           </provider>
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="308">
-                <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+              <first_editor relative-caret-position="587">
+                <caret line="142" column="0" lean-forward="true" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -149,7 +149,7 @@
       <workItem from="1527065750364" duration="4627000" />
       <workItem from="1527247662805" duration="5000" />
       <workItem from="1527495414636" duration="328000" />
-      <workItem from="1527555711144" duration="114000" />
+      <workItem from="1527555711144" duration="6726000" />
     </task>
     <task id="LOCAL-00001" summary="add readme.md">
       <created>1525662542895</created>
@@ -368,11 +368,25 @@
       <option name="project" value="LOCAL" />
       <updated>1527079818381</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="&#10;add  blog">
+      <created>1527555828392</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1527555828392</updated>
+    </task>
+    <task id="LOCAL-00033" summary="&#10;add  blog">
+      <created>1527558805706</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1527558805706</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46026000" />
+    <option name="totallyTimeSpent" value="52638000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -699,8 +713,8 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="308">
-            <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <first_editor relative-caret-position="587">
+            <caret line="142" column="0" lean-forward="true" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
