@@ -140,23 +140,52 @@ struct node
 1. 创建链表
 链表的内存空间是动态申请的，通过malloc来申请，返回指向节点的指针
 
-![](http://p8cyzbt5x.bkt.clouddn.com/UC20180529_193334.png)
+    ![](http://p8cyzbt5x.bkt.clouddn.com/UC20180529_193334.png)
+    
+    ```c
+    // 生成指针
+    struct node *p1, *p2, *p3
+    // 建立节点p1
+    p1 = new node
+    p1 -> data = a1
+    // 建立节点p2
+    p2 = new node 
+    p2 -> data = a2
+    // p1的next指针指向p2
+    p1 -> next = p2
+    ```
 
-```c
-// 生成指针
-struct node *p1, *p2, *p3
-// 建立节点p1
-p1 = new node
-p1 -> data = a1
-// 建立节点p2
-p2 = new node 
-p2 -> data = a2
-// p1的next指针指向p2
-p1 -> next = p2
-```
-……
+2. 链表查询
+查询是需要创建完整的链表
+遍历并不是通过 p++, 而是通过`p=p->next`指针的移动
+    ```c
+    p0 = p
+    while (p0 -> data !== a3)
+    {
+      p0 = p0 -> next
+    }
+    ```
+    
+       
+3. 链表的插入
+先找到插入位置前一个节点，
+    ```c
+    p0 = p
+    // 找到前一个
+    // p -> data p指针所指向的那个节点的data
+    // p -> next -> p指针后面的那个节点的data
+    while(p->next->data != a3)
+    { 
+        p = p->next
+    }
+    ```
+然先链后断
+![](http://p8cyzbt5x.bkt.clouddn.com/UC20180529_202410.png)
 
-
+    ```c
+    s -> next = p -> next
+    p -> next = s
+    ```
 
 
 

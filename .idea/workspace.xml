@@ -24,8 +24,8 @@
           </provider>
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="587">
-                <caret line="142" column="0" lean-forward="true" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+              <first_editor relative-caret-position="335">
+                <caret line="188" column="0" lean-forward="true" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -149,7 +149,7 @@
       <workItem from="1527065750364" duration="4627000" />
       <workItem from="1527247662805" duration="5000" />
       <workItem from="1527495414636" duration="328000" />
-      <workItem from="1527555711144" duration="6726000" />
+      <workItem from="1527555711144" duration="9387000" />
     </task>
     <task id="LOCAL-00001" summary="add readme.md">
       <created>1525662542895</created>
@@ -382,11 +382,25 @@
       <option name="project" value="LOCAL" />
       <updated>1527558805706</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="&#10;add  blog">
+      <created>1527592605904</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1527592605904</updated>
+    </task>
+    <task id="LOCAL-00035" summary="&#10;change  blog">
+      <created>1527593706047</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1527593706047</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52638000" />
+    <option name="totallyTimeSpent" value="55299000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -430,7 +444,8 @@
     <MESSAGE value="add readme.md" />
     <MESSAGE value="add blog" />
     <MESSAGE value="&#10;add  blog" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;add  blog" />
+    <MESSAGE value="&#10;change  blog" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;change  blog" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -713,8 +728,8 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="587">
-            <caret line="142" column="0" lean-forward="true" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+          <first_editor relative-caret-position="335">
+            <caret line="188" column="0" lean-forward="true" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
