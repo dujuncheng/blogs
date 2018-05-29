@@ -187,7 +187,19 @@ struct node
     p -> next = s
     ```
 
-
+4. 链表删除
+ 假设删除的元素是a3, a3前一个节点指针是p
+     ```c
+     while(p->next->data != a3)
+     {
+       p = p -> next
+     }
+     p -> next = p -> next -> next
+     ```
+ 只需要一步跨过去，不需要切断a3节点的next
+ 
+ 5. 链表的逆序
+ 
 
 ##### 单向链表
 
