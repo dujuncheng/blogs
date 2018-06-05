@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function *test () {
+      console.log(1)
+      yield console.log('yield 1')
+      console.log(2)
+	    yield console.log('yield 2')
+	    yield console.log('yield 3')
+	    console.log(3)
+	    yield console.log('yield 4')
+	    console.log(4)
+    }
+    t1 = test()
+    // 只有实例的next()调用，函数里面的代码才会执行。如果只是函数调用，而实例的next方法不调用，则函数的内的代码不会执行
+    // 当实例的第一个next() 执行时，函数内的代码执行到第一个yield, 并且执行完yield代码之后暂停。
+    t1.next()
+    console.log('开始第二个next')
+
+    
+    t1.next()
+
+  </script>
+</body>
+</html>

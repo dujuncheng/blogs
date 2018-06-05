@@ -5,7 +5,7 @@
 # 目录
 
 - javascript
-    - [javascript解析和执行过程](https://github.com/dujuncheng/blogs/tree/b1d07ddbfb52f42634ab8481c86c1352b748cc86/javascript/js%E7%9A%84%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6%E5%AD%A6%E4%B9%A0_%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97%E3%80%81event_loop)
+    - [javascript解析和执行过程](https://github.com/dujuncheng/blogs/blob/b1d07ddbfb52f42634ab8481c86c1352b748cc86/javascript/js%E7%9A%84%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6%E5%AD%A6%E4%B9%A0_%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97%E3%80%81event_loop/js%E7%9A%84%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6%E5%AD%A6%E4%B9%A0_%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97%E3%80%81event_loop.md)
 
 - es6
     - [使用gulp构建es6项目](http://blog.leanote.com/post/dujuncheng/es6%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA)
