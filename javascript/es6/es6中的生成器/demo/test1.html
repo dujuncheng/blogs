@@ -25,7 +25,14 @@
     t1.next()
     console.log('开始第二个next')
 
-    
+    // 当第二个next()被调用时，会直接忽略掉上次已经执行过的代码，直接从第一个yield的下一行开始执行
+    t1.next()
+
+    t1.next()
+    t1.next()
+    t1.next()
+
+    console.log(';;;')
     t1.next()
 
   </script>

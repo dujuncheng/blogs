@@ -94,7 +94,7 @@ calcSix.next().value; // 11
 calcSix.next().value; // 36
 ```
 
-用 yield 返回的值只会返回一次，当你再次调用同一个函数的时候，它会执行至下一个 yield 语句处（译者注：前面的 yield 不再返回东西了）。
+用 yield 返回的值只会返回一次，当你再次调用同一个函数的时候，它会执行至下一个 yield 语句处
 在生成器中，我们通常会在输出时得到一个对象。这个对象有两个属性：value 与 done。如你所想，value 为返回值，done 则会显示生成器是否完成了它的工作。
 function * generator() {
   yield 5;
