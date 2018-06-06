@@ -115,6 +115,51 @@ class parent {
 parent.type = '这个是静态的属性'
 ```
 
+### 类的成员不可遍历
+
+```js
+class Person {
+    constructor (name, age) {
+       this.name = name
+       this.age = age    
+    }
+    say () {
+        console.log(this.name)
+    }
+    get age () {
+        return this.age
+    }
+    set age (newage) {
+        this.age = age
+    }
+    static hi () {
+        console.log('hi~')
+    }
+}
+
+console.log(Object.keys(Person))
+// 定义的property都是不可遍历的
+```
+上面的class 定义的property都是不可遍历的, 因此在使用es5的语法进行改写时候，需要使用`Object.defineProperty`方法来设置 `enumrable` 为`false`
+其他的`value`, `writable`, `configuable`都为true
+
+```js
+function Person () {}
+// Object.defineProperty(obj, key, {})
+Object.defineProperty(Person, 'say', {
+    value: function() {},
+    enumrable: false,
+    writable: true,
+    configurable: true
+})
+
+Object.defineProperties(obj, {
+    "say": {
+        
+    }
+})
+```
+
 
 ### getter 和 setter
 ```js
@@ -175,7 +220,7 @@ let person1 = new Person('person1')
 下面使用es5的语法来改写
 ```js
 let Pserson = (function() {
-  const Pserson = function(name) {
+  const Person = function(name) {
   	
   	// 确保必须用new关键字来调用
   	if (typeof new.target == 'undifined') {
@@ -184,7 +229,7 @@ let Pserson = (function() {
     this.name = name
   }
   
-  Object.defineProperty(Pserson.prototype, 'say', {
+  Object.defineProperty(Person.prototype, 'say', {
   	value: function() {
       // 确保不会用new关键字来调用
   	  if (typeof new.target !== undefined) {

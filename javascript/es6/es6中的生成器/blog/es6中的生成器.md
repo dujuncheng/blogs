@@ -312,6 +312,7 @@ gen.math(1); // 3.141592653589793
 
 ### 生成器的用途
 在前面，我们用了已知迭代次数的生成器。但如果我们不知道要迭代多少次会怎么样呢？为了解决这个问题，需要在生成器函数中创建一个无限循环。下面以一个会返回随机数的函数为例进行演示：
+```js
 function * randomFrom(...arr) {
   while (true)
     yield arr[Math.floor(Math.random() * arr.length)];
@@ -320,6 +321,8 @@ function * randomFrom(...arr) {
 const getRandom = randomFrom(1, 2, 5, 9, 4);
 
 getRandom.next().value; // 返回随机的一个数
+```
+
 这是个简单的例子。下面来举一些更复杂的函数为例，我们要写一个节流（throttle）函数。如果你还不知道节流函数是什么，请参阅这篇文章。
 function * throttle(func, time) {
   let timerID = null;

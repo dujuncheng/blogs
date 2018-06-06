@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+//     class Person {
+//     	  constructor (name) {
+//          this.name = name
+//        }
+//        say () {
+//     	  	console.log(this.name)
+//        }
+//     }
+//
+//     p1 =  new Person('dudu')
+
+
+      (function () {
+      	let Person = function (name) {
+          if (new.target === undefined) {
+          	return new Error('必须使用new关键字来调用')
+          }
+          this.name = name
+	      }
+
+	      Object.defineProperty(Person.prototype, 'say', {
+          // 设置value, writale, enumerable, configurable
+	      	value: function () {
+            console.log(this.name)
+		      },
+          writable: true,
+          enumerable: false,
+          configurable: true
+        })
+      }())
+  </script>
+</body>
+</html>
