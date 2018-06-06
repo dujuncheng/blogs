@@ -140,7 +140,7 @@ class Person {
 console.log(Object.keys(Person))
 // 定义的property都是不可遍历的
 ```
-上面的class 定义的property都是不可遍历的, 因此在使用es5的语法进行改写时候，需要使用`Object.defineProperty`方法来设置 `enumrable` 为`false`
+上面的class 定义的property都是不可遍历的, 因此在使用es5的语法进行改写时候，需要使用`Object.defineProperty`方法来设置 `enumerable` 为`false`
 其他的`value`, `writable`, `configuable`都为true
 
 ```js
@@ -148,17 +148,28 @@ function Person () {}
 // Object.defineProperty(obj, key, {})
 Object.defineProperty(Person, 'say', {
     value: function() {},
-    enumrable: false,
+    enumerable: false,
     writable: true,
     configurable: true
 })
 
 Object.defineProperties(obj, {
     "say": {
-        
-    }
+        value:"",
+        enumerable: false,
+        writable: true,
+        configurable: true
+    },
+    "hello": {
+            value:"",
+            enumerable: false,
+            writable: true,
+            configurable: true
+        }
 })
 ```
+
+
 
 
 ### getter 和 setter
@@ -219,7 +230,6 @@ let person1 = new Person('person1')
 ```
 下面使用es5的语法来改写
 ```js
-let Pserson = (function() {
   const Person = function(name) {
   	
   	// 确保必须用new关键字来调用
@@ -242,7 +252,6 @@ let Pserson = (function() {
   	writable: true,
   	configurable: true
   })
-}())
 ```
 
 > new.target属性允许你检测函数或构造方法是否是通过new运算符被调用的。在通过new运算符被初始化的函数或构造方法中，new.target返回一个指向构造方法或函数的引用。在普通的函数调用中，new.target 的值是undefined。

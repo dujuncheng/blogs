@@ -30,8 +30,44 @@ genForLoop.next(); // 4
 ```
 上面的代码只是把for循环包裹在一个带`*`号的函数中，但产生了很大的变化——只有在需要的时候它才会进行下一步。
 
+生成器函数和普通函数没有什么区别，最大的不同是，普通函数是一旦被调用，就会一口气执行完。比如下面的代码：
+```js
+setTimeout(function(){
+    console.log("Hello World");
+},1);
+
+function foo() {
+    // NOTE: don't ever do crazy long-running loops like this
+    for (var i=0; i<=1E10; i++) {
+        console.log(i);
+    }
+}
+
+foo();
+// 0..1E10
+// "Hello World"
+```
+上面的代码中，for循环阻塞了，但是代码无法暂停，如果代码可以像遥控器控制DVD一样，可以随时被暂停和继播该多好。
+es6的生成器函数提供了这种能力，一个`function`可以在执行中被暂停一次，甚至多次，之后可以被继续执行，在此期间我们可以运行其他代码。
+
+在生成器函数体内，我们可以使用`yield`关键字，使用`yield`关键字可以在函数内部暂停代码的执行，这是使代码暂停和重启的唯一办法。
+
+一个生成器函数可以暂停、重启、暂停、重启无数次，其实你可以让生成器函数无限循环，只需配合`while(true){……}` 就可以。
+```js
+function *fn() {
+  while (true) {
+      yield console.log('again')
+  }
+}
+
+let f = fn()
+f.next()  // again
+f.next()  // again
+```
+
+
 ## 生成器语法
-生成器语法关键在于`*`号和`yield`关键字.
+生成器语法注意2点，一个是`*`号，另一个是`yield`关键字.
 
 ### `*`
 函数名前面的`*`定义一个生成器函数
@@ -64,7 +100,7 @@ const obj = {
 }
 ```
 
-### yield
+### `yield`关键字
 现在让我们一起看看新的关键词 yield。它有些类似 return，但又不完全相同。return 会在完成函数调用后简单地将值返回，在 return 语句之后你无法进行任何操作。
 ```js
 function withReturn(a) {
@@ -94,7 +130,7 @@ calcSix.next().value; // 11
 calcSix.next().value; // 36
 ```
 
-用 yield 返回的值只会返回一次，当你再次调用同一个函数的时候，它会执行至下一个 yield 语句处
+用 yield 返回的值只会返回一次，当你再次调用同一个函数的时候，它会执行至下一个 yield 语句处。
 
 ```js
     function *test () {
@@ -124,8 +160,8 @@ calcSix.next().value; // 36
     // 这里并不会报错
     t1.next()
 ```
-
-在生成器中，我们通常会在输出时得到一个对象。这个对象有两个属性：`value` 与 `done`。如你所想，value 为返回值，done 则会显示生成器是否完成了它的工作。
+`yield`关键字会暂停代码的执行，同时把右侧的值返回出去。
+返回出去的是一个对象，这个对象有两个属性：`value` 与 `done`。如你所想，`value`为返回值，`done`则会显示生成器是否完成了它的工作。
 
 ```js
 function * generator() {
@@ -138,7 +174,46 @@ gen.next(); // {value: 5, done: false}
 gen.next(); // {value: undefined, done: true}
 gen.next(); // {value: undefined, done: true} - 之后的任何调用都会返回相同的结果
 
+````
+
+### `yield`表达式
+`yield`被称为关键字，而`yield 'abc'`被称为`yield表达式`。
+需要注意的地方是，这个表达式的值并不是由`yield` 右侧的代码决定，而是我们下一次重启生成器传入的值，也就是`next()`传入的参数。
+如下面的代码：
+```js
+function *fn(){
+    let x = 1 + (yield 'foo')
+    console.log(x)
+}
+var f = fn() 
+console.log(f.next())   
+console.log(f.next(2))  
 ```
+上面的代码输出的结果是：
+```js
+{value: 'foo', done: false}
+3
+{value: undefined, done:true}
+```
+第六行`f.next()`执行，生成器运行到`yield 'foo'`暂停，`yield 'foo'`会首先把`'foo'`抛出，然后暂停代码执行。
+故第六行`console.log(f.next()) `会输出`{value: 'foo', done: false}`。
+
+第七行调用`f.next(2)`时，`2`被传入生成器，`yield 'foo'`表达式的值由我们传入的值决定，`yield 'foo'`表达式的值为2，`x`值为`3`输出。
+
+看到双向之间的沟通了吗？`yield`把`foo`传出来，暂停代码，接着之后某个时刻，我把`2`传入，`yield`表达式计算出值。
+
+```js
+// note: `foo(..)` here is NOT a generator!!
+function foo(x) {
+    console.log("x: " + x);
+}
+
+function *bar() {
+    yield; // just pause
+    foo( yield ); // pause waiting for a parameter to pass into `foo(..)`
+}
+```
+
 
 在生成器中，不仅可以使用 yield，也可以使用 return 来返回同样的对象。但是，在函数执行到第一个 return 语句的时候，生成器将结束它的工作。
 ```js
@@ -323,13 +398,17 @@ const getRandom = randomFrom(1, 2, 5, 9, 4);
 getRandom.next().value; // 返回随机的一个数
 ```
 
-这是个简单的例子。下面来举一些更复杂的函数为例，我们要写一个节流（throttle）函数。如果你还不知道节流函数是什么，请参阅这篇文章。
+这是个简单的例子。下面来举一些更复杂的函数为例，我们要写一个节流（throttle）函数。
+
+```js
 function * throttle(func, time) {
   let timerID = null;
+  
   function throttled(arg) {
     clearTimeout(timerID);
     timerID = setTimeout(func.bind(window, arg), time);
   }
+  
   while (true)
     throttled(yield);
 }
@@ -338,7 +417,11 @@ const thr = throttle(console.log, 1000);
 
 thr.next(); // {value: undefined, done: false}
 thr.next('hello'); // 返回 {value: undefined, done: false} ，然后 1 秒后输出 'hello'
+```
+
 还有没有更好的利用生成器的例子呢？如果你了解递归，那你肯定听过斐波那契数列。通常我们是用递归来解决这个问题的，但有了生成器后，可以这样写：
+```js
+
 function * fibonacci(seed1, seed2) {
   while (true) {
     yield (() => {
@@ -355,11 +438,13 @@ fib.next(); // {value: 2, done: false}
 fib.next(); // {value: 3, done: false}
 fib.next(); // {value: 5, done: false}
 fib.next(); // {value: 8, done: false}
+```
 不再需要递归了！我们可以在需要的时候获得数列中的下一个数字。
 将生成器用在 HTML 上
 既然是讨论 JavaScript，那显然要用生成器来操作下 HTML。
 假设有一些 HTML 块需要处理，可以使用生成器来轻松实现。（当然除了生成器之外还有很多方法可以做到）
 我们只需要少许代码就能完成此需求。
+```js
 const strings = document.querySelectorAll('.string');
 const btn = document.querySelector('#btn');
 const className = 'darker';
@@ -375,6 +460,8 @@ btn.addEventListener('click', (el) => {
   if (addClassToStrings.next().done)
     el.target.classList.add(className);
 });
+```
+
 仅有 5 行逻辑代码。
 ## 总结
 还有更多使用生成器的方法。例如，在进行异步操作或者按需循环时生成器也非常有用。

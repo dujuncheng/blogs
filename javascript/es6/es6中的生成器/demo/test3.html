@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // func=console.log
+    // time=1000
+	  function * throttle(func, time) {
+		  let timerID = null;
+
+		  function throttled(arg) {
+			  clearTimeout(timerID);
+			  timerID = setTimeout(func.bind(window, arg), time);
+		  }
+
+		  while (true)
+			  throttled(yield );
+	  }
+
+	  const thr = throttle(console.log, 1000);
+
+	  thr.next(); // {value: undefined, done: false}
+	  thr.next('hello'); // 返回 {value: undefined, done: false} ，然后 1 秒后输出 'hello'
+  </script>
+</body>
+</html>

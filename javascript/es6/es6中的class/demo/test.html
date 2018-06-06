@@ -21,8 +21,8 @@
 //     p1 =  new Person('dudu')
 
 
-      (function () {
-      	let Person = function (name) {
+
+      	var Person = function (name) {
           if (new.target === undefined) {
           	return new Error('必须使用new关键字来调用')
           }
@@ -38,7 +38,10 @@
           enumerable: false,
           configurable: true
         })
-      }())
+
+
+      var p1 = new Person('dudu')
+      p1.say()
   </script>
 </body>
 </html>
