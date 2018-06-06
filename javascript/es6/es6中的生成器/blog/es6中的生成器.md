@@ -95,7 +95,39 @@ calcSix.next().value; // 36
 ```
 
 用 yield 返回的值只会返回一次，当你再次调用同一个函数的时候，它会执行至下一个 yield 语句处
-在生成器中，我们通常会在输出时得到一个对象。这个对象有两个属性：value 与 done。如你所想，value 为返回值，done 则会显示生成器是否完成了它的工作。
+
+```js
+    function *test () {
+      console.log(1)
+      yield console.log('yield 1')
+      console.log(2)
+	  yield console.log('yield 2')
+	  yield console.log('yield 3')
+	  console.log(3)
+	  yield console.log('yield 4')
+	  console.log(4)
+    }
+    t1 = test()
+    // 只有实例的next()调用，函数里面的代码才会执行。如果只是函数调用，而实例的next方法不调用，则函数的内的代码不会执行
+    // 当实例的第一个next() 执行时，函数内的代码执行到第一个yield, 并且执行完yield代码之后暂停。
+    t1.next()
+    console.log('开始第二个next')
+
+    // 当第二个next()被调用时，会直接忽略掉上次已经执行过的代码，直接从第一个yield的下一行开始执行
+    t1.next()
+
+    t1.next()
+    t1.next()
+    t1.next()
+
+    console.log('此时代码里所有的yield已经执行完了')
+    // 这里并不会报错
+    t1.next()
+```
+
+在生成器中，我们通常会在输出时得到一个对象。这个对象有两个属性：`value` 与 `done`。如你所想，value 为返回值，done 则会显示生成器是否完成了它的工作。
+
+```js
 function * generator() {
   yield 5;
 }
@@ -105,7 +137,12 @@ const gen = generator();
 gen.next(); // {value: 5, done: false}
 gen.next(); // {value: undefined, done: true}
 gen.next(); // {value: undefined, done: true} - 之后的任何调用都会返回相同的结果
+
+```
+
 在生成器中，不仅可以使用 yield，也可以使用 return 来返回同样的对象。但是，在函数执行到第一个 return 语句的时候，生成器将结束它的工作。
+```js
+
 function * generator() {
   yield 1;
   return 2;
@@ -117,8 +154,12 @@ const gen = generator();
 gen.next(); // {value: 1, done: false}
 gen.next(); // {value: 2, done: true}
 gen.next(); // {value: undefined, done: true}
-yield 委托迭代
+```
+
+## yield 委托迭代
 带星号的 yield 可以将它的工作委托给另一个生成器。通过这种方式，你就能将多个生成器连接在一起。
+
+```js
 function * anotherGenerator(i) {
   yield i + 1;
   yield i + 2;
@@ -134,8 +175,12 @@ var gen = generator(1);
 gen.next().value; // 2
 gen.next().value; // 3
 gen.next().value; // 4
+```
+
 在开始下一节前，我们先观察一个第一眼看上去比较奇特的行为。
 下面是正常的代码，不会报出任何错误，这表明 yield 可以在 next() 方法调用后返回传递的值：
+
+```js
 function * generator(arr) {
   for (const i in arr) {
     yield i;
@@ -157,9 +202,13 @@ gen.next('B'); // {value: "B", done: false}
 gen.next('B'); // {value: undefined, done: false}
 gen.next('B'); // {value: "B", done: false}
 gen.next(); // {value: undefined, done: true}
+```
+
 在这个例子中，你可以看到 yield 默认是 undefined，但如果我们在调用 yield 时传递了任何值，它就会返回我们传入的值。我们将很快利用这个特性。
-初始化与方法
+### 初始化与方法
 生成器是可以被复用的，但是你需要对它们进行初始化。还好初始化的方法十分简单。
+```js
+
 function * generator(arg = 'Nothing') {
   yield arg;
 }
@@ -167,11 +216,13 @@ function * generator(arg = 'Nothing') {
 const gen0 = generator(); // OK
 const gen1 = generator('Hello'); // OK
 const gen2 = new generator(); // 不 OK
-
 generator().next(); // 可以运行，但每次都会从头开始运行
+```
+
 如上所示，gen0 与 gen1 不会互相影响，gen2 完全不会运行（会报错）。因此初始化对于保证程序流程的状态是十分重要的。
 下面让我们一起看看生成器给我们提供的方法。
-next() 方法
+### next() 方法
+```js
 function * generator() {
   yield 1;
   yield 2;
@@ -184,8 +235,11 @@ gen.next(); // {value: 1, done: false}
 gen.next(); // {value: 2, done: false}
 gen.next(); // {value: 3, done: false}
 gen.next(); // {value: undefined, done: true} 之后所有的 next 调用都会返回同样的输出
+```
+
 这是最常用的方法。它每次被调用时都会返回下一个对象。在生成器工作结束时，next() 会将 done 属性设为 true，value 属性设为 undefined。
 我们不仅可以用 next() 来迭代生成器，还可以用 for of 循环来一次得到生成器所有的值（而不是对象）。
+```js
 function * generator(arr) {
   for (const el in arr)
     yield el;
@@ -198,8 +252,11 @@ for (const g of gen) {
 }
 
 gen.next(); // {value: undefined, done: true}
+```
 但它不适用于 for in 循环，并且不能直接用数字下标来访问属性：generator[0] = undefined。
-return() 方法
+### return() 方法
+
+```js
 function * generator() {
   yield 1;
   yield 2;
@@ -213,8 +270,11 @@ gen.return('Heeyyaa'); // {value: "Heeyyaa", done: true}
 
 gen.next(); // {value: undefined, done: true} - 在 return() 之后的所有 next() 调用都会返回相同的输出
 
+```
+
 return() 将会忽略生成器中的任何代码。它会根据传值设定 value，并将 done 设为 true。任何在 return() 之后进行的 next() 调用都会返回 done 属性为 true 的对象。
-throw() 方法
+### throw() 方法
+```js
 function * generator() {
   yield 1;
   yield 2;
@@ -225,9 +285,13 @@ const gen = generator();
 
 gen.throw('Something bad'); // 会报错 Error Uncaught Something bad
 gen.next(); // {value: undefined, done: true}
+
+```
 throw() 做的事非常简单 —— 就是抛出错误。我们可以用 try-catch 来处理。
-自定义方法的实现
+
+### 自定义方法的实现
 由于我们无法直接访问 Generator 的 constructor，因此如何增加新的方法需要另外说明。下面是我的方法，你也可以用不同的方式实现：
+```js
 function * generator() {
   yield 1;
 }
@@ -243,7 +307,10 @@ generator.prototype.__proto__; // Generator {math: ƒ, constructor: GeneratorFun
 
 const gen = generator();
 gen.math(1); // 3.141592653589793
-生成器的用途
+
+```
+
+### 生成器的用途
 在前面，我们用了已知迭代次数的生成器。但如果我们不知道要迭代多少次会怎么样呢？为了解决这个问题，需要在生成器函数中创建一个无限循环。下面以一个会返回随机数的函数为例进行演示：
 function * randomFrom(...arr) {
   while (true)
@@ -306,11 +373,6 @@ btn.addEventListener('click', (el) => {
     el.target.classList.add(className);
 });
 仅有 5 行逻辑代码。
-总结
+## 总结
 还有更多使用生成器的方法。例如，在进行异步操作或者按需循环时生成器也非常有用。
 我希望这篇文章能帮你更好地理解 JavaScript 生成器。
-
-作者：lsvih
-链接：https://juejin.im/post/5b14faf2f265da6e4d5af3b9
-来源：掘金
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
