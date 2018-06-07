@@ -348,7 +348,7 @@ gen.next(); // {value: undefined, done: true} 之后所有的 next 调用都会�
 如果生成器有n个`yield`关键字，则`.next()`执行过n次后，仍会返回`{done:false}`, 需要执行`n+1`次才会返回`{done:true}`
 
 
-
+## for..of
 我们不仅可以用 next() 来迭代生成器，还可以用 for of 循环来一次得到生成器所有的值（而不是对象）。
 ```js
 function * generator(arr) {
