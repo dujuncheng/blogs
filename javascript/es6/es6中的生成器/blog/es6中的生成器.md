@@ -197,8 +197,9 @@ console.log(f.next(2))
 3
 {value: undefined, done:true}
 ```
-第六行`f.next()`执行，生成器运行到`yield 'foo'`暂停，`yield 'foo'`会首先把`'foo'`抛出，然后暂停代码执行。
+第一个`f.next()`执行，生成器运行到`yield 'foo'`暂停，`yield 'foo'`会首先把`'foo'`抛出，然后暂停代码执行。
 故第六行`console.log(f.next()) `会输出`{value: 'foo', done: false}`。
+此时`(yield 'foo')`表达式，像一个嗷嗷待哺的孩子等待下一个`next()`传入的值，因为`yield表达式`的值，由`next()`传入的参数决定。
 
 第七行调用`f.next(2)`时，`2`被传入生成器，`yield 'foo'`表达式的值由我们传入的值决定，`yield 'foo'`表达式的值为2，`x`值为`3`输出。
 
@@ -228,6 +229,36 @@ undifined
 第一个`b.next()`执行到第五行的`yield`, `yield`抛出undefined, 暂停代码执行。
 第二个`b.next()`执行到`foo( yield )`，会抛出undefined, 暂停代码执行，接受传入的参数, 这里参数为空是undefined, 计算出表达式的值为undefined, `foo(undefined)` 函数不会被调用
 第三个`b.next()`开始执行第二个`yield`之后的代码，`foo(undefined)`被调用，且函数体中之后再没有`yield`关键字了，抛出`done:true`
+
+
+注意：在生成器函数中，return 返回的对象和yield返回的一致
+
+为了确保你真的理解了，我们再来看一段代码：
+```js
+function * fn (x) {
+  var y = 2 * (yield (x + 1))
+  var z = yield (y / 3)
+  return (x + y + z)
+}
+
+var it = fn(5)
+
+console.log(it.next())
+console.log(it.next(12))
+console.log(it.next(13))
+```
+上面代码的执行结果是
+```js
+{ value: 6, done: false}
+{ value: 8, done: false }
+{ value: 42, done: true }
+```
+第一个`next()`执行，`yield (x + 1)` 返回`6`，代码暂停执行，`yield (x + 1)`表达式暂时未定
+第二个`next()`执行，传入12，`yield (x + 1)`表达式的值为12, 代码暂停。
+第三个`next()`执行，`return`返回的值类似于`yield`返回的，同时没有剩下的`yield`的，`done`为`false`
+
+
+
 
 
 ## yield 委托迭代
@@ -312,6 +343,12 @@ gen.next(); // {value: undefined, done: true} 之后所有的 next 调用都会�
 ```
 
 这是最常用的方法。它每次被调用时都会返回下一个对象。在生成器工作结束时，next() 会将 done 属性设为 true，value 属性设为 undefined。
+
+那么生成器什么时候会结束呢？
+如果生成器有n个`yield`关键字，则`.next()`执行过n次后，仍会返回`{done:false}`, 需要执行`n+1`次才会返回`{done:true}`
+
+
+
 我们不仅可以用 next() 来迭代生成器，还可以用 for of 循环来一次得到生成器所有的值（而不是对象）。
 ```js
 function * generator(arr) {
