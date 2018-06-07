@@ -203,16 +203,30 @@ console.log(f.next(2))
 看到双向之间的沟通了吗？`yield`把`foo`传出来，暂停代码，接着之后某个时刻，我把`2`传入，`yield`表达式计算出值。
 
 ```js
-// note: `foo(..)` here is NOT a generator!!
 function foo(x) {
-    console.log("x: " + x);
+    console.log(x);
 }
-
 function *bar() {
     yield; // just pause
     foo( yield ); // pause waiting for a parameter to pass into `foo(..)`
 }
+
+let b = bar()
+console.log(b.next())
+console.log(b.next())
+console.log(b.next())
 ```
+上面代码输出的结果依次是：
+```js
+{value: undefined, done:false} 
+{value: undefined, done:false}
+undifined
+{value: undefined, done:true}
+```
+第一个`b.next()`执行到第五行的`yield`, `yield`抛出undefined, 暂停代码执行。
+第二个`b.next()`执行到`foo( yield )`，会抛出undefined, 暂停代码执行，接受传入的参数, 这里参数为空是undefined, 计算出表达式的值为undefined, `foo(undefined)` 函数不会被调用
+第三个`b.next()`开始执行第二个`yield`之后的代码，`foo(undefined)`被调用，且函数体中之后再没有`yield`关键字了，抛出`done:true`
+
 
 
 在生成器中，不仅可以使用 yield，也可以使用 return 来返回同样的对象。但是，在函数执行到第一个 return 语句的时候，生成器将结束它的工作。
