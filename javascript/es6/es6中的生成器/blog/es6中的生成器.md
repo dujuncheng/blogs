@@ -160,6 +160,8 @@ calcSix.next().value; // 36
     // 这里并不会报错
     t1.next()
 ```
+
+
 `yield`关键字会暂停代码的执行，同时把右侧的值返回出去。
 返回出去的是一个对象，这个对象有两个属性：`value` 与 `done`。如你所想，`value`为返回值，`done`则会显示生成器是否完成了它的工作。
 
@@ -227,23 +229,6 @@ undifined
 第二个`b.next()`执行到`foo( yield )`，会抛出undefined, 暂停代码执行，接受传入的参数, 这里参数为空是undefined, 计算出表达式的值为undefined, `foo(undefined)` 函数不会被调用
 第三个`b.next()`开始执行第二个`yield`之后的代码，`foo(undefined)`被调用，且函数体中之后再没有`yield`关键字了，抛出`done:true`
 
-
-
-在生成器中，不仅可以使用 yield，也可以使用 return 来返回同样的对象。但是，在函数执行到第一个 return 语句的时候，生成器将结束它的工作。
-```js
-
-function * generator() {
-  yield 1;
-  return 2;
-  yield 3; // 到不了这个 yield 了
-}
-
-const gen = generator();
-
-gen.next(); // {value: 1, done: false}
-gen.next(); // {value: 2, done: true}
-gen.next(); // {value: undefined, done: true}
-```
 
 ## yield 委托迭代
 带星号的 yield 可以将它的工作委托给另一个生成器。通过这种方式，你就能将多个生成器连接在一起。
