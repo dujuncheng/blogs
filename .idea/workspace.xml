@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="7ac1e9c6-48cb-4e72-8717-b5269abe61da" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/data structure/栈与队列.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data structure/chapter1.md" beforeDir="false" afterPath="$PROJECT_DIR$/data structure/chapter1.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javascript/es6/es6中的生成器/blog/es6中的生成器.md" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/es6/es6中的生成器/blog/es6中的生成器.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,12 +18,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="chapter1.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chapter1.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data structure/chapter1.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="605">
-                <caret line="408" column="4" selection-start-line="408" selection-start-column="4" selection-end-line="408" selection-end-column="4" />
+              <first_editor relative-caret-position="322">
+                <caret line="236" selection-start-line="236" selection-end-line="236" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+          <provider editor-type-id="Gfm" />
+        </entry>
+      </file>
+      <file leaf-file-name="栈与队列.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data structure/栈与队列.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="3268">
+                <caret line="172" column="36" selection-start-line="172" selection-start-column="36" selection-end-line="172" selection-end-column="36" />
               </first_editor>
               <second_editor />
             </state>
@@ -77,6 +90,7 @@
         <option value="$PROJECT_DIR$/javascript/es6/es6中的生成器/demo/test6.html" />
         <option value="$PROJECT_DIR$/javascript/es6/es6中的生成器/blog/es6中的生成器.md" />
         <option value="$PROJECT_DIR$/data structure/chapter1.md" />
+        <option value="$PROJECT_DIR$/data structure/栈与队列.md" />
       </list>
     </option>
   </component>
@@ -96,8 +110,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="720" />
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="720" />
     <option name="height" value="877" />
@@ -235,7 +248,9 @@
       <workItem from="1528716242418" duration="758000" />
       <workItem from="1528717412182" duration="24000" />
       <workItem from="1528717452797" duration="898000" />
-      <workItem from="1528725091514" duration="167000" />
+      <workItem from="1528725091514" duration="221000" />
+      <workItem from="1528725326706" duration="6000" />
+      <workItem from="1528725346957" duration="1072000" />
     </task>
     <task id="LOCAL-00001" summary="add readme.md">
       <created>1525662542895</created>
@@ -517,11 +532,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528716990356</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="&#10;change  blog">
+      <created>1528725297560</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1528725297560</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72173000" />
+    <option name="totallyTimeSpent" value="73305000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -533,15 +555,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="720" y="23" width="720" height="877" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Key Promoter X" order="3" />
       <window_info anchor="right" id="GfmBrowser" order="4" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.6044349" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3104435" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32992327" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.33846155" />
+      <window_info anchor="bottom" id="Version Control" order="7" visible="true" weight="0.33846155" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.33717948" />
@@ -570,10 +592,8 @@
     <option name="LAST_COMMIT_MESSAGE" value="&#10;change  blog" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/javascript/es6/es6中的生成器/demo/test6.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/data structure/chapter1.md">
+      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="7296">
@@ -582,7 +602,6 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -595,6 +614,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/http/http缓存之路.md">
+      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="3173">
@@ -603,7 +623,6 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/data structure/chapter1.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -656,6 +675,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/http/http_pre.md">
+      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="646">
@@ -664,9 +684,9 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/es6/es6中的生成器/blog/es6中的生成器.md">
+      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="7220">
@@ -675,7 +695,6 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/http/http_pre.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -719,6 +738,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="80">
@@ -727,7 +747,6 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/es6/es6中的class/es6中的class.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -740,6 +759,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="80">
@@ -748,7 +768,6 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/es6/es6中的class/es6中的class.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -769,6 +788,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/es6/es6项目构建/使用gulp构建es6项目.md">
+      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="1536">
@@ -777,7 +797,6 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -836,6 +855,7 @@
     <entry file="file://$PROJECT_DIR$/test.md" />
     <entry file="file://$PROJECT_DIR$/test_blog.md" />
     <entry file="file://$PROJECT_DIR$/javascript/es6/es6项目构建/使用gulp构建es6项目.md">
+      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="-4475">
@@ -844,9 +864,9 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/es6/es6中的class/es6中的class.md">
+      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="270">
@@ -855,9 +875,9 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/es6/es6中的promise/es6中的promise.md">
+      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="208">
@@ -866,7 +886,6 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/学习与工作/程序员的出路之一.md" />
     <entry file="file://$PROJECT_DIR$/javascript/js的运行机制学习_任务队列、event_loop/test1.html">
@@ -877,6 +896,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/js的运行机制学习_任务队列、event_loop/js的运行机制学习_任务队列、event_loop.md">
+      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="53">
@@ -885,7 +905,6 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/js的运行机制学习_任务队列、event_loop/test2.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -897,6 +916,7 @@
     <entry file="file://$PROJECT_DIR$/数据结构/tsconfig.json" />
     <entry file="file://$PROJECT_DIR$/数据结构/chapter1.md" />
     <entry file="file://$PROJECT_DIR$/http/http_pre.md">
+      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="325">
@@ -905,9 +925,9 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/es6/es6中的生成器/blog/es6中的生成器.md">
+      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="417">
@@ -916,9 +936,9 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/http/http缓存之路.md">
+      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="662">
@@ -927,9 +947,9 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="323">
@@ -938,7 +958,6 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/es6/es6中的生成器/demo/test6.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -948,10 +967,21 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data structure/chapter1.md">
+      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="605">
-            <caret line="408" column="4" selection-start-line="408" selection-start-column="4" selection-end-line="408" selection-end-column="4" />
+          <first_editor relative-caret-position="322">
+            <caret line="236" selection-start-line="236" selection-end-line="236" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data structure/栈与队列.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="3268">
+            <caret line="172" column="36" selection-start-line="172" selection-start-column="36" selection-end-line="172" selection-end-column="36" />
           </first_editor>
           <second_editor />
         </state>
