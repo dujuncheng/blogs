@@ -216,19 +216,20 @@ function *bar() {
 
 let b = bar()
 console.log(b.next())
-console.log(b.next())
-console.log(b.next())
+console.log(b.next(1))
+console.log(b.next(2))
 ```
 上面代码输出的结果依次是：
 ```js
 {value: undefined, done:false} 
 {value: undefined, done:false}
-undifined
+2
 {value: undefined, done:true}
 ```
 第一个`b.next()`执行到第五行的`yield`, `yield`抛出undefined, 暂停代码执行。
-第二个`b.next()`执行到`foo( yield )`，会抛出undefined, 暂停代码执行，接受传入的参数, 这里参数为空是undefined, 计算出表达式的值为undefined, `foo(undefined)` 函数不会被调用
-第三个`b.next()`开始执行第二个`yield`之后的代码，`foo(undefined)`被调用，且函数体中之后再没有`yield`关键字了，抛出`done:true`
+第二个`b.next(1)`执行到`foo( yield )`，会抛出右侧的值，因为没有，则为undefined, 并暂停代码执行。注意！！`foo( yield )`表达式此时不接受第二个`b.next(1)`传入的`1`, 
+而是接受下一个`next(2)`传入的值。
+第三个`b.next(2)`开始执行第二个`yield`之后的代码，`foo( yield )`接受传入的参数, 这里参数为`2`, 计算出表达式的值为`2`, `foo(2)`被调用，且函数体中之后再没有`yield`关键字了，抛出`done:true`
 
 
 注意：在生成器函数中，return 返回的对象和yield返回的一致
