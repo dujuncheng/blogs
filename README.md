@@ -13,6 +13,9 @@
 
 - css 
     - [sticky footer，绝对的完美底部](https://github.com/dujuncheng/blogs/blob/master/css/sticky%20footer%EF%BC%8C%E7%BB%9D%E5%AF%B9%E7%9A%84%E5%AE%8C%E7%BE%8E%E5%BA%95%E9%83%A8/blog/sticky%20footer%2C%20%E7%BB%9D%E5%AF%B9%E7%9A%84%E5%AE%8C%E7%BE%8E%E5%BA%95%E9%83%A8.md)
+    
+- http 
+    - [http缓存之路](https://github.com/dujuncheng/blogs/blob/master/http/http%E7%BC%93%E5%AD%98%E4%B9%8B%E8%B7%AF.md)    
 
 - other
     - [程序员的出路之一](https://github.com/dujuncheng/blogs/blob/b1d07ddbfb52f42634ab8481c86c1352b748cc86/%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%B7%A5%E4%BD%9C/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E5%87%BA%E8%B7%AF%E4%B9%8B%E4%B8%80.md) 
