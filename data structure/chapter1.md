@@ -267,6 +267,20 @@ LIFO
 
 4. 已知top位置，求实际元素个数？
 
+
+
+## 存储结构 
+### 顺序存储
+```c
+typedef struct {
+  SElemType *base;
+  SElemtType *top;
+  // 栈的大小
+  int stacksize;
+} SqStack;
+SqStack s;
+```
+
 1. 如果top指向最上面元素的上一个，则个数为 `top - bottom` 个
 2. 如果top指向最上面的元素，则个数为 `top - bottom + 1` 个
 
@@ -279,9 +293,112 @@ LIFO
 5. 栈满了再进站会“上溢”
 6. 栈空了再出站会“下溢”
 
-
-## 逻辑结构
-
-## 存储结构 
+### 链式存储
 
 
+## 栈的应用
+1. 数制的转换
+2. 表达式的求值
+
+
+-----------------------------------------
+
+# 队列
+## 定义
+运算受限，限定在表的一端删除，另一端进行插入的线性表
+允许删除的叫队头，允许插入的叫队尾
+特性是：先进先出
+
+
+## 存储结构
+### 链式存储结构
+实质是带头结点的线性链表
+
+两个指针：
+1. 队头指针Q.front 指向头结点
+2. 队尾指针Q.front 指向尾节点
+
+初始态：队空条件
+头指针和尾指针均指向头结点
+Q.front = Q.rear
+
+
+队满条件:
+链式存储，空间动态申请
+
+```c
+typedef struct QNode {
+    QElemType data;
+    // 指向自身的指针
+    struct QNode *next;
+} QNode, *QueuePtr;
+
+typedef struct {
+  QueuePtr font;
+  QueuePrt rear;
+} LinkQueue;
+
+LinkQueue Q;
+Q.front // 指向头节点
+Q.rear  // 指向链尾节点
+```
+
+头节点的调整——出队
+
+
+
+### 基本操作
+1. 初始化
+2. 销毁队列
+3. 入队
+4. 出队
+5. 判断队空
+6. 取头元素
+
+
+### 顺序存储
+ 用一组**地址连续**的存储单元，依次存放从队头到队尾的元素
+ 
+ 
+ 设两个指针
+ 1. Q.front 指向队列头元素
+ 2. Q.rear 指向队列尾元素的下一个位置
+ 
+ 
+ 初始状态: 空队列
+ Q.front = Q.rear = 0
+ 
+ 队列的真满和假满
+ 
+ ![](http://p8cyzbt5x.bkt.clouddn.com/UC20180611_083348.png)
+ 上图所示
+ 有空房子为假满
+ 
+ 为了解决假满现象—— “循环队列”，循环队列是顺序队列的一种解决方案，考研中说道顺序队列，就是循环队列
+ 
+ 
+ ### 循环队列
+
+ 循环队列是顺序队列的改造
+ ![](http://p8cyzbt5x.bkt.clouddn.com/UC20180611_084157.png)
+
+ MAX = 5
+ Q.rear = ( Q.rear + 1 ) % MAX
+ 
+ 
+ 队满的标志
+ Q.front == Q.rear
+ 
+ 
+ #### 6个基本操作
+ 1. 队空
+    Q.front == Q.rear
+ 2. 队满
+    Q.front == ( Q.rear + 1 ) % MAX 
+ 3. 入队
+    Q.rear = ( Q.rear + 1 ) % MAX
+ 4. 出队
+    Q.front =  ( Q.front + 1 ) % MAX   
+ 5. 循环队列最多元素个数
+    MAX空间数
+    最大元素个数 =  MAX - 1 (牺牲了一个存放rear)
