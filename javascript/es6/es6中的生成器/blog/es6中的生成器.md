@@ -254,11 +254,9 @@ console.log(it.next(13))
 { value: 8, done: false }
 { value: 42, done: true }
 ```
-第一个`next()`执行，`yield (x + 1)` 返回`6`，代码暂停执行，`yield (x + 1)`表达式暂时未定
+第一个`next()`执行，`yield (x + 1)` 返回`6`，代码暂停执行，`yield (x + 1)`表达式暂时未定, 由下一个next()传入的参数决定
 第二个`next()`执行，传入12，`yield (x + 1)`表达式的值为12, 代码暂停。
 第三个`next()`执行，`return`返回的值类似于`yield`返回的，同时没有剩下的`yield`的，`done`为`false`
-
-
 
 
 
@@ -273,7 +271,7 @@ function * anotherGenerator(i) {
 }
 
 function * generator(i) {
-  yield* anotherGenerator(i);
+  yield * anotherGenerator(i);
 }
 
 var gen = generator(1);
@@ -283,34 +281,6 @@ gen.next().value; // 3
 gen.next().value; // 4
 ```
 
-在开始下一节前，我们先观察一个第一眼看上去比较奇特的行为。
-下面是正常的代码，不会报出任何错误，这表明 yield 可以在 next() 方法调用后返回传递的值：
-
-```js
-function * generator(arr) {
-  for (const i in arr) {
-    yield i;
-    yield yield;
-    yield(yield);
-  }
-}
-
-const gen = generator([0,1]);
-
-gen.next(); // {value: "0", done: false}
-gen.next('A'); // {value: undefined, done: false}
-gen.next('A'); // {value: "A", done: false}
-gen.next('A'); // {value: undefined, done: false}
-gen.next('A'); // {value: "A", done: false}
-gen.next(); // {value: "1", done: false}
-gen.next('B'); // {value: undefined, done: false}
-gen.next('B'); // {value: "B", done: false}
-gen.next('B'); // {value: undefined, done: false}
-gen.next('B'); // {value: "B", done: false}
-gen.next(); // {value: undefined, done: true}
-```
-
-在这个例子中，你可以看到 yield 默认是 undefined，但如果我们在调用 yield 时传递了任何值，它就会返回我们传入的值。我们将很快利用这个特性。
 ### 初始化与方法
 生成器是可以被复用的，但是你需要对它们进行初始化。还好初始化的方法十分简单。
 ```js
