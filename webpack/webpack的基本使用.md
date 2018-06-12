@@ -462,6 +462,7 @@ npm install babel-polyfill --save-dev
 ```
 import 'babel-polyfill'
 ```
+只需要在入口文件的最开始引入`babel-polyfill`,就可以在接下来的代码中使用新的语法了
 
 ## `babel-runtime-transform`
 
