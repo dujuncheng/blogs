@@ -442,6 +442,40 @@ module.exports = {
 }
 ```
 
+## `babel-polyfill`
+`babel polyfill` 和 `babel runtime transform`是两个插件
+`babel-preset` 仅仅是在语法上进行了规范，比如说把`let` 转变成`var`, 而在函数和方法上则需要插件`babel-polyfill`
+
+有哪些函数和方法需要polyfill呢？
+- generator
+- set
+- map
+- Array.from
+- Array.prototype.includes
+
+`babel polyfill`是一个全局的垫片，是为开发应用而准备的，比如说开发一个网页，而开发一个框架的时候不建议使用
+1. 安装
+```
+npm install babel-polyfill --save-dev
+```
+2. 使用
+```
+import 'babel-polyfill'
+```
+
+## `babel-runtime-transform`
+
+`babel-runtime-transform`是一个局部的垫片，是为开发框架而准备的, 不会污染全局变量
+
+1. 安装
+```
+npm install babel-plugin-transform-runtime --save-dev
+npm install babel-runtime --save
+```
+2. 配置
+在根目录下新建`.babelrc`配置文件,target/plugin都可以在这里配置
+
+
 
 
 
