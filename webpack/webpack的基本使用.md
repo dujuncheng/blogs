@@ -235,6 +235,12 @@ module.exports = {
 ## Module
 模块，通过plugin处理完的css文件，html文件，都可以被称为Module
 
+## module, chunk, bundle 之间有什么区别
+1. `bundle`是相关的代码被打到了一个单个的文件里面。
+2. 如果你不想你的所有代码都打到一个单个的文件里面，你要把他们分开打进不同的文件，被称为`chunk`，在这种情况下，你要自己决定代码如何分割，
+在webpack4.0之前，可以使用CommonsChunkPlugin插件。
+3. `module` 是js语言中的一个概念，比如说es6中的module
+
 
 
 # 使用webpack
@@ -480,8 +486,34 @@ npm install babel-runtime --save
 
 
 ----------------------------------
-# 提取公用代码
-其他的模块会依赖公共的模块,需要提出公用的代码
+# code splitting
+对一个网页来说，把所有的代码都打进一个文件里面是不切实际的，尤其是某些代码只需要在需要的时候被加载。webpack可以把你的代码分割成为`chunk`,并且按需加载。
+
+一个常见的误区是，有人会以为`code splitting`仅仅是把公共代码抽出来，但其最主要的目的是为了按需加载。
+
+## 确定分割点
+AMD和CommonJS有不同的方法去按需加载。
+
+### CommonJs: `require.ensure`
+```js
+require.ensure(dependencies, callback)
+```
+`require.ensure` 方法的`callback`被触发的时候，`dependencies`中的每一个依赖会被同步的加载。
+
+
+
+
+
+
+webpack4.0 在`chunk graph`上有了大的提升，对`chunk splitting` 增加了新的`optimiztion`的字段
+
+老的`chunk graph`的缺点：
+1. 之前的chunk是通过`父子`关系连接，
+
+
+
+
+
 需要使用到`commonsChunkPlugin`这个插件,这个插件是内置的，
 `webpack.optimize.CommonsChunkPlugin`
 
