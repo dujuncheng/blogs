@@ -491,6 +491,166 @@ npm install babel-runtime --save
 
 一个常见的误区是，有人会以为`code splitting`仅仅是把公共代码抽出来，但其最主要的目的是为了按需加载。
 
+下面的表单，只有用户在点击了之后才会加载，所以，如果form的代码页被打包了。即使用户不点击，这些代码仍然会被加载。
+![](https://i.imgur.com/eXVVswt.gif)
+
+
+我们需要一个文件夹来放我们的demo, 暂且命名为`code-splitting`吧。
+```
+$ mkdir codepslit
+$ cd codesplit
+$ npm init 
+$ npm install lodash
+$ npm install webpack webpack-dev-server -D
+```
+创建`src`目录和`dist`目录，分别作为我们的源码和打包路径；创建`webpack.config.js`作为配置文件：
+```js
+const path = require('path')
+
+module.exports = {
+	entry: './src/index.js',
+	output: {
+		path: path.resolve(__dirname, 'dist/'),
+		filename: 'bundle.js'
+	},
+	devServer: {
+		contentBase: 'dist'
+	}
+}
+```
+上面的配置让`webpack`会把`./src/index.js`打包到`dist`路径下。
+
+到目前为止，我们的项目结构是：
+![](http://p8cyzbt5x.bkt.clouddn.com/UC20180613_212500.png)
+
+在src下新建`index.js`、`form.js`和`index.html`。
+
+在`index.js`里面，我们代码如下：
+```js
+// statically import form module.
+import form from "./form";
+
+window.onload = function () {
+    let btn = document.getElementById('load');
+    btn.addEventListener('click', function () {
+        document.getElementById('form').appendChild(form.render());
+    });
+};
+```
+
+在`form.js`里面，我们的代码如下：
+```js
+import _ from "lodash";
+
+export default {
+    render: function () {
+        let form = document.createElement('form');
+        _.map(['Name', 'Email', 'Contact'], function (field) {
+            let lbl = document.createElement('label');
+            lbl.innerHTML = field;
+            let txt = document.createElement('input');
+            txt.type = 'text';
+            let container = document.createElement('div');
+            container.className = 'field';
+            container.appendChild(lbl);
+            container.appendChild(txt);
+            form.appendChild(container);
+        });
+        return form;
+    }
+};
+```
+
+在`index.html`里面，我们的代码如下：
+```html
+<body>
+    <div class="app-loader">
+        <h1>User Registration Form</h1>
+        <button id="load">Load Form</button>
+    </div>
+    <div id="form"></div>
+    <script src="/bundle.js"></script>
+</body>
+```
+
+然后在项目的根目录下，运行`webpack`命令。
+结果打出来了71kb的bundle。
+![](http://p8cyzbt5x.bkt.clouddn.com/UC20180613_213112.png)
+
+
+webpack支持动态的导入一个模块，本质意义上是把之前打出的一个bundle, 现在打出多个bundle
+
+我们首先需要安装babel, 因为是es6的语法嘛。同时我们还需要`abel-plugin-syntax-dynamic-import`这个插件
+```
+npm install --save-dev babel-loader babel-core babel-plugin-syntax-dynamic-import
+```
+
+接着，我们需要配置`webpack.config.js`，让js文件通过`babel`来进行编译：
+```js
+module: {
+	rules: [
+		{
+			test: /\.js$/,
+			loader: 'babel-loader',
+			exclude: /node_module/
+		}
+	]
+}
+```
+这样仅仅是告诉webpack我们需要使用babel来编译，我们还需要告诉babel, 我们要使用动态导入的语法。
+创建`.babelrc`
+```js
+{
+	"plugins": ["syntax-dynamic-import"]
+}
+```
+这样，babel就可以把我们的动态import语法翻译给webpack能听懂了，接下来，我们要告诉`webpack`如何处理动态导入
+修改`webpack.config.js`
+```js
+entry: {
+    index: "./src/index.js"
+},
+output: {
+    path: path.resolve(__dirname, 'dist/'),
+    filename: '[name].bundle.js',
+    chunkFilename: '[name].bundle.js',
+}
+```
+`chunkFilename` 注意`name`是不大写的
+
+
+接下里修改index.js
+
+```js
+window.onload = function () {
+    let btn = document.getElementById('load');
+    btn.addEventListener('click', function () {
+        // dynamically import form module at run time.
+        import(/* webpackChunkName: "form" */ './form').then(function (form) {
+            document.getElementById('form').appendChild(form.default.render());
+        });
+    });
+};
+```
+运行`webpack`打包结果如下：
+![](http://p8cyzbt5x.bkt.clouddn.com/UC20180613_215531.png)
+
+奥秘在这里：
+![](http://p8cyzbt5x.bkt.clouddn.com/UC20180613_215416.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 确定分割点
 AMD和CommonJS有不同的方法去按需加载。
 
@@ -509,6 +669,12 @@ webpack4.0 在`chunk graph`上有了大的提升，对`chunk splitting` 增加�
 
 老的`chunk graph`的缺点：
 1. 之前的chunk是通过`父子`关系连接，
+
+
+
+
+
+
 
 
 

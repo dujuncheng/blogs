@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="7ac1e9c6-48cb-4e72-8717-b5269abe61da" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/webpack/demo/code-splitting/.babelrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webpack/demo/code-splitting/src/form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webpack/demo/code-splitting/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webpack/demo/code-splitting/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/blogs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blogs.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack/demo/code-splitting/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/webpack/demo/code-splitting/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack/demo/code-splitting/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack/demo/code-splitting/webpack.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack/webpack的基本使用.md" beforeDir="false" afterPath="$PROJECT_DIR$/webpack/webpack的基本使用.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -22,13 +28,86 @@
         <entry file="file://$PROJECT_DIR$/webpack/webpack的基本使用.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="452">
-                <caret line="510" column="23" selection-start-line="510" selection-start-column="23" selection-end-line="510" selection-end-column="23" />
+              <first_editor relative-caret-position="268">
+                <caret line="635" column="58" selection-start-line="635" selection-start-column="58" selection-end-line="635" selection-end-column="58" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
           <provider editor-type-id="Gfm" />
+        </entry>
+      </file>
+      <file leaf-file-name=".babelrc" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webpack/demo/code-splitting/.babelrc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webpack/demo/code-splitting/src/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="8" column="60" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="60" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.bundle.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webpack/demo/code-splitting/dist/main.bundle.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="17" column="56" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vendors~form.bundle.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webpack/demo/code-splitting/dist/vendors~form.bundle.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-11135" />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webpack/demo/code-splitting/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webpack/demo/code-splitting/src/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webpack/demo/code-splitting/webpack.config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webpack/demo/code-splitting/src/form.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="18" column="2" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -69,6 +148,12 @@
         <option value="$PROJECT_DIR$/javascript/es6/es6中的生成器/blog/es6中的生成器.md" />
         <option value="$PROJECT_DIR$/data structure/chapter1.md" />
         <option value="$PROJECT_DIR$/data structure/栈与队列.md" />
+        <option value="$PROJECT_DIR$/webpack/demo/code-splitting/src/form.js" />
+        <option value="$PROJECT_DIR$/webpack/demo/code-splitting/src/index.html" />
+        <option value="$PROJECT_DIR$/webpack/demo/code-splitting/src/index.js" />
+        <option value="$PROJECT_DIR$/webpack/demo/code-splitting/.babelrc" />
+        <option value="$PROJECT_DIR$/webpack/demo/code-splitting/webpack.config.js" />
+        <option value="$PROJECT_DIR$/webpack/demo/code-splitting/dist/main.bundle.js" />
         <option value="$PROJECT_DIR$/webpack/webpack的基本使用.md" />
       </list>
     </option>
@@ -90,6 +175,7 @@
     <packageJsonPaths>
       <path value="$PROJECT_DIR$/webpack/demo/3-3/package.json" />
       <path value="$PROJECT_DIR$/webpack/demo/3-6/package.json" />
+      <path value="$PROJECT_DIR$/webpack/demo/code-splitting/package.json" />
       <path value="$PROJECT_DIR$/webpack/demo/package.json" />
     </packageJsonPaths>
   </component>
@@ -103,7 +189,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -132,10 +217,34 @@
               <item name="webpack" type="462c0819:PsiDirectoryNode" />
               <item name="demo" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="blogs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blogs" type="462c0819:PsiDirectoryNode" />
+              <item name="webpack" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="code-splitting" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blogs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blogs" type="462c0819:PsiDirectoryNode" />
+              <item name="webpack" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="code-splitting" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blogs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blogs" type="462c0819:PsiDirectoryNode" />
+              <item name="webpack" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="code-splitting" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -207,6 +316,7 @@
       <workItem from="1528893122109" duration="654000" />
       <workItem from="1528893952795" duration="965000" />
       <workItem from="1528895564378" duration="5000" />
+      <workItem from="1528895572555" duration="2561000" />
     </task>
     <task id="LOCAL-00001" summary="add readme.md">
       <created>1525662542895</created>
@@ -499,7 +609,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77241000" />
+    <option name="totallyTimeSpent" value="79802000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -511,19 +621,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-22" width="1440" height="922" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Key Promoter X" order="3" />
       <window_info anchor="right" id="GfmBrowser" order="4" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23962805" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24320458" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32992327" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.33846155" />
       <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.33846155" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.2739079" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.27272728" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -547,88 +658,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="&#10;change  blog" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="323">
-            <caret line="17" column="113" selection-start-line="17" selection-start-column="113" selection-end-line="17" selection-end-column="113" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/http/http缓存之路.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="3173">
-            <caret line="167" column="3" lean-forward="true" selection-end-line="186" selection-end-column="1" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="Gfm" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data structure/chapter1.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="7296">
-            <caret line="384" column="8" lean-forward="true" selection-start-line="384" selection-start-column="8" selection-end-line="384" selection-end-column="8" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/http/http缓存之路.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="2470">
-            <caret line="130" lean-forward="true" selection-start-line="130" selection-end-line="130" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data structure/chapter1.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="7182">
-            <caret line="378" column="1" selection-start-line="378" selection-start-column="1" selection-end-line="378" selection-end-column="1" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data structure/chapter1.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="7182">
-            <caret line="378" column="1" lean-forward="true" selection-start-line="378" selection-start-column="1" selection-end-line="378" selection-end-column="1" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data structure/chapter1.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="5244">
-            <caret line="276" column="14" selection-start-line="276" selection-start-column="14" selection-end-line="276" selection-end-column="14" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/http/http_pre.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="646">
-            <caret line="34" selection-start-line="34" selection-end-line="34" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="Gfm" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/javascript/es6/es6中的生成器/blog/es6中的生成器.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
@@ -932,11 +961,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/demo/code-splitting/src/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/demo/code-splitting/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/demo/code-splitting/src/form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="2" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/demo/code-splitting/.babelrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/demo/code-splitting/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/demo/code-splitting/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="60" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="60" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/demo/code-splitting/dist/vendors~form.bundle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-11135" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/demo/code-splitting/dist/main.bundle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="56" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/webpack/webpack的基本使用.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="452">
-            <caret line="510" column="23" selection-start-line="510" selection-start-column="23" selection-end-line="510" selection-end-column="23" />
+          <first_editor relative-caret-position="268">
+            <caret line="635" column="58" selection-start-line="635" selection-start-column="58" selection-end-line="635" selection-end-column="58" />
           </first_editor>
           <second_editor />
         </state>
