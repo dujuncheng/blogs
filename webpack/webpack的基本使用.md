@@ -479,12 +479,30 @@ npm install babel-runtime --save
 
 
 
+----------------------------------
+# 提取公用代码
+其他的模块会依赖公共的模块,需要提出公用的代码
+需要使用到`commonsChunkPlugin`这个插件,这个插件是内置的，
+`webpack.optimize.CommonsChunkPlugin`
 
+1. 配置
 
+```
+{
+   plugins: [
+    new webpack.optimize.CommonChunkPlugin(option)
+   ]
+}
+```
+options的配置是什么样的
 
-
-
-
+- options.name / options.names:  chunk的名称，把name指定为已知chunk的名称， 表示提取公用代码选用这个chunK; 如果给出一个数组，则说明新建这个实例多少次
+- options.filename：公用代码打包之后的文件名
+- options.minChunks： 被判断为公用代码的阈值, 可以为数字，比如说2，代码重复出现2次被判定为chunk; 可以是函数，可以自定义提取代码的逻辑
+- options.chunks: 提取代码的范围，需要在哪几个代码块中提取我的公用代码
+- options.children
+- options.deepChildren
+- options.async: 创建异步的公共代码流
 
 
 
