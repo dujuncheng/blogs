@@ -707,6 +707,44 @@ options的配置是什么样的
 
 
 
+# 提取公用代码
+需要多个entry, 单页面的打包还是会打到一起
+
+
+
+
+
+
+# tree shaking 
+
+## js tree shaking 
+只需要加一行命令
+
+lodash比较特殊
+![](http://p8cyzbt5x.bkt.clouddn.com/UC20180614_011133.png)
+
+
+## css tree shaking 
+
+install purifycss-webpack
+![](http://p8cyzbt5x.bkt.clouddn.com/UC20180614_011400.png)
+
+![](http://p8cyzbt5x.bkt.clouddn.com/UC20180614_011719.png)
+
+动态添加的class也可以被打包进去
+
+
+
+# 本地开发环境的搭建
+## webpack -watch
+
+
+
+# proxy
+代理远程接口请求
+
+
+
 
 
 

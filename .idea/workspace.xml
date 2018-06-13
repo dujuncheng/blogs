@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="7ac1e9c6-48cb-4e72-8717-b5269abe61da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/webpack/demo/code-splitting/.babelrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webpack/demo/code-splitting/src/form.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webpack/demo/code-splitting/src/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webpack/demo/code-splitting/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/blogs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blogs.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack/demo/code-splitting/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/webpack/demo/code-splitting/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack/demo/code-splitting/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack/demo/code-splitting/webpack.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack/webpack的基本使用.md" beforeDir="false" afterPath="$PROJECT_DIR$/webpack/webpack的基本使用.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -28,8 +21,8 @@
         <entry file="file://$PROJECT_DIR$/webpack/webpack的基本使用.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="268">
-                <caret line="635" column="58" selection-start-line="635" selection-start-column="58" selection-end-line="635" selection-end-column="58" />
+              <first_editor relative-caret-position="358">
+                <caret line="739" lean-forward="true" selection-start-line="739" selection-end-line="739" />
               </first_editor>
               <second_editor />
             </state>
@@ -49,7 +42,7 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webpack/demo/code-splitting/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
+            <state relative-caret-position="133">
               <caret line="8" column="60" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="60" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -69,9 +62,7 @@
       </file>
       <file leaf-file-name="vendors~form.bundle.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webpack/demo/code-splitting/dist/vendors~form.bundle.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-11135" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
@@ -179,10 +170,9 @@
       <path value="$PROJECT_DIR$/webpack/demo/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="y" value="-22" />
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="1440" />
-    <option name="height" value="922" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -316,7 +306,8 @@
       <workItem from="1528893122109" duration="654000" />
       <workItem from="1528893952795" duration="965000" />
       <workItem from="1528895564378" duration="5000" />
-      <workItem from="1528895572555" duration="2561000" />
+      <workItem from="1528895572555" duration="3213000" />
+      <workItem from="1528909910150" duration="1725000" />
     </task>
     <task id="LOCAL-00001" summary="add readme.md">
       <created>1525662542895</created>
@@ -605,11 +596,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528725297560</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="&#10;change  blog">
+      <created>1528898288393</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1528898288393</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79802000" />
+    <option name="totallyTimeSpent" value="82179000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -621,20 +619,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Key Promoter X" order="3" />
       <window_info anchor="right" id="GfmBrowser" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24320458" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24678111" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32992327" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.33818182" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.33846155" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.27272728" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.27272728" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -998,7 +996,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/webpack/demo/code-splitting/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
+        <state relative-caret-position="133">
           <caret line="8" column="60" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="60" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -1007,9 +1005,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/webpack/demo/code-splitting/dist/vendors~form.bundle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11135" />
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/webpack/demo/code-splitting/dist/main.bundle.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1021,8 +1017,8 @@
     <entry file="file://$PROJECT_DIR$/webpack/webpack的基本使用.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="268">
-            <caret line="635" column="58" selection-start-line="635" selection-start-column="58" selection-end-line="635" selection-end-column="58" />
+          <first_editor relative-caret-position="358">
+            <caret line="739" lean-forward="true" selection-start-line="739" selection-end-line="739" />
           </first_editor>
           <second_editor />
         </state>
