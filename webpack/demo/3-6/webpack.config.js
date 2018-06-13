@@ -1,7 +1,7 @@
 var webpack = require('webpack')
 var path = require('path')
 
-moduel.exports = {
+module.exports = {
 	entry: {
 		'pageA': './src/pageA'
 	},
@@ -11,7 +11,7 @@ moduel.exports = {
 		chunckFilename: '[name].chunck.js'
 	},
 	plugins: [
-			new webpack.optimize.CommonsChunkPlugin({
+			new config.optimization.splitChunk({
 				name: 'common',
 				minChunks:2
 			})
