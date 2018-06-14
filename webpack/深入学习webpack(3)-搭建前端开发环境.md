@@ -49,11 +49,79 @@ module.exports = {
 ```
 输出到`filename`指定的目录和名称。
 
-
-
+如果是多output话，`htmlWebpackPlugin` 会插入多条sript
 
 如果需要添加多个页面关联，那么实例化多个 html-webpack-plugin， 并将它们都放到 plugins 字段数组中就可以了。
 
+![](http://p8cyzbt5x.bkt.clouddn.com/UC20180614_151031.png)
 参考文档：https://github.com/jantimon/html-webpack-plugin
 
+
+## 编译css
+webpack只能处理js文件，为此，需要在配置中引入 loader 来解析和处理 CSS 文件：
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      // ...
+      {
+        test: /\.css/,
+        include: [
+          path.resolve(__dirname, 'src'),
+        ],
+        use: [
+          'style-loader',
+          'css-loader',
+        ],
+      },
+    ],
+  }
+}
+```
+> style-loader 和 css-loader 都是单独的 node package，需要安装。
+
+- `css-loader` 负责 CSS 中的依赖， @import 和 url() 引入外部文件
+- `style-loader` 会将 css-loader 解析的结果转变成 JS 代码，插入 style 标签
+
+css经过上面两个loader,可以和index.js打包在一起。如果不想打包在一起，使用`extract-text-webpack-plugin`
+```
+npm install extract-text-webpack-plugin@next -D
+```
+
+```js
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+
+module.exports = {
+  // ...
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        // 因为这个插件需要干涉模块转换的内容，所以需要使用它对应的 loader
+        use: ExtractTextPlugin.extract({ 
+          fallback: 'style-loader',
+          use: 'css-loader',
+        }), 
+      },
+    ],
+  },
+  plugins: [
+    // 引入插件，配置文件名，这里同样可以使用 [hash]
+    new ExtractTextPlugin('index.css'),
+  ],
+}
+```
+
+## 启动静态服务
+我们可以使用 webpack-dev-server 在本地开启一个简单的静态服务来进行开发。
+
+推荐在项目中安装`webpack-dev-server`, 然后写入`package.json`
+
+```js
+"scripts": {
+	'build': 'webpack --mode production',
+	'start': 'webapck-dev-server --mode development'
+}
+```
 
