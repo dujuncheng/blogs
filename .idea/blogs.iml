@@ -7,11 +7,13 @@
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/webpack/demo/3-3/node_modules" />
       <excludeFolder url="file://$MODULE_DIR$/webpack/demo/3-6/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/webpack/demo/3-7/node_modules" />
       <excludeFolder url="file://$MODULE_DIR$/webpack/demo/code-splitting/node_modules" />
       <excludeFolder url="file://$MODULE_DIR$/webpack/demo/node_modules" />
     </content>
     <content url="file://$MODULE_DIR$/webpack/demo/3-3/node_modules" />
     <content url="file://$MODULE_DIR$/webpack/demo/3-6/node_modules" />
+    <content url="file://$MODULE_DIR$/webpack/demo/3-7/node_modules" />
     <content url="file://$MODULE_DIR$/webpack/demo/code-splitting/node_modules" />
     <content url="file://$MODULE_DIR$/webpack/demo/node_modules" />
     <orderEntry type="inheritedJdk" />

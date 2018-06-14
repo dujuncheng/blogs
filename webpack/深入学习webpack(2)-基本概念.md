@@ -42,6 +42,7 @@ modules.exports = {
   output: {
     filename:'bundle.js',
     // 这里的path是指将打包好的bundle放到哪个文件夹下面
+    // 如果没有创建的话，会自动帮我们创建
     path: path.resolve(__dirname, 'dist')
   }
 }

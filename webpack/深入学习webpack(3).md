@@ -38,6 +38,19 @@ module.exports = {
   ]
 }
 ```
+之前打包webpack是不管html怎么样的，如果我们要在html中引入js,需要写这样写死：
+```html
+<script src="bundle.js"></script>
+```
+现在通过`htmlWebpackPlugin`插件，可以把`template`指定的html处理一下，强行插入下面这样：
+```
+这里src的地址，是output的地址
+<script type="text/javascript" src="main.bundle.b24c51ee800d365fcc78.js"></script></body>
+```
+输出到`filename`指定的目录和名称。
+
+
+
 
 如果需要添加多个页面关联，那么实例化多个 html-webpack-plugin， 并将它们都放到 plugins 字段数组中就可以了。
 
