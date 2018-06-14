@@ -31,10 +31,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   // ...
   plugins: [
-    new HtmlWebpackPlugin(
+    new HtmlWebpackPlugin({
     	filename: 'index.html', // 配置输出到哪里和叫什么
     	template: 'assets/index.html',  // 配置模板来自哪里
-    )
+    })
   ]
 }
 ```
@@ -50,6 +50,7 @@ module.exports = {
 输出到`filename`指定的目录和名称。
 
 如果是多output话，`htmlWebpackPlugin` 会插入多条sript
+如果是多次打包，旧的`html`会被删除，然后换新的`html`，而`js`则不会被删除。
 
 如果需要添加多个页面关联，那么实例化多个 html-webpack-plugin， 并将它们都放到 plugins 字段数组中就可以了。
 
