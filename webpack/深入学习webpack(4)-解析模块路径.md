@@ -9,7 +9,12 @@ webpack 中有一个很关键的模块 enhanced-resolve 就是处理依赖模块
 2. 如果是文件夹找package.json的main字段
 3. 没有main字段就找index.js
 
-`package.json`的main字段优先于index.js字段是真的
+要注意的是`package.json`的main字段优先于index.js字段；
+![](http://p8cyzbt5x.bkt.clouddn.com/UC20180614_234816.png)
+
+比如说在index.js里面引入了moduleA的方法
+![UC20180614_234816](http://p8cyzbt5x.bkt.clouddn.com/UC20180614_234816.png)
+
 
 webpack关于路径解析的配置主要在 `resolve`
 
@@ -83,4 +88,11 @@ resolve: {
 入口文件怎么找？
 在`package.json`的`main`字段里面指定了入口文件。如果想修改的话，通过resolve.mainField
 
-## 
+## resovle.mainFiles
+当目录下没有 package.json 文件时，我们说会默认使用目录下的 index.js 这个文件，其实这个也是可以配置的，是的，使用 resolve.mainFiles 字段，默认配置是：
+```js
+resolve: {
+  mainFiles: ['index'], // 你可以添加其他默认使用的文件名
+},
+
+```
