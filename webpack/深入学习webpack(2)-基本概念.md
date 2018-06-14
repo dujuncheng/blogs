@@ -649,6 +649,17 @@ install purifycss-webpack
 
 
 
+## 引入css
+
+1. style loader: 创建标签
+2. css loader： 可以import css进入js
+
+```
+npm install style-loader css-loader
+```
+
+
+
 
 
 
