@@ -3,19 +3,33 @@
 一段代码的入口，我所需要的模块和依赖，都可以通过这个入口来找到，也是打包的入口，我从这个文件中查找依赖，接着从依赖文件里面去查找依赖。
 entry可以有一个，也可以有多个，多个entry主要是用在多页应用程序，或者说在单页项目中，我想把业务代码放一个entry, 把框架的代码放在另一个entry里面
 ```
-// 方式一
+// 单入口：最简单的就是直接后面跟路径
 module.export = {
   entry: './index.js'
 }
-// 方式二
-module.export = {
-  entry = ['./index.js','./test.js']
+
+// 上面的写法等同于下面
+module.export = {
+    entry: {
+        main: './index.js'
+    }
 }
 
-// 方式三
+// 多入口：配置多个入口
+module.export = {
+  entry = {
+    foo: './src/foo.js'，
+    bar: './src/bar.js'
+  }
+}
+
+// 多个文件作为单一入口
 module.export = {
   entry: {
-    index:'./index.js'
+    main: [
+        '.src/foo.js',
+        '.src/bar.js'
+    ]
   }
 }
 ```
@@ -26,24 +40,46 @@ module.export = {
 modules.exports = {
   entry:'index.js',
   output: {
-    filename:'index.min.js'
-  }
-}
-// 方式二 多entry多output
-module.exports = {
-  entry: {
-    index: './index.js',
-    vendor: './vendor.js'
-  },
-  output: {
-    // [name]就是entryname,[hash:5]是md5码
-    filename: '[name].min.[hash:5].js'
+    filename:'bundle.js',
+    // 这里的path是指将打包好的bundle放到哪个文件夹下面
+    path: path.resolve(__dirname, 'dist')
   }
 }
 
+// 方式二 多entry多output
+module.exports = {
+  entry: {
+    foo: './src/foo.js',
+    bar: './src/bar.js'
+  },
+  output: {
+    filename: '[name].bundle.js',
+    path: __dirname + '/dist'
+  }
+}
+// 多entry 不必写多个output，因为都是放到dist目录下面的，同时名字可以通过[name].js来指定,比如说'foo.js'会被打包成'foo.bundle.js'输出
+
+
+// 方式三： 路径中使用 hash，每次构建时会有一个不同 hash 值，避免发布新版本时线上使用浏览器缓存
+module.exports = {
+  entry: {
+    main: [
+        './src/foo.js',
+        '/src/bar.js'
+    ]
+  },
+  output: {
+    filename: '[name].js',
+    path: __dirname + '/dist/[name].bundle[hash].js',
+  },
+}
 ```
 ## loader
-用来处理文件，把文件转化为webpack可以处理的模块
+用来处理文件，把文件转化为webpack可以处理的模块。
+举个例子，在没有添加额外插件的情况下，webpack 会默认把所有依赖打包成 js 文件，如果入口文件依赖一个 `.hbs`的模板文件以及一个 `.css` 的样式文件，那么我们需要 `handlebars-loader` 来处理 `.hbs `文件，需要 `css-loader` 来处理 `.css` 文件（这里其实还需要 style-loader，后续详解），
+最终把不同格式的文件都解析成 js 代码，以便打包后在浏览器中运行。
+
+loader的配置规则写在 module.rules下面：
 ```
 module.exports = {
   module: {
@@ -51,11 +87,19 @@ module.exports = {
       {
         test:/\.css$/,
         use: 'css-loader'   // 对.css结尾的文件，用css-loader处理
+      }，
+      {
+        test: /\.js$/,
+        include: [
+            path.resolve(__dirname, 'src')
+        ],
+        use: 'babel-loader'
       }
     ]
   }
 }
 ```
+
 常用的loader
 1. bable-loader / ts-loader
 2. style-loader / css-loader / less-loader / postcss-loader 
@@ -63,6 +107,7 @@ module.exports = {
 
 ## plugin
 可以参与打包的过程，打包优化和压缩，配置编译时的变量，及其灵活
+在module.plugin字段进行定义：
 ```
 const webpack = require('webpack')
 module.exports = {
@@ -79,6 +124,8 @@ module.exports = {
 `ExtractTextWebpackPlugin` 把css提取出来打包成单独的文件
 `HotModuleReplacePlugin` 热更新的插件
 `CopyWebpackPlugin` 帮助打包的
+
+plugin 理论上可以干涉 webpack 整个构建流程，可以在流程的每一个步骤中定制自己的构建需求。
 
 
 ## chunk
