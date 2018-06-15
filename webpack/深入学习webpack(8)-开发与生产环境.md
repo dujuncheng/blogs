@@ -20,24 +20,44 @@ webpack4 提出了mode概念，运行 webpack 时需要指定使用 production �
 
 虽然 webpack 的 mode 参数很方便，但是针对一些项目情况，例如使用 css-loader 或者 url-loader 等，不同环境传入 loader 的配置也不一样，有一些还是需要我们自己配的。
 
+## 配置mode
+1. 通过配置文件来配置mode
+
+    ```
+    module.exports = {
+        mode: 'production'
+    }
+    ```
+
+2. 通过命令行
+    ```
+    webpack --mode=production
+    ```
+配置文件和命令行冲突，配置文件的优先级更高
+
+
+
 # 在webpack配置文件中区分mode
 
-## webpack4.0 区分mode
+## webpack4: argv.mode
 配置文件不仅可以暴露一个对象，还可以暴露一个方法, 方法里面可以通过argv参数来获取mode
 
 ```js
 module.exports = (env, argv) => {
-    optimiztion: {
-        minimize：false,
-        // 使用 argv 来获取 mode 参数的值
-        minimizer: argv.mode === 'production' ? [
-            new UglifyJsPlugin({})
-            // mode 为 production 时 webpack 会默认使用压缩 JS 的 plugin
-        ]:[]
+    return {
+     optimiztion: {
+            minimize：false,
+            // 使用 argv 来获取 mode 参数的值
+            minimizer: argv.mode === 'production' ? [
+                new UglifyJsPlugin({})
+                // mode 为 production 时 webpack 会默认使用压缩 JS 的 plugin
+            ]:[]
+        }
     }
 }
 ```
-## webpack3.0 区分mode
+注意，这种方法只能拿到通过命令行的方式传入的mode
+## webpack3:
 在package.json 里面通过`script`字段来添加命令：
 ```js
 {
@@ -62,9 +82,9 @@ module.exports = config
 ```
 
 
-# 在代码中区分mode
+# js中区分mode
 
-## webpack4.0: process.env.NODE_ENV
+## webpack4: process.env.NODE_ENV
 ```
 export default function log(...args) {
   if (process.env.NODE_ENV === 'development' && console && console.log) {
@@ -105,4 +125,51 @@ module.exports = {
 
 // 规则2：数组和数组合并 = 合并后的数组
 [a,b,c] + [d] = [a, b, c, d]
+```
+
+通常webpack.base.js是长这个样子：
+```js
+module.exports = {
+    entry: {}，
+    output: {},
+    resolve: {},
+    modules: {
+        rules: [
+            {
+                test:/\.js$/,
+                use:['babel']
+            }
+        ]
+    },
+    plugins: [
+        new htmlWebpackPlugin({
+            template: '',
+            filename: ''
+        })
+    ]
+}
+```
+然后我们的webpack.development.js添加loader或者plugin，使用webpack-merge的api:
+```
+const { smart } = require('webpack-merge')
+const webpack = require('webpack')
+cont base = require('./webpack.base.js')
+
+module.exports = smart(base, {
+    module: {
+        // 这里的rules会和base的rules合并
+        rules: [
+            {
+                test: /\.js$/,
+                use: ['coffee']
+            }
+        ]
+    },
+    plugins: [
+        // 这里的plugins会和base的plugins合并
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+        })
+    ]
+})
 ```
