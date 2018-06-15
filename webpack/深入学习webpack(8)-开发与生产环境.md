@@ -11,7 +11,7 @@
 1. 生成sourcemap
 2. 打印debug信息
 3. 需要热更新功能
-
+>
 # mode
 
 webpack4 提出了mode概念，运行 webpack 时需要指定使用 production 或 development 两个 mode 其中一个.
@@ -24,6 +24,7 @@ webpack4 提出了mode概念，运行 webpack 时需要指定使用 production �
 
 ## webpack4.0 区分mode
 配置文件不仅可以暴露一个对象，还可以暴露一个方法, 方法里面可以通过argv参数来获取mode
+
 ```js
 module.exports = (env, argv) => {
     optimiztion: {
@@ -38,7 +39,7 @@ module.exports = (env, argv) => {
 ```
 ## webpack3.0 区分mode
 在package.json 里面通过`script`字段来添加命令：
-```
+```js
 {
     "scripts": {
         "build": "NODE_ENV=production webpack",
@@ -48,11 +49,10 @@ module.exports = (env, argv) => {
 ```
 然后在 webpack.config.js 文件中可以通过 process.env.NODE_ENV 来获取命令传入的环境变量：
 
-```
+```js
 const config = {
   // ... webpack 配置
 }
-
 if (process.env.NODE_ENV === 'production') {
   // 生产环境需要做的事情，如使用代码压缩插件等
   config.plugins.push(new UglifyJsPlugin())
@@ -61,3 +61,48 @@ if (process.env.NODE_ENV === 'production') {
 module.exports = config
 ```
 
+
+# 在代码中区分mode
+
+## webpack4.0: process.env.NODE_ENV
+```
+export default function log(...args) {
+  if (process.env.NODE_ENV === 'development' && console && console.log) {
+    console.log.apply(console, args)
+  }
+}
+```
+
+## webpack3: DefinePlugin定义全局变量
+
+```
+module.exports = {
+  // ...
+  // webpack 的配置
+
+  plugins: [
+    new webpack.DefinePlugin({
+      // webpack 3.x 的 process.env.NODE_ENV 是通过手动在命令行中指定 NODE_ENV=... 的方式来传递的
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+    }),
+  ],
+}
+```
+
+
+# 拆分配置
+不同文件负责不同环境下的配置
+- webpack.base.js：基础部分，即多个文件中共享的配置
+- webpack.development.js：开发环境使用的配置
+- webpack.production.js：生产环境使用的配置
+- webpack.test.js：测试环境使用的配置
+
+不同配置之间的组合通过`webpack-merge`工具, merge 是通过一定的规则来合并的。
+
+```
+// 规则1：数组和字符串合并 = 字符串
+[a,b,c] + 'd' = 'd'
+
+// 规则2：数组和数组合并 = 合并后的数组
+[a,b,c] + [d] = [a, b, c, d]
+```
