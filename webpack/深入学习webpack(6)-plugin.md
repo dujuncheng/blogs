@@ -22,7 +22,7 @@ module.exports = {
 	]
 }
 ```
-这样我们就可以在js中使用了
+这样我们就可以在js中使用了。
 ```js
 console.log("Running App version " + VERSION);
 
