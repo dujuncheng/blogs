@@ -1,16 +1,12 @@
-社区中有很多 webpack 插件可供使用，而优秀的插件基本上都提供了详细的使用说明文档。更多的插件可以在这里查找：plugins in awesome-webpack。
+社区中有很多 `webpack` 插件可供使用，基本上提供了详细的使用说明文档。
+更多的插件可以google plugins in awesome-webpack。
 
 常用的插件如下：
 
 # DefinePlugin
 内置的插件，通过 `webpack.DefinePlugin` 直接获取。
-用来配置一些全局的常量，我们可以在代码中使用：
-```js
-console.log("Running App version " + VERSION);
+用来配置一些全局的常量，我们可以在js中使用：
 
-if(!BROWSER_SUPPORTS_HTML5) require("html5shiv");c
-```
-配置如下：
 ```js
 module.exports = {
 	plugins: [
@@ -25,6 +21,12 @@ module.exports = {
 		})
 	]
 }
+```
+这样我们就可以在js中使用了
+```js
+console.log("Running App version " + VERSION);
+
+if(!BROWSER_SUPPORTS_HTML5) require("html5shiv");c
 ```
 DefinePlugin 使用得最多是定义环境变量，例如 `PRODUCTION` = `true `或者 `__DEV__` = `true` 等。
 

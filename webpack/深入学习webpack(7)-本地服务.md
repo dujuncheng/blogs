@@ -30,9 +30,9 @@ npm run start
 webpack.config.js中通过 `devServer` 字段配置、
 
 常用配置如下：
-- public 字段用于指定静态服务的域名，默认是 http://localhost:8080/ ，当你使用 `Nginx` 来做反向代理时，应该就需要使用该配置来指定 `Nginx` 配置使用的服务域名。
+- public 字段用于指定静态服务的域名，默认是 `http://localhost:8080/` ，当你使用 `Nginx` 来做反向代理时，应该就需要使用该配置来指定 `Nginx` 配置使用的服务域名。
 - port 端口
-- publicPath 构建好的静态文件在浏览器中用什么路径去访问，默认是 / . 例如，对于一个构建好的文件 bundle.js，完整的访问路径是 http://localhost:8080/bundle.js，如果你配置了 publicPath: 'assets/'，那么上述 bundle.js 的完整访问路径就是 http://localhost:8080/assets/bundle.js。可以使用整个 `URL` 来作为 `publicPath` 的值，如 publicPath: 'http://localhost:8080/assets/'。如果你使用了 HMR，那么要设置 publicPath 就必须使用完整的 URL。
+- publicPath 构建好的静态文件在浏览器中用什么路径去访问，默认是 / . 例如，对于一个构建好的文件 bundle.js，完整的访问路径是 `http://localhost:8080/bundle.js`，如果你配置了 `publicPath`: 'assets/'，那么上述 bundle.js 的完整访问路径就是 `http://localhost:8080/assets/bundle.js`。可以使用整个 `URL` 来作为 `publicPath` 的值，如 publicPath: 'http://localhost:8080/assets/'。如果你使用了 HMR，那么要设置 publicPath 就必须使用完整的 URL。
 - proxy  `webpack-dev-server` 将特定 `URL `的请求代理到另外一台服务器上 
     ```js
         proxy: {
