@@ -117,7 +117,7 @@ module.exports = {
 ## 启动静态服务
 我们可以使用 webpack-dev-server 在本地开启一个简单的静态服务来进行开发。
 
-推荐在项目中安装`webpack-dev-server`, 然后写入`package.json`
+推荐在项目中安装`webpack-dev-server`, 然后写入`package.json`。
 
 ```js
 "scripts": {
