@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="7ac1e9c6-48cb-4e72-8717-b5269abe61da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/webpack/demo/production-dev/src/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webpack/demo/production-dev/src/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webpack/demo/production-dev/webpack.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/blogs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blogs.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webpack/demo/production-dev/config/webpack.base.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webpack/demo/production-dev/config/webpack.development.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webpack/demo/production-dev/config/webpack.production.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack/demo/production-dev/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack/demo/production-dev/webpack.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack/深入学习webpack(8)-开发与生产环境.md" beforeDir="false" afterPath="$PROJECT_DIR$/webpack/深入学习webpack(8)-开发与生产环境.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -78,8 +78,8 @@
           <provider editor-type-id="Gfm" />
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="403">
-                <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
+              <first_editor relative-caret-position="496">
+                <caret line="179" column="22" selection-start-line="179" selection-start-column="22" selection-end-line="179" selection-end-column="22" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -88,36 +88,56 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="webpack.development.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webpack/demo/production-dev/config/webpack.development.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="4" column="22" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="webpack.base.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webpack/demo/production-dev/config/webpack.base.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="26" lean-forward="true" selection-start-column="26" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webpack/demo/production-dev/webpack.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bundle2a44abf7cd6b7382ad95.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpack/demo/production-dev/dist/bundle2a44abf7cd6b7382ad95.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpack/demo/production-dev/src/index.js">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="42">
-              <caret line="2" column="33" lean-forward="true" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+              <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpack/demo/production-dev/dist/index.html">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webpack/demo/production-dev/dist/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" column="23" lean-forward="true" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+            <state>
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webpack/demo/production-dev/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="17" column="3" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="webpack.production.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webpack/demo/production-dev/config/webpack.production.js">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
@@ -187,15 +207,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpack/demo/3-8/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webpack/demo/3-8/package.json">
           <provider selected="true" editor-type-id="text-editor">
@@ -234,8 +245,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/es6/class/class.md" />
-        <option value="$PROJECT_DIR$/es6/class/es6中的class.md" />
         <option value="$PROJECT_DIR$/javascript/js的运行机制学习_任务队列、event_loop/index.html" />
         <option value="$PROJECT_DIR$/es6/es6中的promise/es6中的promise.md" />
         <option value="$PROJECT_DIR$/学习与工作/程序员的出路之一.md" />
@@ -284,6 +293,8 @@
         <option value="$PROJECT_DIR$/webpack/demo/production-dev/package.json" />
         <option value="$PROJECT_DIR$/webpack/demo/production-dev/src/index.js" />
         <option value="$PROJECT_DIR$/webpack/demo/production-dev/webpack.config.js" />
+        <option value="$PROJECT_DIR$/webpack/demo/production-dev/config/webpack.development.js" />
+        <option value="$PROJECT_DIR$/webpack/demo/production-dev/config/webpack.base.js" />
         <option value="$PROJECT_DIR$/webpack/深入学习webpack(8)-开发与生产环境.md" />
       </list>
     </option>
@@ -347,6 +358,14 @@
               <item name="webpack" type="462c0819:PsiDirectoryNode" />
               <item name="demo" type="462c0819:PsiDirectoryNode" />
               <item name="production-dev" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blogs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blogs" type="462c0819:PsiDirectoryNode" />
+              <item name="webpack" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="production-dev" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="blogs" type="b2602c69:ProjectViewProjectNode" />
@@ -455,14 +474,7 @@
       <workItem from="1528998338581" duration="1085000" />
       <workItem from="1529043155506" duration="1393000" />
       <workItem from="1529044569194" duration="629000" />
-      <workItem from="1529045216636" duration="5244000" />
-    </task>
-    <task id="LOCAL-00015" summary="&#10;add  blog">
-      <created>1525777031957</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1525777031957</updated>
+      <workItem from="1529045216636" duration="7330000" />
     </task>
     <task id="LOCAL-00016" summary="&#10;add  blog">
       <created>1525778242417</created>
@@ -800,11 +812,18 @@
       <option name="project" value="LOCAL" />
       <updated>1529046083598</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="c">
+      <created>1529050584835</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1529050584835</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111579000" />
+    <option name="totallyTimeSpent" value="113665000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -821,7 +840,7 @@
     <layout>
       <window_info anchor="right" id="Key Promoter X" order="3" />
       <window_info anchor="right" id="GfmBrowser" order="4" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.1788269" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23819743" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32992327" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.33717948" />
@@ -877,18 +896,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="c" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/http/http_pre.md">
-      <provider editor-type-id="Gfm" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/es6/es6中的生成器/blog/es6中的生成器.md">
-      <provider editor-type-id="Gfm" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/http/http缓存之路.md">
-      <provider editor-type-id="Gfm" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="Gfm" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/data structure/栈与队列.md">
       <provider editor-type-id="Gfm" />
     </entry>
@@ -1152,22 +1159,15 @@
     <entry file="file://$PROJECT_DIR$/webpack/demo/production-dev/dist/bundle725a49768f216d0c4c6c.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/demo/production-dev/dist/bundle2a44abf7cd6b7382ad95.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/webpack/demo/production-dev/dist/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="4" column="23" lean-forward="true" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack/demo/production-dev/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack/demo/production-dev/dist/bundle2a44abf7cd6b7382ad95.js">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/webpack/demo/production-dev/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1176,10 +1176,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/demo/production-dev/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="17" column="3" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/demo/production-dev/dist/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/webpack/demo/production-dev/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+        <state relative-caret-position="42">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/demo/production-dev/config/webpack.development.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/demo/production-dev/config/webpack.production.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/demo/production-dev/config/webpack.base.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" lean-forward="true" selection-start-column="26" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -1192,8 +1225,8 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="403">
-            <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
+          <first_editor relative-caret-position="496">
+            <caret line="179" column="22" selection-start-line="179" selection-start-column="22" selection-end-line="179" selection-end-column="22" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />

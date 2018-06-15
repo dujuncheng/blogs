@@ -151,6 +151,7 @@ module.exports = {
 ```
 然后我们的webpack.development.js添加loader或者plugin，使用webpack-merge的api:
 ```
+// 注意这里要使用commonJS的导入规范
 const { smart } = require('webpack-merge')
 const webpack = require('webpack')
 cont base = require('./webpack.base.js')
@@ -172,4 +173,9 @@ module.exports = smart(base, {
         })
     ]
 })
+```
+原来的`webpack.config.js`并不能删除，因为webpack需要找到它，但是需要修改成：
+```
+var dev-config = require('./config/webpack.development.js')
+module.export = config
 ```
