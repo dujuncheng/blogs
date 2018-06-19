@@ -21,8 +21,8 @@
         <entry file="file://$PROJECT_DIR$/other/前端性能优化/前端性能优化.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="316">
-                <caret line="131" column="59" selection-start-line="131" selection-start-column="59" selection-end-line="131" selection-end-column="59" />
+              <first_editor relative-caret-position="609">
+                <caret line="170" column="19" selection-start-line="170" selection-start-column="19" selection-end-line="170" selection-end-column="19" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -271,14 +271,7 @@
       <workItem from="1529295585875" duration="166000" />
       <workItem from="1529370107604" duration="1604000" />
       <workItem from="1529397862753" duration="319000" />
-      <workItem from="1529398201321" duration="1492000" />
-    </task>
-    <task id="LOCAL-00021" summary="&#10;add  blog">
-      <created>1525795374074</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1525795374074</updated>
+      <workItem from="1529398201321" duration="2058000" />
     </task>
     <task id="LOCAL-00022" summary="&#10;add  blog">
       <created>1525840116273</created>
@@ -616,11 +609,18 @@
       <option name="project" value="LOCAL" />
       <updated>1529397925222</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="c">
+      <created>1529400480109</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1529400480110</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125467000" />
+    <option name="totallyTimeSpent" value="126033000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -1022,8 +1022,8 @@
     <entry file="file://$PROJECT_DIR$/other/前端性能优化/前端性能优化.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="316">
-            <caret line="131" column="59" selection-start-line="131" selection-start-column="59" selection-end-line="131" selection-end-column="59" />
+          <first_editor relative-caret-position="609">
+            <caret line="170" column="19" selection-start-line="170" selection-start-column="19" selection-end-line="170" selection-end-column="19" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
