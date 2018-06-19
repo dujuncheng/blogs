@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="7ac1e9c6-48cb-4e72-8717-b5269abe61da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/webpack/深入学习webpack(11)-控制体积.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/other/前端性能优化/前端性能优化.md" beforeDir="false" afterPath="$PROJECT_DIR$/other/前端性能优化/前端性能优化.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,34 +17,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpack/demo/3-8/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="深入学习webpack(1).md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpack/深入学习webpack(1).md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor>
-                <markdownNavigatorState />
-              </second_editor>
-            </state>
-          </provider>
-          <provider editor-type-id="Gfm" />
-        </entry>
-      </file>
-      <file leaf-file-name="深入学习webpack(11)-控制体积.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/webpack/深入学习webpack(11)-控制体积.md">
+      <file leaf-file-name="前端性能优化.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/other/前端性能优化/前端性能优化.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="126">
-                <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+              <first_editor relative-caret-position="316">
+                <caret line="131" column="59" selection-start-line="131" selection-start-column="59" selection-end-line="131" selection-end-column="59" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -52,37 +30,6 @@
             </state>
           </provider>
           <provider editor-type-id="Gfm" />
-        </entry>
-      </file>
-      <file leaf-file-name="深入学习webpack(10)-分离代码.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpack/深入学习webpack(10)-分离代码.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="-2682" />
-              <second_editor>
-                <markdownNavigatorState />
-              </second_editor>
-            </state>
-          </provider>
-          <provider editor-type-id="Gfm" />
-        </entry>
-      </file>
-      <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpack/demo/3-8/webpack.config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="26" selection-start-column="26" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpack/demo/3-8/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="8" column="9" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="9" />
-            </state>
-          </provider>
         </entry>
       </file>
     </leaf>
@@ -106,7 +53,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/javascript/js的运行机制学习_任务队列、event_loop/js的运行机制学习_任务队列、event_loop.md" />
         <option value="$PROJECT_DIR$/javascript/js的运行机制学习_任务队列、event_loop/test2.html" />
         <option value="$PROJECT_DIR$/数据结构/chapter1.md" />
         <option value="$PROJECT_DIR$/http/http_pre.md" />
@@ -157,6 +103,7 @@
         <option value="$PROJECT_DIR$/webpack/深入学习webpack(10)-分离代码.md" />
         <option value="$PROJECT_DIR$/webpack/demo/3-8/index.js" />
         <option value="$PROJECT_DIR$/webpack/深入学习webpack(11)-控制体积.md" />
+        <option value="$PROJECT_DIR$/other/前端性能优化/前端性能优化.md" />
       </list>
     </option>
   </component>
@@ -189,9 +136,10 @@
       <path value="$PROJECT_DIR$/webpack/demo/production-dev/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds">
+    <option name="x" value="720" />
     <option name="y" value="23" />
-    <option name="width" value="1440" />
+    <option name="width" value="720" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectView">
@@ -199,7 +147,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -210,18 +157,19 @@
             <path>
               <item name="blogs" type="b2602c69:ProjectViewProjectNode" />
               <item name="blogs" type="462c0819:PsiDirectoryNode" />
-              <item name="webpack" type="462c0819:PsiDirectoryNode" />
+              <item name="other" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="blogs" type="b2602c69:ProjectViewProjectNode" />
               <item name="blogs" type="462c0819:PsiDirectoryNode" />
-              <item name="webpack" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="other" type="462c0819:PsiDirectoryNode" />
+              <item name="前端性能优化" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -233,7 +181,7 @@
     <property name="node.js.path.for.package.prettier" value="project" />
     <property name="node.js.selected.package.prettier" value="" />
     <property name="nodejs_interpreter_path" value="node" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -322,13 +270,8 @@
       <workItem from="1529295115869" duration="392000" />
       <workItem from="1529295585875" duration="166000" />
       <workItem from="1529370107604" duration="1604000" />
-    </task>
-    <task id="LOCAL-00020" summary="&#10;add  blog">
-      <created>1525791522011</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1525791522011</updated>
+      <workItem from="1529397862753" duration="319000" />
+      <workItem from="1529398201321" duration="1492000" />
     </task>
     <task id="LOCAL-00021" summary="&#10;add  blog">
       <created>1525795374074</created>
@@ -666,11 +609,18 @@
       <option name="project" value="LOCAL" />
       <updated>1529295548728</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="c">
+      <created>1529397925221</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1529397925222</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123656000" />
+    <option name="totallyTimeSpent" value="125467000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -682,17 +632,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="720" y="23" width="720" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Key Promoter X" order="3" />
       <window_info anchor="right" id="GfmBrowser" order="4" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25035766" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.52359885" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32992327" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.33665836" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32848486" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32793018" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -742,6 +693,20 @@
     <option name="LAST_COMMIT_MESSAGE" value="c" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/webpack/demo/3-8/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" selection-start-column="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/demo/3-8/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="9" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/webpack/demo/3-8/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -967,20 +932,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webpack/demo/3-8/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="9" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack/demo/3-8/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="26" selection-start-column="26" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webpack/demo/3-8/dist/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1050,37 +1001,29 @@
     <entry file="file://$PROJECT_DIR$/webpack/demo/3-8/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
-          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+          <caret line="2" column="5" lean-forward="true" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webpack/深入学习webpack(1).md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
+    <entry file="file://$PROJECT_DIR$/webpack/demo/3-8/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" selection-start-column="26" selection-end-column="26" />
         </state>
       </provider>
-      <provider editor-type-id="Gfm" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/webpack/深入学习webpack(10)-分离代码.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="-2682" />
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
+    <entry file="file://$PROJECT_DIR$/webpack/demo/3-8/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="9" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="9" />
         </state>
       </provider>
-      <provider editor-type-id="Gfm" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/webpack/深入学习webpack(11)-控制体积.md">
+    <entry file="file://$PROJECT_DIR$/other/前端性能优化/前端性能优化.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="126">
-            <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+          <first_editor relative-caret-position="316">
+            <caret line="131" column="59" selection-start-line="131" selection-start-column="59" selection-end-line="131" selection-end-column="59" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
