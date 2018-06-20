@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="7ac1e9c6-48cb-4e72-8717-b5269abe61da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/other/前端性能优化/demo/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/other/前端性能优化/demo/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/other/前端性能优化/前端性能优化.md" beforeDir="false" afterPath="$PROJECT_DIR$/other/前端性能优化/前端性能优化.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -53,8 +52,8 @@
           <provider editor-type-id="Gfm" />
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="448">
-                <caret line="189" column="46" selection-start-line="189" selection-start-column="46" selection-end-line="189" selection-end-column="46" />
+              <first_editor relative-caret-position="520">
+                <caret line="587" lean-forward="true" selection-start-line="587" selection-end-line="587" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -316,14 +315,7 @@
       <workItem from="1529476397781" duration="1859000" />
       <workItem from="1529479534851" duration="35000" />
       <workItem from="1529496645147" duration="225000" />
-      <workItem from="1529498640890" duration="1224000" />
-    </task>
-    <task id="LOCAL-00029" summary="&#10;add  blog">
-      <created>1526138536497</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1526138536497</updated>
+      <workItem from="1529498640890" duration="1956000" />
     </task>
     <task id="LOCAL-00030" summary="&#10;add  blog">
       <created>1527076541434</created>
@@ -661,11 +653,18 @@
       <option name="project" value="LOCAL" />
       <updated>1529477814911</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="c">
+      <created>1529499879695</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1529499879696</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135825000" />
+    <option name="totallyTimeSpent" value="136557000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -1112,8 +1111,8 @@
       <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="448">
-            <caret line="189" column="46" selection-start-line="189" selection-start-column="46" selection-end-line="189" selection-end-column="46" />
+          <first_editor relative-caret-position="520">
+            <caret line="587" lean-forward="true" selection-start-line="587" selection-end-line="587" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
