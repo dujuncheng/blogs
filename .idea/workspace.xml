@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="7ac1e9c6-48cb-4e72-8717-b5269abe61da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/other/深入理解浏览器渲染原理.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/other/浏览器渲染原理.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/other/深入理解浏览器渲染原理.md" beforeDir="false" afterPath="$PROJECT_DIR$/other/深入理解浏览器渲染原理.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,9 +20,9 @@
         <entry file="file://$PROJECT_DIR$/other/深入理解浏览器渲染原理.md">
           <provider editor-type-id="Gfm" />
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="531">
-                <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="321">
+                <caret line="60" column="16" lean-forward="true" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -187,9 +185,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="159" />
+    <option name="x" value="720" />
     <option name="y" value="23" />
-    <option name="width" value="1241" />
+    <option name="width" value="720" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectView">
@@ -334,14 +332,7 @@
       <workItem from="1529408900250" duration="1597000" />
       <workItem from="1529411476918" duration="56000" />
       <workItem from="1529412435469" duration="148000" />
-      <workItem from="1529412626430" duration="282000" />
-    </task>
-    <task id="LOCAL-00026" summary="&#10;add  blog">
-      <created>1526136164807</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1526136164807</updated>
+      <workItem from="1529412626430" duration="1667000" />
     </task>
     <task id="LOCAL-00027" summary="&#10;add  blog">
       <created>1526138504107</created>
@@ -679,11 +670,18 @@
       <option name="project" value="LOCAL" />
       <updated>1529412810290</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="c">
+      <created>1529412913201</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1529412913201</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131097000" />
+    <option name="totallyTimeSpent" value="132482000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -695,12 +693,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="159" y="23" width="1241" height="877" extended-state="0" />
+    <frame x="720" y="23" width="720" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Key Promoter X" order="3" weight="0.32897604" />
       <window_info anchor="right" id="GfmBrowser" order="4" weight="0.32971507" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33444536" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.33444536" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32992327" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32948717" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.33665836" />
@@ -1132,9 +1130,9 @@
     <entry file="file://$PROJECT_DIR$/other/深入理解浏览器渲染原理.md">
       <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="531">
-            <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="321">
+            <caret line="60" column="16" lean-forward="true" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
