@@ -36,7 +36,7 @@
         <entry file="file://$PROJECT_DIR$/other/前端性能优化/intersection observer api.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="667">
+              <first_editor relative-caret-position="1554">
                 <caret line="74" selection-start-line="33" selection-start-column="1" selection-end-line="74" />
               </first_editor>
               <second_editor>
@@ -51,8 +51,8 @@
         <entry file="file://$PROJECT_DIR$/other/前端性能优化/前端性能优化.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="567">
-                <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+              <first_editor relative-caret-position="348">
+                <caret line="516" column="32" selection-end-line="616" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -318,14 +318,8 @@
       <workItem from="1529496645147" duration="225000" />
       <workItem from="1529498640890" duration="3537000" />
       <workItem from="1529516703855" duration="4000" />
-      <workItem from="1529547382689" duration="716000" />
-    </task>
-    <task id="LOCAL-00032" summary="&#10;add  blog">
-      <created>1527555828392</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1527555828392</updated>
+      <workItem from="1529547382689" duration="1767000" />
+      <workItem from="1529564816715" duration="7000" />
     </task>
     <task id="LOCAL-00033" summary="&#10;add  blog">
       <created>1527558805706</created>
@@ -663,11 +657,18 @@
       <option name="project" value="LOCAL" />
       <updated>1529500888607</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="c">
+      <created>1529548147146</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1529548147147</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138858000" />
+    <option name="totallyTimeSpent" value="139916000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -684,7 +685,7 @@
     <layout>
       <window_info anchor="right" id="Key Promoter X" order="3" weight="0.32832617" />
       <window_info anchor="right" id="GfmBrowser" order="4" weight="0.32971507" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16613418" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.16773163" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32992327" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32948717" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.33665836" />
@@ -705,21 +706,21 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.0" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32992327" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.33665836" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="GfmBrowser" order="4" weight="0.32971507" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32793018" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.33665836" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Key Promoter X" order="3" weight="0.32897604" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32948717" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
@@ -1100,7 +1101,7 @@
     <entry file="file://$PROJECT_DIR$/other/前端性能优化/intersection observer api.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="667">
+          <first_editor relative-caret-position="1554">
             <caret line="74" selection-start-line="33" selection-start-column="1" selection-end-line="74" />
           </first_editor>
           <second_editor>
@@ -1113,8 +1114,8 @@
     <entry file="file://$PROJECT_DIR$/other/前端性能优化/前端性能优化.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="567">
-            <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+          <first_editor relative-caret-position="348">
+            <caret line="516" column="32" selection-end-line="616" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
