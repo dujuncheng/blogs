@@ -19,7 +19,6 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="深入理解浏览器渲染原理.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/other/深入理解浏览器渲染原理.md">
-          <provider editor-type-id="Gfm" />
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
               <first_editor>
@@ -30,11 +29,11 @@
               </second_editor>
             </state>
           </provider>
+          <provider editor-type-id="Gfm" />
         </entry>
       </file>
       <file leaf-file-name="intersection observer api.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/other/前端性能优化/intersection observer api.md">
-          <provider editor-type-id="Gfm" />
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
               <first_editor relative-caret-position="667">
@@ -45,21 +44,22 @@
               </second_editor>
             </state>
           </provider>
+          <provider editor-type-id="Gfm" />
         </entry>
       </file>
       <file leaf-file-name="前端性能优化.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/other/前端性能优化/前端性能优化.md">
-          <provider editor-type-id="Gfm" />
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="520">
-                <caret line="587" lean-forward="true" selection-start-line="587" selection-end-line="587" />
+              <first_editor relative-caret-position="567">
+                <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
               </second_editor>
             </state>
           </provider>
+          <provider editor-type-id="Gfm" />
         </entry>
       </file>
     </leaf>
@@ -163,10 +163,11 @@
       <path value="$PROJECT_DIR$/webpack/demo/production-dev/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="y" value="23" />
-    <option name="width" value="720" />
-    <option name="height" value="877" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="-226" />
+    <option name="y" value="-1080" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -207,12 +208,12 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="node.js.detected.package.prettier" value="true" />
     <property name="node.js.path.for.package.prettier" value="project" />
     <property name="node.js.selected.package.prettier" value="" />
     <property name="nodejs_interpreter_path" value="node" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="MarkdownNavigator.Settings.Preview" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -315,21 +316,9 @@
       <workItem from="1529476397781" duration="1859000" />
       <workItem from="1529479534851" duration="35000" />
       <workItem from="1529496645147" duration="225000" />
-      <workItem from="1529498640890" duration="1956000" />
-    </task>
-    <task id="LOCAL-00030" summary="&#10;add  blog">
-      <created>1527076541434</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1527076541434</updated>
-    </task>
-    <task id="LOCAL-00031" summary="&#10;add  blog">
-      <created>1527079818381</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1527079818381</updated>
+      <workItem from="1529498640890" duration="3537000" />
+      <workItem from="1529516703855" duration="4000" />
+      <workItem from="1529547382689" duration="716000" />
     </task>
     <task id="LOCAL-00032" summary="&#10;add  blog">
       <created>1527555828392</created>
@@ -660,11 +649,25 @@
       <option name="project" value="LOCAL" />
       <updated>1529499879696</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="c">
+      <created>1529500613466</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1529500613466</updated>
+    </task>
+    <task id="LOCAL-00080" summary="c">
+      <created>1529500888607</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1529500888607</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136557000" />
+    <option name="totallyTimeSpent" value="138858000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -676,20 +679,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <frame x="-226" y="-1080" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Key Promoter X" order="3" weight="0.32897604" />
+      <window_info anchor="right" id="Key Promoter X" order="3" weight="0.32832617" />
       <window_info anchor="right" id="GfmBrowser" order="4" weight="0.32971507" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.0" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16613418" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32992327" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32948717" />
-      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.33665836" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32793018" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -1000,7 +1003,6 @@
           <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
         </state>
       </provider>
-      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="315">
@@ -1011,10 +1013,10 @@
           </second_editor>
         </state>
       </provider>
+      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/webpack/深入学习webpack(7)-本地服务.md">
       <provider editor-type-id="text-editor" />
-      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="426">
@@ -1025,10 +1027,10 @@
           </second_editor>
         </state>
       </provider>
+      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/other/程序员的出路之一.md">
       <provider editor-type-id="text-editor" />
-      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -1037,10 +1039,10 @@
           </second_editor>
         </state>
       </provider>
+      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/other/浏览器渲染原理.md" />
     <entry file="file://$PROJECT_DIR$/webpack/深入学习webpack(8)-开发与生产环境.md">
-      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="190">
@@ -1051,9 +1053,9 @@
           </second_editor>
         </state>
       </provider>
+      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/webpack/深入学习webpack(6)-plugin.md">
-      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -1062,9 +1064,9 @@
           </second_editor>
         </state>
       </provider>
+      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/webpack/深入学习webpack(3)-搭建前端开发环境.md">
-      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -1073,6 +1075,7 @@
           </second_editor>
         </state>
       </provider>
+      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/other/前端性能优化/demo/index.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -1082,7 +1085,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/other/深入理解浏览器渲染原理.md">
-      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor>
@@ -1093,9 +1095,9 @@
           </second_editor>
         </state>
       </provider>
+      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/other/前端性能优化/intersection observer api.md">
-      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="667">
@@ -1106,19 +1108,20 @@
           </second_editor>
         </state>
       </provider>
+      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/other/前端性能优化/前端性能优化.md">
-      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="520">
-            <caret line="587" lean-forward="true" selection-start-line="587" selection-end-line="587" />
+          <first_editor relative-caret-position="567">
+            <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
           </second_editor>
         </state>
       </provider>
+      <provider editor-type-id="Gfm" />
     </entry>
   </component>
   <component name="masterDetails">
