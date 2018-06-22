@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="7ac1e9c6-48cb-4e72-8717-b5269abe61da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/other/前端性能优化/前端性能优化.md" beforeDir="false" afterPath="$PROJECT_DIR$/other/前端性能优化/前端性能优化.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -51,8 +50,8 @@
         <entry file="file://$PROJECT_DIR$/other/前端性能优化/前端性能优化.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="348">
-                <caret line="516" column="32" selection-end-line="616" />
+              <first_editor relative-caret-position="645">
+                <caret line="165" column="64" selection-start-line="165" selection-start-column="64" selection-end-line="165" selection-end-column="64" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -163,46 +162,17 @@
       <path value="$PROJECT_DIR$/webpack/demo/production-dev/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="-226" />
-    <option name="y" value="-1080" />
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-223" />
+    <option name="y" value="23" />
+    <option name="width" value="1914" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="blogs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="blogs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="blogs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="blogs" type="462c0819:PsiDirectoryNode" />
-              <item name="other" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="blogs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="blogs" type="462c0819:PsiDirectoryNode" />
-              <item name="other" type="462c0819:PsiDirectoryNode" />
-              <item name="前端性能优化" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="blogs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="blogs" type="462c0819:PsiDirectoryNode" />
-              <item name="webpack" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="HbShouldOpenHtmlAsHb" value="" />
@@ -320,13 +290,7 @@
       <workItem from="1529516703855" duration="4000" />
       <workItem from="1529547382689" duration="1767000" />
       <workItem from="1529564816715" duration="7000" />
-    </task>
-    <task id="LOCAL-00033" summary="&#10;add  blog">
-      <created>1527558805706</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1527558805706</updated>
+      <workItem from="1529564827296" duration="2173000" />
     </task>
     <task id="LOCAL-00034" summary="&#10;add  blog">
       <created>1527592605904</created>
@@ -664,11 +628,18 @@
       <option name="project" value="LOCAL" />
       <updated>1529548147147</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="c">
+      <created>1529564832123</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1529564832123</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139916000" />
+    <option name="totallyTimeSpent" value="142089000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -688,12 +659,12 @@
       <window_info content_ui="combo" id="Project" order="0" weight="0.16773163" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32992327" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32948717" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.33665836" />
       <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.33665836" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32793018" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -706,21 +677,21 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.0" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32992327" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.33665836" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="GfmBrowser" order="4" weight="0.32971507" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32793018" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.33665836" />
       <window_info anchor="right" id="Key Promoter X" order="3" weight="0.32897604" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32948717" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
@@ -1114,8 +1085,8 @@
     <entry file="file://$PROJECT_DIR$/other/前端性能优化/前端性能优化.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="348">
-            <caret line="516" column="32" selection-end-line="616" />
+          <first_editor relative-caret-position="645">
+            <caret line="165" column="64" selection-start-line="165" selection-start-column="64" selection-end-line="165" selection-end-column="64" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
