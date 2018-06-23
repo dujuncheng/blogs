@@ -6,6 +6,7 @@
 
 - javascript
     - [javascript解析和执行过程](https://github.com/dujuncheng/blogs/blob/b1d07ddbfb52f42634ab8481c86c1352b748cc86/javascript/js%E7%9A%84%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6%E5%AD%A6%E4%B9%A0_%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97%E3%80%81event_loop/js%E7%9A%84%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6%E5%AD%A6%E4%B9%A0_%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97%E3%80%81event_loop.md)
+    - [前端性能优化指南](https://github.com/dujuncheng/blogs/blob/2fc1b3235d0687863d1f0c8ba5ca56096d7f7f60/other/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.md)
 
 - es6
     - [使用gulp构建es6项目](http://blog.leanote.com/post/dujuncheng/es6%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA)
