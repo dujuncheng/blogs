@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="7ac1e9c6-48cb-4e72-8717-b5269abe61da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/other/前端性能优化/前端性能优化.md" beforeDir="false" afterPath="$PROJECT_DIR$/other/前端性能优化/前端性能优化.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/other/前端性能优化/intersection observer api.md" beforeDir="false" afterPath="$PROJECT_DIR$/other/前端性能优化/intersection observer api.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,37 +29,20 @@
               </second_editor>
             </state>
           </provider>
-          <provider editor-type-id="Gfm" />
         </entry>
       </file>
-      <file leaf-file-name="intersection observer api.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="intersection observer api.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/other/前端性能优化/intersection observer api.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="1554">
-                <caret line="74" selection-start-line="33" selection-start-column="1" selection-end-line="74" />
+              <first_editor relative-caret-position="263">
+                <caret line="75" column="7" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="7" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
               </second_editor>
             </state>
           </provider>
-          <provider editor-type-id="Gfm" />
-        </entry>
-      </file>
-      <file leaf-file-name="前端性能优化.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/other/前端性能优化/前端性能优化.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="645">
-                <caret line="165" column="64" selection-start-line="165" selection-start-column="64" selection-end-line="165" selection-end-column="64" />
-              </first_editor>
-              <second_editor>
-                <markdownNavigatorState />
-              </second_editor>
-            </state>
-          </provider>
-          <provider editor-type-id="Gfm" />
         </entry>
       </file>
     </leaf>
@@ -130,9 +114,9 @@
         <option value="$PROJECT_DIR$/webpack/深入学习webpack(9)-HMR.md" />
         <option value="$PROJECT_DIR$/other/浏览器渲染原理.md" />
         <option value="$PROJECT_DIR$/other/深入理解浏览器渲染原理.md" />
-        <option value="$PROJECT_DIR$/other/前端性能优化/intersection observer api.md" />
         <option value="$PROJECT_DIR$/other/前端性能优化/demo/index.html" />
         <option value="$PROJECT_DIR$/other/前端性能优化/前端性能优化.md" />
+        <option value="$PROJECT_DIR$/other/前端性能优化/intersection observer api.md" />
       </list>
     </option>
   </component>
@@ -162,10 +146,9 @@
       <path value="$PROJECT_DIR$/webpack/demo/production-dev/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-223" />
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1914" />
+    <option name="width" value="1440" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectView">
@@ -291,20 +274,8 @@
       <workItem from="1529547382689" duration="1767000" />
       <workItem from="1529564816715" duration="7000" />
       <workItem from="1529564827296" duration="2173000" />
-    </task>
-    <task id="LOCAL-00034" summary="&#10;add  blog">
-      <created>1527592605904</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1527592605904</updated>
-    </task>
-    <task id="LOCAL-00035" summary="&#10;change  blog">
-      <created>1527593706047</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1527593706047</updated>
+      <workItem from="1529683084271" duration="192000" />
+      <workItem from="1529735377710" duration="3000" />
     </task>
     <task id="LOCAL-00036" summary="&#10;change  blog">
       <created>1527608054479</created>
@@ -635,11 +606,25 @@
       <option name="project" value="LOCAL" />
       <updated>1529564832123</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="c">
+      <created>1529683098061</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1529683098061</updated>
+    </task>
+    <task id="LOCAL-00084" summary="c">
+      <created>1529683115881</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1529683115881</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142089000" />
+    <option name="totallyTimeSpent" value="142284000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -651,7 +636,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-226" y="-1080" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Key Promoter X" order="3" weight="0.32832617" />
@@ -659,12 +644,12 @@
       <window_info content_ui="combo" id="Project" order="0" weight="0.16773163" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32992327" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32948717" />
-      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.33665836" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32793018" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32692307" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -970,11 +955,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/webpack/深入学习webpack(9)-HMR.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="315">
@@ -985,10 +965,14 @@
           </second_editor>
         </state>
       </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
       <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/webpack/深入学习webpack(7)-本地服务.md">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="426">
@@ -999,10 +983,10 @@
           </second_editor>
         </state>
       </provider>
+      <provider editor-type-id="text-editor" />
       <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/other/程序员的出路之一.md">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -1011,6 +995,7 @@
           </second_editor>
         </state>
       </provider>
+      <provider editor-type-id="text-editor" />
       <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/other/浏览器渲染原理.md" />
@@ -1069,11 +1054,11 @@
       </provider>
       <provider editor-type-id="Gfm" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/other/前端性能优化/intersection observer api.md">
+    <entry file="file://$PROJECT_DIR$/other/前端性能优化/前端性能优化.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="1554">
-            <caret line="74" selection-start-line="33" selection-start-column="1" selection-end-line="74" />
+          <first_editor relative-caret-position="174">
+            <caret line="606" lean-forward="true" selection-start-line="606" selection-end-line="606" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
@@ -1082,11 +1067,11 @@
       </provider>
       <provider editor-type-id="Gfm" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/other/前端性能优化/前端性能优化.md">
+    <entry file="file://$PROJECT_DIR$/other/前端性能优化/intersection observer api.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="645">
-            <caret line="165" column="64" selection-start-line="165" selection-start-column="64" selection-end-line="165" selection-end-column="64" />
+          <first_editor relative-caret-position="263">
+            <caret line="75" column="7" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="7" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />

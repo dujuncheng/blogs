@@ -74,7 +74,6 @@ let observer = new IntersectionObserver(onIntersection, config);
 
 
 # 检测兼容性
-
 ```
 ('IntersectionObserver' in window)
 ```
