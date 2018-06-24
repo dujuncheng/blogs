@@ -4,6 +4,9 @@
 
 # 目录
 
+- 小程序
+    - [微信小程序组件化解决方案](https://juejin.im/entry/5a676b3ff265da3e4f0a5215)
+
 - 浏览器
     - [前端性能优化指南](https://github.com/dujuncheng/blogs/blob/2fc1b3235d0687863d1f0c8ba5ca56096d7f7f60/other/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.md)
     - [深入理解浏览器渲染原理（预计27日完结）](https://github.com/dujuncheng/blogs/blob/fc770fdfc94994def3dee8423e94c9ec391a57fc/other/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86.md)
