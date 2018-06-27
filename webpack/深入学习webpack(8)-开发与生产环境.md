@@ -22,7 +22,6 @@ webpack4 提出了mode概念，运行 webpack 时需要指定使用 production �
 
 ## 配置mode
 1. 通过配置文件来配置mode
-
     ```
     module.exports = {
         mode: 'production'
