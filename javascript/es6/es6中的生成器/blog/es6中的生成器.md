@@ -176,13 +176,13 @@ gen.next(); // {value: 5, done: false}
 gen.next(); // {value: undefined, done: true}
 gen.next(); // {value: undefined, done: true} - 之后的任何调用都会返回相同的结果
 
-````
+​````
 
 ### `yield`表达式
 `yield`被称为关键字，而`yield 'abc'`被称为`yield表达式`。
 需要注意的地方是，这个表达式的值并不是由`yield` 右侧的代码决定，而是我们下一次重启生成器传入的值，也就是`next()`传入的参数。
 如下面的代码：
-```js
+​```js
 function *fn(){
     let x = 1 + (yield 'foo')
     console.log(x)
