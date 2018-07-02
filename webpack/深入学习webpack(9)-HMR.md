@@ -89,9 +89,152 @@ module.exports = {
 
 **第一步：webpack 对文件系统进行 watch 打包到内存中**
 
-webpack-dev-middleware 调用 webpack 的 api 对文件系统 watch，当 hello.js 文件发生改变后，webpack 重新对文件进行编译打包，然后保存到内存中。
+首先，执行了bin / webpack-dev-server.js，
+
+```js
+let server;
+
+// 实例化Server构造函数，Server的构造函数放在 /lib/Server.js
+// compiler 是外部webpack传入的方法
+server = new Server(compiler, options);
+ 
+```
+
+new Server传入两个参数，compiler和options。compiler是在webpack-dev-server.js中声明的的，是webpack的一个实例：
+
+```js
+ let compiler;
+  try {
+    compiler = webpack(webpackOptions);
+  } catch (e) {
+    if (e instanceof webpack.WebpackOptionsValidationError) {
+      console.error(colorError(options.stats.colors, e.message));
+      process.exit(1); // eslint-disable-line
+    }
+    throw e;
+  }
+```
+
+options是形如下面的一个对象：
 
 ```
+{
+    hot: true,
+    host: 'localhost',
+    publicPath: '/',
+    filename: 'bundle.js',
+    watchOptions: undefined,
+    hotOnly: false,
+    clientLogLevel: 'info',
+    stats: {
+        cached: false,
+        cachedAssets: false,
+        colors: {
+            supportsColor: [Function: getSupportLevel],
+            stdout: [Object],
+            stderr: [Object]
+        }
+    },
+    open: true,
+    openPage: '',
+    port: 8080
+}
+```
+
+我们来看/lib/Server.js文件里面的Server构造函数：
+
+```js
+function Server() {}
+
+Server.prototype.use = function (){}
+
+Server.prototype.setContentHeader = function(){}
+
+Server.prototype.checkHost= function(){}
+
+Server.prototype.listen = function(){}
+
+Server.prototype.close = function(){}
+
+Server.prototype.sockWrite = function(){}
+
+Server.prototype.serveMagicHtml = function (){}
+
+// send stats to a socket or multiple sockets
+
+Server.prototype._sendStats = function (sockets, stats, force){}
+
+Server.prototype._watch = function(){}
+
+Server.prototype.invalidate = function(){}
+
+Server.addDevServerEntrypoint = require
+
+
+module.exports = Server;
+```
+
+emmm, 非常经典的构造函数。
+
+在 function Server 函数里面，有这样一行代码：
+
+```js
+// Init express server
+const app = this.app = new express();
+  
+  app.get('/__webpack_dev_server__/live.bundle.js', () => {})
+  
+app.get('__webpack_dev_server__/sockjs.bundle.js',()=>{})
+
+app.get('/webpack-dev-server.js', () => {})
+
+app.get('/webpack-dev-server/*', () => {})
+
+app.get('/webpack-dev-server', () => {})
+```
+
+Webpack-dev-serve 是基于express来启动服务的。
+
+同时，我们还看到了这一行代码, 调用webpackDevMiddleware方法，并且传入了compiler(webpack 实例) 和 一些配置项：
+
+```js
+// middleware for serving webpack bundle
+this.middleware = webpackDevMiddleware(compiler, Object.assign({}, options, wdmOptions));
+```
+
+webpackDevMiddleware 是 Share.js 在顶部引入的：
+
+```js
+const webpackDevMiddleware = require('webpack-dev-middleware');
+```
+
+我们找到webpackDevMiddleware方法，它藏在webpack-dev-middleware / middleware.js 中
+
+![](http://p8cyzbt5x.bkt.clouddn.com/UC20180702_152949.png)
+
+这个文件的结构如上图所示。这个方法一进来就调用了一个Share的方法，传入了 context对象。
+
+```js
+	var context = {
+		state: false,
+		webpackStats: undefined,
+		callbacks: [],
+		options: options,
+	    // 注意这里的 context.compiler，就是实例化的那个webpack
+		compiler: compiler,
+		watching: undefined,
+		forceRebuild: false
+	};
+	var shared = Shared(context);
+```
+
+Share 方法是在 webpack-dev-middleware / lib / shared.js 中的。 share.js的结构如下图所示：
+
+![](http://p8cyzbt5x.bkt.clouddn.com/UC20180702_154016.png)
+
+其中执行了 share.startWatch() 方法，这个方法在上面红框部分被定义的。本质是调用 webpack 的 api 对文件系统 watch。当 hello.js 文件发生改变后，webpack 重新对文件进行编译打包，然后保存到内存中。
+
+```javascript
 // webpack-dev-middleware/lib/Shared.js
 if(!options.lazy) {
     var watching = compiler.watch(options.watchOptions, share.handleCompilerCallback);
@@ -153,7 +296,7 @@ webpack-dev-server/client 当接收到 type 为 hash 消息后会将 hash 值暂
 
 在 reload 操作中，webpack-dev-server/client 会根据 hot 配置决定是刷新浏览器还是对代码进行热更新（HMR）。
 
-```
+```javascript
 // webpack-dev-server/client/index.js
 hash: function msgHash(hash) {
     currentHash = hash;
@@ -176,6 +319,103 @@ function reloadApp() {
   }
 }
 ```
+
+首先将 hash 值暂存到 currentHash 变量，当接收到 ok 消息后，对 App 进行 reload。如果配置了模块热更新，就调用 webpack/hot/emitter 将最新 hash 值发送给 webpack，然后将控制权交给 webpack 客户端代码。如果没有配置模块热更新，就直接调用 location.reload 方法刷新页面。
+
+ **第四步：webpack 接收到最新 hash 值验证并请求模块代码**
+
+在这一步，其实是 webpack 中三个模块（三个文件，后面英文名对应文件路径）之间配合的结果，首先是 webpack/hot/dev-server（以下简称 dev-server） 监听第三步 webpack-dev-server/client 发送的 `webpackHotUpdate` 消息，调用 webpack/lib/HotModuleReplacement.runtime（简称 HMR runtime）中的 check 方法，检测是否有新的更新，在 check 过程中会利用 webpack/lib/JsonpMainTemplate.runtime（简称 jsonp runtime）中的两个方法 `hotDownloadUpdateChunk` 和 `hotDownloadManifest` ， 第二个方法是调用 AJAX 向服务端请求是否有更新的文件，如果有将发更新的文件列表返回浏览器端，而第一个方法是通过 jsonp 请求最新的模块代码，然后将代码返回给 HMR runtime，HMR runtime 会根据返回的新模块代码做进一步处理，可能是刷新页面，也可能是对模块进行热更新。
+
+两次请求的都是使用上一次的 hash 值拼接的请求文件名，hotDownloadManifest 方法返回的是最新的 hash 值，hotDownloadUpdateChunk 方法返回的就是最新 hash 值对应的代码块。然后将新的代码块返回给 HMR runtime，进行模块热更新。
+
+
+
+**第五步：HotModuleReplacement.runtime 对模块进行热更新**
+
+这一步是整个模块热更新（HMR）的关键步骤，而且模块热更新都是发生在HMR runtime 中的 hotApply 方法中，这儿我不打算把 hotApply 方法整个源码贴出来了，因为这个方法包含 300 多行代码，我将只摘取关键代码片段。
+
+```js
+// webpack/lib/HotModuleReplacement.runtime
+function hotApply() {
+    // ...
+    var idx;
+    var queue = outdatedModules.slice();
+    while(queue.length > 0) {
+        moduleId = queue.pop();
+        module = installedModules[moduleId];
+        // ...
+        // remove module from cache
+        delete installedModules[moduleId];
+        // when disposing there is no need to call dispose handler
+        delete outdatedDependencies[moduleId];
+        // remove "parents" references from all children
+        for(j = 0; j < module.children.length; j++) {
+            var child = installedModules[module.children[j]];
+            if(!child) continue;
+            idx = child.parents.indexOf(moduleId);
+            if(idx >= 0) {
+                child.parents.splice(idx, 1);
+            }
+        }
+    }
+    // ...
+    // insert new code
+    for(moduleId in appliedUpdate) {
+        if(Object.prototype.hasOwnProperty.call(appliedUpdate, moduleId)) {
+            modules[moduleId] = appliedUpdate[moduleId];
+        }
+    }
+    // ...
+}
+```
+
+
+
+从上面 hotApply 方法可以看出，模块热替换主要分三个阶段，第一个阶段是找出 outdatedModules 和 outdatedDependencies，这儿我没有贴这部分代码，有兴趣可以自己阅读源码。第二个阶段从缓存中删除过期的模块和依赖，如下：
+
+```
+delete installedModules[moduleId];
+delete outdatedDependencies[moduleId];
+```
+
+
+
+第三个阶段是将新的模块添加到 modules 中，当下次调用 __webpack_require__ (webpack 重写的 require 方法)方法的时候，就是获取到了新的模块代码了。
+
+模块热更新的错误处理，如果在热更新过程中出现错误，热更新将回退到刷新浏览器，这部分代码在 dev-server 代码中，简要代码如下：
+
+```
+module.hot.check(true).then(function(updatedModules) {
+    if(!updatedModules) {
+        return window.location.reload();
+    }
+    // ...
+}).catch(function(err) {
+    var status = module.hot.status();
+    if(["abort", "fail"].indexOf(status) >= 0) {
+        window.location.reload();
+    }
+});
+```
+
+dev-server 先验证是否有更新，没有代码更新的话，重载浏览器。如果在 hotApply 的过程中出现 abort 或者 fail 错误，也进行重载浏览器。
+
+ **第六步：业务代码需要做些什么？**
+
+当 hello.js 文件修改后， index.js 文件中调用 HMR 的 accept 方法，添加模块更新后的处理函数，及时将 hello 方法的返回值插入到页面中。代码如下：
+
+```js
+// index.js
+if(module.hot) {
+    module.hot.accept('./hello.js', function() {
+        div.innerHTML = hello()
+    })
+}
+```
+
+
+
+
 
 
 
