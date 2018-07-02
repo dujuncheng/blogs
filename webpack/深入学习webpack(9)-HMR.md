@@ -232,31 +232,188 @@ Share 方法是在 webpack-dev-middleware / lib / shared.js 中的。 share.js�
 
 ![](http://p8cyzbt5x.bkt.clouddn.com/UC20180702_154016.png)
 
-其中执行了 share.startWatch() 方法，这个方法在上面红框部分被定义的。本质是调用 webpack 的 api 对文件系统 watch。当 hello.js 文件发生改变后，webpack 重新对文件进行编译打包，然后保存到内存中。
+其中执行了 share.startWatch() 方法，这个方法在上面红框部分被定义的。
+
+#### share.startWatch 
+
+这个方法本质是调用 webpack 的 api 对文件系统 watch。当 hello.js 文件发生改变后，webpack 重新对文件进行编译打包，然后保存到内存中。
 
 ```javascript
 // webpack-dev-middleware/lib/Shared.js
-if(!options.lazy) {
-    var watching = compiler.watch(options.watchOptions, share.handleCompilerCallback);
-    context.watching = watching;
-}
+startWatch: function() {
+			var options = context.options;
+			var compiler = context.compiler;
+			// start watching
+			if(!options.lazy) {
+				var watching = compiler.watch(options.watchOptions, share.handleCompilerCallback);
+				context.watching = watching;
+				//context.watching得到原样返回的Watching对象
+			} else {
+			 //如果是lazy，表示我们不是watching监听，而是请求的时候才编译
+				context.state = true;
+			}
+		}
 ```
 
- webpack 将 bundle.js 文件打包到了内存中，访问内存中的代码比访问文件系统中的文件更快，而且也减少了代码写入文件的开销，这一切都归功于[memory-fs](https://link.juejin.im/?target=http%3A%2F%2Flink.zhihu.com%2F%3Ftarget%3Dhttps%253A%2F%2Fgithub.com%2Fwebpack%2Fmemory-fs)，
+ 
 
-webpack-dev-middleware 将 webpack 原本的 outputFileSystem 替换成了MemoryFileSystem 实例，这样代码就将输出到内存中。webpack-dev-middleware 中该部分源码如下：
+#### share.handleRangeHeaders
 
+share对象身上有一个 handleRangeHeaders 方法，代码如下：
+
+```js
+handleRangeHeaders: function handleRangeHeaders(content, req, res) {
+  // 下面的api是使用了express的api, 如果不是使用了express, 那可能需要自己写逻辑来增加这个字段头了。
+  res.setHeader("Accept-Ranges", "bytes");
+  if (req.headers.range) {
+    var ranges = parseRange(content.length, req.headers.range);
+    // 不满足 ranges
+    if (-1 == ranges) {
+      res.setHeader("Content-Range", "bytes */" + content.length);
+      res.statusCode = 416;
+    }
+    
+    // range 有效
+    if (-2 != ranges && ranges.length === 1) {
+      res.statusCode = 206;
+      var length = content.length;
+      res.setHeader(
+        "Content-Range",
+        "bytes " + ranges[0].start + "-" + ranges[0].end + "/" + length
+      );
+      content = content.slice(ranges[0].start, ranges[0].end + 1);
+    }
+  }
+  return content;
+},
 ```
-// webpack-dev-middleware/lib/Shared.js
-var isMemoryFs = !compiler.compilers && compiler.outputFileSystem instanceof MemoryFileSystem;
-if(isMemoryFs) {
+
+该方法传入三个参数： content（请求文件的内容），req, res
+
+range字段是在 HTTP/1.1里新增的一个 header field，也是现在众多号称多线程下载工具（如 FlashGet、迅雷等）实现多线程下载的核心所在。
+
+#### share.setFs
+
+`setFs` 方法是改写node的fs。我们打包出来的东西不写入硬盘， 而是将 bundle.js 文件打包到了内存中，访问内存中的代码比访问文件系统中的文件更快，而且也减少了代码写入文件的开销。这个借助了[memory-fs](https://link.juejin.im/?target=http%3A%2F%2Flink.zhihu.com%2F%3Ftarget%3Dhttps%253A%2F%2Fgithub.com%2Fwebpack%2Fmemory-fs)的库
+
+```js
+setFs: function(compiler) {
+    // compiler.outputPath 必须是绝对路径，否则就报错
+  if(typeof compiler.outputPath === "string" && !pathIsAbsolute.posix(compiler.outputPath) && !pathIsAbsolute.win32(compiler.outputPath)) {
+    throw new Error("`output.path` needs to be an absolute path or `/`.");
+  }
+  
+  var fs;
+  var isMemoryFs = !compiler.compilers && compiler.outputFileSystem instanceof MemoryFileSystem;
+  if(isMemoryFs) {
     fs = compiler.outputFileSystem;
-} else {
+  } else {
     fs = compiler.outputFileSystem = new MemoryFileSystem();
+  }
+  context.fs = fs;
+},
+```
+
+webpack-dev-middleware 将 webpack 原本的 outputFileSystem 替换成了MemoryFileSystem 实例。
+
+这样 bundle.js 文件代码就作为一个简单 javascript 对象保存在了内存中.
+
+####  share.handleRequest
+
+上文说了， bundle.js被存在了内存中，当浏览器请求 bundle.js 文件时，devServer就直接去内存中找到上面保存的 javascript 对象返回给浏览器端。handleRequst 这个方法就是做这件事情的。
+
+```js
+handleRequest: function (filename, processRequest, req) {
+    // 如果是lazy-mode, 那就请求来了再 rebuild
+    if (context.options.lazy && (!context.options.filename || context.options.filename.test(filename)))
+        share.rebuild();
+    // 如果filename里面有hash，那么我们通过fs从内存中读取文件名，同时回调就是直接发送消息到客户端
+    if (HASH_REGEXP.test(filename)) {
+        try {
+            if (context.fs.statSync(filename).isFile()) {
+                processRequest();
+                return;
+            }
+        } catch (e) {}
+    }
+    share.ready(processRequest, req);
+}, 
+```
+
+#### processRequest
+
+上面的代码中，如过可以通过fs从内存中读取文件名，那么直接调用processRequest方法，processRequest就是直接把资源发送到客户端:
+
+```js
+function processRequest() {
+    try {
+        var stat = context.fs.statSync(filename);
+        // 处理不是文件的情况
+        if (!stat.isFile()) {
+            if (stat.isDirectory()) {
+                var index = context.options.index;
+
+                if (index === undefined || index === true) {
+                    index = "index.html";
+                } else if (!index) {
+                    throw "next";
+                }
+
+                filename = pathJoin(filename, index);
+                stat = context.fs.statSync(filename);
+                if (!stat.isFile()) throw "next";
+            } else {
+                throw "next";
+            }
+        }
+    } catch (e) {
+        return resolve(goNext());
+    }
+
+    // server content
+    var content = context.fs.readFileSync(filename);
+    content = shared.handleRangeHeaders(content, req, res);
+    var contentType = mime.lookup(filename);
+    // do not add charset to WebAssembly files, otherwise compileStreaming will fail in the client
+    if (!/\.wasm$/.test(filename)) {
+        contentType += "; charset=UTF-8";
+    }
+    res.setHeader("Content-Type", contentType);
+    res.setHeader("Content-Length", content.length);
+    // 自定义的头部，遍历加上
+    if (context.options.headers) {
+        for (var name in context.options.headers) {
+            res.setHeader(name, context.options.headers[name]);
+        }
+    }
+    // Express automatically sets the statusCode to 200, but not all servers do (Koa).
+    res.statusCode = res.statusCode || 200;
+    if (res.send) res.send(content);
+    else res.end(content);
+    resolve();
 }
 ```
 
-这样 bundle.js 文件代码就作为一个简单 javascript 对象保存在了内存中，当浏览器请求 bundle.js 文件时，devServer就直接去内存中找到上面保存的 javascript 对象返回给浏览器端。
+所以，在lazy模式下如果我们没有指定文件名filename，那么我们每次都是会重新rebuild的！但是如果指定了文件名，那么只有访问该文件名的时候才会rebuild
+
+#### share.rebuild
+
+```js
+ rebuild: function rebuild() {
+			//如果没有通过compiler.done产生过State对象，那么我们设置forceRebuild为true
+			//如果已经有State表明以前build过，那么我们调用run方法
+			if(context.state) {
+				context.state = false;
+				context.compiler.run(share.handleCompilerCallback);
+			} else {
+				context.forceRebuild = true;
+			}
+		},
+```
+
+
+
+
 
 **第二步：devServer 通知浏览器端文件发生改变**
 
