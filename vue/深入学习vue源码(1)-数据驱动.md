@@ -1,6 +1,24 @@
 ## 调试的一个好方法
 
-以一个常见的vue项目为例， 
+以一个常见的vue项目为例，是用webpack进行打包的。
+
+如果在初始化项目的时候，选择了`runtime + compiler` 版本，就会在webpack配置文件中，添加上下面这行代码：
+
+```js
+  resolve: {
+    extensions: ['.js', '.vue', '.json'],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': resolve('src'),
+    }
+  }
+```
+
+`resolve/alias`的配置项是说，将vue的依赖是引入`'vue/dist/vue.esm.js'`文件。
+
+如果我在``'vue/dist/vue.esm.js'` 里面打了一个debugger，就可以在google浏览器里面看到了：
+
+![](http://p8cyzbt5x.bkt.clouddn.com/UC20180703_224745.png)
 
 
 
@@ -8,7 +26,170 @@
 
 ## **数据驱动**
 
-Vue.js 一个核心思想是数据驱动。也就是页面是由数据渲染出来的，我们直接修改数据，无需关注dom, 就可以修改页面的样式之类的。接下里，我们要弄清楚模板和数据如何渲染成最终的 DOM，至于修改数据如何驱动视图变化，会在之后的章节里里面介绍。
+Vue.js 一个核心思想是数据驱动。也就是页面是由数据渲染出来的，我们直接修改数据，无需关注dom, 就可以修改页面的样式之类的。所以数据是vue的核心。
+
+```js
+export default {
+  name: 'HelloWorld',
+  data () {
+    return {
+      name: 'dudu'
+    }
+  },
+  mounted () {
+     // 为什么我们可以在这里获取到 name
+    console.log(this.name)
+  }
+}
+```
+
+上面的代码中，我在data里面定义了一个name变量，为什么会在mounted里面可以访问到呢？
+
+我们找到 `node_modules/_vue@2.5.16@vue/src/core/instance/state.js` 里面`initState` 方法：
+
+```js
+export function initState (vm: Component) {
+  vm._watchers = []
+    // vm 指向的是vue的实例
+    // vm.$options是我们写的vue的配置项(就是module.export的对象)
+  const opts = vm.$options
+   // 初始化 props
+  if (opts.props) initProps(vm, opts.props)
+    // 初始化 methods
+  if (opts.methods) initMethods(vm, opts.methods)
+    // 如果有 data ，则初始化Data
+  if (opts.data) {
+    initData(vm)
+  } else {
+    observe(vm._data = {}, true /* asRootData */)
+  }
+  if (opts.computed) initComputed(vm, opts.computed)
+  if (opts.watch && opts.watch !== nativeWatch) {
+    initWatch(vm, opts.watch)
+  }
+}
+```
+
+调用了 `initData`方法来初始化data,  `initData` 的声明如下：
+
+```js
+function initData (vm: Component) {
+  let data = vm.$options.data
+  // 先判断 vm._data 是否是方法
+  data = vm._data = typeof data === 'function'
+    // 如果vm._data是方法，则调用getData来拿
+    ? getData(data, vm)
+    : data || {}
+    // 判断data 是否是一个object类型的
+  if (!isPlainObject(data)) {
+    data = {}
+    process.env.NODE_ENV !== 'production' && warn(
+      'data functions should return an object:\n' +
+      'https://vuejs.org/v2/guide/components.html#data-Must-Be-a-Function',
+      vm
+    )
+  }
+
+  const keys = Object.keys(data)
+  const props = vm.$options.props
+  const methods = vm.$options.methods
+  let i = keys.length
+  while (i--) {
+    const key = keys[i]
+    if (process.env.NODE_ENV !== 'production') {
+      if (methods && hasOwn(methods, key)) {
+        warn(
+          `Method "${key}" has already been defined as a data property.`,
+          vm
+        )
+      }
+    }
+    if (props && hasOwn(props, key)) {
+      process.env.NODE_ENV !== 'production' && warn(
+        `The data property "${key}" is already declared as a prop. ` +
+        `Use prop default value instead.`,
+        vm
+      )
+    } else if (!isReserved(key)) {
+      proxy(vm, `_data`, key)
+    }
+  }
+  // observe data
+  observe(data, true /* asRootData */)
+}
+```
+
+下面是对上面代码的说明（一些小的逻辑就以注释的形式写在了代码中）：
+
+1.  `typeof data === 'function'` 是判断 vm._data是否是 function, 因为vue允许data是一个方法。
+
+```js
+module.export = {
+    data () {
+        return {
+            name: 'dudu'
+        }
+    }
+}
+```
+
+如果 data 是一个函数的话，需要使用 getData() 方法来拿：
+
+```js
+export function getData (data: Function, vm: Component): any {
+  // #7573 disable dep collection when invoking data getters
+  pushTarget()
+  try {
+     // 其实很简单，就是调用 vm.data()方法，期待会返回一个对象
+    return data.call(vm, vm)
+  } catch (e) {
+    handleError(e, vm, `data()`)
+    return {}
+  } finally {
+    popTarget()
+  }
+}
+```
+
+2.  isPlainObject 是判断是否是一个对象；其实很简单，就是调用 toString 的方法，判断是否等于 `[object Object]`
+
+   ```js
+   export function isPlainObject (obj) {
+       return Object.prototype.toString.call(obj) === '[object Object]'
+   }
+   ```
+
+3. 循环遍历data,  看data中有咩有定义的字段和method 或者 prop 重名的
+
+4. 代理 `this._data` , 说白了，就是让 `this.name` 实际上访问的是`this._data.name`
+
+   ```js
+   const sharedPropertyDefinition = {
+     enumerable: true,
+     configurable: true,
+     get: noop,
+     set: noop
+   }
+   export function proxy (target: Object, sourceKey: string, key: string) {
+     sharedPropertyDefinition.get = function proxyGetter () {
+       return this[sourceKey][key]
+     }
+     sharedPropertyDefinition.set = function proxySetter (val) {
+       this[sourceKey][key] = val
+     }
+     Object.defineProperty(target, key, sharedPropertyDefinition)
+   }
+   ```
+
+   
+
+
+
+
+
+
+
+接下里，我们要弄清楚模板和数据如何渲染成最终的 DOM，至于修改数据如何驱动视图变化，会在之后的章节里里面介绍。
 
 ## **new Vue 发生了什么**
 
