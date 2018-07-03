@@ -183,12 +183,6 @@ export function getData (data: Function, vm: Component): any {
 
    
 
-
-
-
-
-
-
 接下里，我们要弄清楚模板和数据如何渲染成最终的 DOM，至于修改数据如何驱动视图变化，会在之后的章节里里面介绍。
 
 ## **new Vue 发生了什么**
@@ -281,7 +275,7 @@ Vue 中我们是通过 `$mount` 实例方法去挂载 `vm`的，`$mount` 方
 
 
 
-src/platform/web/entry-runtime-with-compiler.js
+我们找到 $mount方法的定义，在`node_modules/_vue@2.5.16@vue/src/platforms/web/entry-runtime-with-compiler.js`文件里面。
 
 这里的$mount方法做得事情：
 
@@ -292,6 +286,7 @@ src/platform/web/entry-runtime-with-compiler.js
 // 先缓存原来的$mount方法
 const mount = Vue.prototype.$mount
 // 再重新定义$mount方法
+// 之所以再重新定义一个 mount方法，是因为我们分析的是runtime + compiler版本
 Vue.prototype.$mount = function (
   el?: string | Element,
   hydrating?: boolean
@@ -299,7 +294,7 @@ Vue.prototype.$mount = function (
   // query很简单，就是封装了一个document.querySelect()
   el = el && query(el)
 
-  // el 不能是html,body等根节点
+  // el 不能是html,body等根节点, 因为el会覆盖原有的挂载点，所以body和html肯定不能覆盖呀
   if (el === document.body || el === document.documentElement) {
     process.env.NODE_ENV !== 'production' && warn(
       `Do not mount Vue to <html> or <body> - mount to normal elements instead.`
@@ -365,7 +360,49 @@ Vue.prototype.$mount = function (
 }
 ```
 
-这里我们要牢记，在 Vue 2.0 版本中，所有 Vue 的组件的渲染最终都需要 `render` 方法，无论我们是用单文件 .vue 方式开发组件，还是写了 `el` 或者 `template` 属性，最终都会转换成 `render` 方法，那么这个过程是 Vue 的一个“在线编译”的过程，它是调用 `compileToFunctions` 方法实现的，编译过程我们之后会介绍。最后，调用原先原型上的 `$mount` 方法挂载。
+下面是对上面代码的解读：
+
+1. query 方法很简单，就是封装了一下 document.querySelect()
+
+   ```js
+   export function query (el: string | Element): Element {
+     if (typeof el === 'string') {
+       const selected = document.querySelector(el)
+       if (!selected) {
+         process.env.NODE_ENV !== 'production' && warn(
+           'Cannot find element: ' + el
+         )
+         return document.createElement('div')
+       }
+       return selected
+     } else {
+       return el
+     }
+   }
+   ```
+
+2. el 不能覆盖body 和HTML
+
+   ```js
+   el === document.body || el === document.documentElement
+   ```
+
+   因为都是dom节点，可以通过全等来判断是否是同一个节点：
+
+   ```js
+   document.querySelector('#id2') === document.body  // true
+   document.querySelector('#id1') === document.documentElement // true
+   ```
+
+3.  对template 进行处理
+
+   这里为什么会对`template` 进行处理呢？
+
+   无论我们是用单文件 .vue 方式开发组件，还是写了 `el` 或者 `template` 属性，最终都会转换成 `render` 方法，
+
+   getOuterHTML()  pollyfill
+
+4. 最后是mount.call(this, el, hydrating)，本质调的还是`compileToFunctions` 方法
 
 
 
@@ -391,6 +428,7 @@ export function mountComponent (
   hydrating?: boolean
 ): Component {
   vm.$el = el
+    // 如果没有render函数，也就是说，template编译成render失败了
   if (!vm.$options.render) {
     vm.$options.render = createEmptyVNode
     if (process.env.NODE_ENV !== 'production') {
@@ -442,15 +480,10 @@ export function mountComponent (
     }
   }
 
-  // we set this to vm._watcher inside the watcher's constructor
-  // since the watcher's initial patch may call $forceUpdate (e.g. inside child
-  // component's mounted hook), which relies on vm._watcher being already defined
-  new Watcher(vm, updateComponent, noop, null, true /* isRenderWatcher */)
+
+  new Watcher(vm, updateComponent, noop, null, true)
   hydrating = false
 
-  // manually mounted instance, call mounted on self
-  // mounted is called for render-created child components in its inserted hook
-	
 	// vm.$vnode 表示 Vue 实例的父虚拟 Node，所以它为 Null 则表示当前是根 Vue 的实例。
   if (vm.$vnode == null) {
     vm._isMounted = true
@@ -459,6 +492,11 @@ export function mountComponent (
   return vm
 }
 ```
+
+1. 如果没有render函数，说明编译失败了，会报错。这个坑我曾经就遇到过，当时花了很长的时间去排查，因为我本地开发使用的是 runtime + compiler 版本的，所以写了 `template` 也会被编译成 `render`函数，但是线上的vue版本是 runtime版本的，于是就报错了。
+2. 上面的代码本质就是一句话：`vm._update(vm._render(), hydrating)` 
+
+
 
 
 
