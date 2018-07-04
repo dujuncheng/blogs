@@ -33,9 +33,10 @@
     - [深入学习webpack(9)-XHR](https://github.com/dujuncheng/blogs/blob/master/webpack/%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0webpack(9)-HMR.md)
     - [深入学习webpack(10)-分离代码](https://github.com/dujuncheng/blogs/blob/master/webpack/%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0webpack(10)-%E5%88%86%E7%A6%BB%E4%BB%A3%E7%A0%81.md)
     - [深入学习webpack(11)-控制体积](https://github.com/dujuncheng/blogs/blob/master/webpack/%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0webpack(11)-%E6%8E%A7%E5%88%B6%E4%BD%93%E7%A7%AF.md)
-    
+
 - http 
     - [http缓存之路](https://github.com/dujuncheng/blogs/blob/master/http/http%E7%BC%93%E5%AD%98%E4%B9%8B%E8%B7%AF.md)    
 
 - other
     - [程序员的出路之一](https://github.com/dujuncheng/blogs/blob/b1d07ddbfb52f42634ab8481c86c1352b748cc86/%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%B7%A5%E4%BD%9C/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E5%87%BA%E8%B7%AF%E4%B9%8B%E4%B8%80.md) 
+    - 深入浅出理解即将到来的明斯基时刻
