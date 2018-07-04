@@ -39,4 +39,4 @@
 
 - other
     - [程序员的出路之一](https://github.com/dujuncheng/blogs/blob/b1d07ddbfb52f42634ab8481c86c1352b748cc86/%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%B7%A5%E4%BD%9C/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E5%87%BA%E8%B7%AF%E4%B9%8B%E4%B8%80.md) 
-    - 深入浅出理解即将到来的明斯基时刻
+    - [深入浅出理解即将到来的明斯基时刻](https://github.com/dujuncheng/blogs/blob/master/other/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E7%90%86%E8%A7%A3%E5%8D%B3%E5%B0%86%E5%88%B0%E6%9D%A5%E7%9A%84%E6%98%8E%E6%96%AF%E5%9F%BA%E6%97%B6%E5%88%BB.md)
