@@ -70,7 +70,7 @@ export function initState (vm: Component) {
 }
 ```
 
-调用了 `initData`方法来初始化data,  `initData` 的声明如下：
+上面的代码中，调用 `initData`方法来初始化data,  我们找到`initData` 的声明如下：
 
 ```js
 function initData (vm: Component) {
@@ -119,9 +119,9 @@ function initData (vm: Component) {
 }
 ```
 
-下面是对上面代码的说明（一些小的逻辑就以注释的形式写在了代码中）：
+下面是对上面代码的说明：
 
-1.  `typeof data === 'function'` 是判断 vm._data是否是 function, 因为vue允许data是一个方法。
+1.  `typeof data === 'function'` 判断 `vm._data`是否是 function, 因为vue允许data是一个方法。比如说下面就是推荐的使用方法：
 
 ```js
 module.export = {
@@ -159,7 +159,21 @@ export function getData (data: Function, vm: Component): any {
    }
    ```
 
-3. 循环遍历data,  看data中有咩有定义的字段和method 或者 prop 重名的
+3. 循环遍历data,  看data中有没有定义的字段和method 或者 prop 重名的
+
+   ```js
+   let keys = Object.key(data);
+   let i = keys.length;
+   while(i -- ) {
+      keys[i]
+   }
+   ```
+
+   然后调用 `hasOwn` 方法，hasOwn 方法声明如下：
+
+   
+
+   
 
 4. 代理 `this._data` , 说白了，就是让 `this.name` 实际上访问的是`this._data.name`
 
@@ -498,15 +512,19 @@ export function mountComponent (
 
 
 
+上面的代码中，最核心的是 `vm._render` 和 `vm._update`, 我们下面来看这两个方法。
 
 
-我们看到，上面的代码中，最核心的是 `vm._render` 和 `vm._update`, 我们下面来看这两个方法：
+
+## vue._render
 
 Vue 的 `_render` 方法是实例的一个私有方法，它用来把实例渲染成一个虚拟 Node。它的定义在 `src/core/instance/render.js` 文件中：
 
 ```js
   Vue.prototype._render = function (): VNode {
     const vm: Component = this
+      // 从vm.$options 中拿到 render 函数
+      // render 函数有可能是用户自己写的，也有可能是编译生成的
     const { render, _parentVnode } = vm.$options
 
     // reset _rendered flag on slots for duplicate slot check
@@ -521,12 +539,12 @@ Vue 的 `_render` 方法是实例的一个私有方法，它用来把实例渲
       vm.$scopedSlots = _parentVnode.data.scopedSlots || emptyObject
     }
 
-    // set parent vnode. this allows render functions to have access
-    // to the data on the placeholder node.
+  
     vm.$vnode = _parentVnode
-    // render self
     let vnode
     try {
+       // call 方法的第一个参数是当前上下文，
+       // vm._renderProxy在生产环境下就是vm, 也就是this, 在开发环境可能是一个proxy对象
       vnode = render.call(vm._renderProxy, vm.$createElement)
     } catch (e) {
       handleError(e, vm, `render`)
@@ -565,7 +583,38 @@ Vue 的 `_render` 方法是实例的一个私有方法，它用来把实例渲
   }
 ```
 
+下面是对上面代码的解读：
 
+1. render 可以是编译出来的，也可以是用户自己写的
+
+   ```
+   vnode = render.call(vm._renderProxy, vm.$createElement)
+   ```
+
+   上面的代码中，render 函数在调用的时候，会传入一个 creatElement 方法。如果你之前写过 render 函数的话，就会对该方法有印象。
+
+   ```js
+   new Vue({
+     el: '#app',
+     data () {
+       return {
+         name: 'hhahah'
+       }
+     },
+     render (createElement) {
+       // 生成的节点会完全的覆盖之前的节点，el不能是body 或者 html
+       return createElement('div', {
+         attrs: {
+           id: 'app1'
+         }
+       }, this.name)
+     }
+   })
+   ```
+
+    
+
+   
 
 这段代码最关键的是 `render` 方法的调用，我们在平时的开发工作中手写 `render` 方法的场景比较少，而写的比较多的是 `template` 模板，在之前的 `mounted` 方法的实现中，会把 `template` 编译成 `render` 方法，但这个编译过程是非常复杂的，我们不打算在这里展开讲，之后会专门花一个章节来分析 Vue 的编译过程。
 
