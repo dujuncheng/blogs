@@ -171,11 +171,28 @@ export function getData (data: Function, vm: Component): any {
 
    然后调用 `hasOwn` 方法，hasOwn 方法声明如下：
 
-   
+   ```js
+   const hasOwnProperty = Object.prototype.hasOwnProperty;
+   function hasOwn (obj, key) {
+     return hasOwnProperty.call(obj, key)
+   }
+   ```
+
+   hasOwnProperty（）就是对 Objet.prototype.hasOwnProperty()的封装。之所以采用call 的方式，是为了防止 hasOwnProperty 被同名的属性名重写。
+
+   我们在vue中声明变量时，不能用$ 和 _ 开头，这个判断是通过isReserved来实现的。
+
+   ```js
+   // 判断变量名称是否是 $ 或者 _ 开头
+   function isReserved (str) {
+     const c = (str + '').charCodeAt(0);
+     return c === 0x24 || c === 0x5F
+   }
+   ```
 
    
 
-4. 代理 `this._data` , 说白了，就是让 `this.name` 实际上访问的是`this._data.name`
+4.  proxy 方法用来代理 `this._data` , 说白了，就是让 `this.name` 实际上访问的是`this._data.name`
 
    ```js
    const sharedPropertyDefinition = {
