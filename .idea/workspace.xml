@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="7ac1e9c6-48cb-4e72-8717-b5269abe61da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/other/前端性能优化/demo/test_bounce_btn/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/other/前端性能优化/demo/test_bounce_btn/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/other/前端性能优化/demo/test_bounce_btn/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/other/前端性能优化/优化记录.md" beforeDir="false" afterPath="$PROJECT_DIR$/other/前端性能优化/优化记录.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/other/前端性能优化/深入理解浏览器渲染原理.md" beforeDir="false" afterPath="$PROJECT_DIR$/other/前端性能优化/深入理解浏览器渲染原理.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,8 +22,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/other/前端性能优化/demo/test_bounce_btn/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+            <state relative-caret-position="377">
+              <caret line="239" column="29" selection-start-line="239" selection-start-column="29" selection-end-line="239" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -128,9 +131,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="877" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -313,14 +315,8 @@
       <workItem from="1530272256326" duration="148000" />
       <workItem from="1530272419915" duration="784000" />
       <workItem from="1530497430324" duration="1623000" />
-      <workItem from="1530856654292" duration="77000" />
-    </task>
-    <task id="LOCAL-00046" summary="&#10;add blog">
-      <created>1528954437098</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1528954437098</updated>
+      <workItem from="1530856654292" duration="1084000" />
+      <workItem from="1530857788312" duration="2686000" />
     </task>
     <task id="LOCAL-00047" summary="&#10;add blog">
       <created>1528954632092</created>
@@ -658,11 +654,18 @@
       <option name="project" value="LOCAL" />
       <updated>1530497435497</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary=" add blogs about webpack">
+      <created>1530856745558</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1530856745559</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155008000" />
+    <option name="totallyTimeSpent" value="158701000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -674,18 +677,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Key Promoter X" order="3" weight="0.32832617" />
       <window_info anchor="right" id="GfmBrowser" order="4" weight="0.32971507" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26752505" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27110156" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32992327" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32948717" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.33665836" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32668328" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32668328" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -700,21 +703,21 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.0" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32992327" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.33665836" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="GfmBrowser" order="4" weight="0.32971507" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32793018" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.33665836" />
       <window_info anchor="right" id="Key Promoter X" order="3" weight="0.32897604" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32948717" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
@@ -977,8 +980,8 @@
     <entry file="file://$PROJECT_DIR$/other/test_zhoubao.md" />
     <entry file="file://$PROJECT_DIR$/other/前端性能优化/demo/test_bounce_btn/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        <state relative-caret-position="377">
+          <caret line="239" column="29" selection-start-line="239" selection-start-column="29" selection-end-line="239" selection-end-column="29" />
         </state>
       </provider>
     </entry>
