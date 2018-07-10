@@ -1,8 +1,6 @@
 ## 如何在浏览器中调试
 
-以一个常见的vue项目为例，是用webpack进行打包的。
-
-如果在初始化项目的时候，选择了`runtime + compiler` 版本，就会在webpack配置文件中，添加上下面这行代码：
+以一个常见的vue项目为例，如果我们通过`vue-cli`在初始化vue项目的时候，选择了`runtime + compiler` 版本，就会在webpack配置文件中，添加上下面这行代码：
 
 ```js
   resolve: {
@@ -14,7 +12,7 @@
   }
 ```
 
-`resolve/alias`的配置项是说，将vue的依赖是引入`'vue/dist/vue.esm.js'`文件。
+`resolve.alias`的配置项的作用是，指定vue的依赖是引入`'vue/dist/vue.esm.js'`文件。
 
 如果我在``'vue/dist/vue.esm.js'` 里面打了一个debugger，就可以在google浏览器里面看到了：
 
@@ -26,7 +24,7 @@
 
 ## **数据驱动**
 
-Vue.js 一个核心思想是数据驱动。也就是页面是由数据渲染出来的，我们直接修改数据，无需关注dom, 就可以修改页面的样式之类的。所以数据是vue的核心。
+Vue.js 一个核心思想是数据驱动，也就是页面是由数据渲染出来的。我们直接修改数据，无需关注dom, 就可以修改页面的样式之类的。
 
 ```js
 export default {
@@ -44,6 +42,8 @@ export default {
 ```
 
 上面的代码中，我在data里面定义了一个name变量，为什么会在mounted里面可以访问到呢？
+
+我们接下来深入源码来分析：
 
 我们找到 `node_modules/_vue@2.5.16@vue/src/core/instance/state.js` 里面`initState` 方法：
 
@@ -121,7 +121,7 @@ function initData (vm: Component) {
 
 下面是对上面代码的说明：
 
-1.  `typeof data === 'function'` 判断 `vm._data`是否是 function, 因为vue允许data是一个方法。比如说下面就是推荐的使用方法：
+1.  第4行代码： `typeof data === 'function'` ，判断 `vm._data`是否是 function, 因为vue允许data是一个方法。比如说下面就是推荐的使用方法：
 
 ```js
 module.export = {
@@ -133,7 +133,7 @@ module.export = {
 }
 ```
 
-如果 data 是一个函数的话，需要使用 getData() 方法来拿：
+如果 data 是一个函数的话，需要使用 getData() 方法来拿。
 
 ```js
 export function getData (data: Function, vm: Component): any {
