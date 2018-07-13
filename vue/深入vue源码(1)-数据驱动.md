@@ -89,7 +89,7 @@ function initData (vm: Component) {
       vm
     )
   }
-
+  // 遍历data，看是否有重名的
   const keys = Object.keys(data)
   const props = vm.$options.props
   const methods = vm.$options.methods
@@ -231,7 +231,7 @@ function Vue (options) {
 }
 ```
 
-可以看到 Vue就是一个普通的构造函数（甚至都不是es6中的class）。只能通过 new 关键字初始化，然后会调用 this.\_init 方法， 该方法在` src/core/instance/init.js `中定义。
+可以看到 Vue就是一个普通的构造函数。只能通过 new 关键字初始化，然后会调用 this.\_init 方法， 该方法在` src/core/instance/init.js `中定义。
 
 ```js
   Vue.prototype._init = function (options?: Object) {
@@ -429,7 +429,7 @@ Vue.prototype.$mount = function (
 
    这里为什么会对`template` 进行处理呢？
 
-   无论我们是用单文件 .vue 方式开发组件，还是写了 `el` 或者 `template` 属性，最终都会转换成 `render` 方法，
+   无论我们是用单文件` .vue` 方式开发组件，还是写了 `el` 或者 `template` 属性，最终都会转换成 `render` 方法，
 
    getOuterHTML()  pollyfill
 
@@ -486,7 +486,7 @@ export function mountComponent (
   let updateComponent
   /* istanbul ignore if */
 	
-	// 不是在生产环境 + 性能大点
+	// 不是在生产环境 + 性能打点
   if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
     updateComponent = () => {
       const name = vm._name

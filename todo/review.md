@@ -30,6 +30,12 @@ Object.prototype.defineProperty(obj, key, {
 
 
 
+#### DOM节点可以全等比较
+
+```
+el === document.body || el === document.documentElement
+```
+
 
 
 

@@ -6,16 +6,21 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .container {
+            height: 1000px;
+        }
+        .fixed {
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
 </head>
 <body>
-    <i>Italic only <b>italic and bold
-        <div>
-            Wow, a block!
-        </div>
-        <div>
-            Wow, another block!
-        </div>
-        More italic and bold text</b> More italic text
-    </i>
+    <div class="container">
+        <div class="fixed"></div>
+    </div>
 </body>
 </html>
