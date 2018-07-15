@@ -541,7 +541,7 @@ Vue 的 `_render` 方法是实例的一个私有方法，它用来把实例渲
   Vue.prototype._render = function (): VNode {
     const vm: Component = this
       // 从vm.$options 中拿到 render 函数
-      // render 函数有可能是用户自己写的，也有可能是编译生成的
+      // 这是因为 render 函数有可能是用户自己写的，也有可能是编译生成的
     const { render, _parentVnode } = vm.$options
 
     // reset _rendered flag on slots for duplicate slot check
@@ -602,7 +602,7 @@ Vue 的 `_render` 方法是实例的一个私有方法，它用来把实例渲
 
 下面是对上面代码的解读：
 
-1. render 可以是编译出来的，也可以是用户自己写的
+1. render 可以是编译出来的，也可以是用户自己写的。下面的代码调用了 render 方法。
 
    ```
    vnode = render.call(vm._renderProxy, vm.$createElement)
@@ -633,11 +633,7 @@ Vue 的 `_render` 方法是实例的一个私有方法，它用来把实例渲
 
    
 
-这段代码最关键的是 `render` 方法的调用，我们在平时的开发工作中手写 `render` 方法的场景比较少，而写的比较多的是 `template` 模板，在之前的 `mounted` 方法的实现中，会把 `template` 编译成 `render` 方法，但这个编译过程是非常复杂的，我们不打算在这里展开讲，之后会专门花一个章节来分析 Vue 的编译过程。
-
- 
-
-在 Vue 的官方文档中介绍了 `render` 函数的第一个参数是 `createElement`，那么结合之前的例子：
+这段代码最关键的是 `render` 方法的调用，render 方法的第二个参数是 createElement 方法，该方法在 Vue 的官方文档中被介绍了，那么结合之前的例子：
 
 ```
 <div id="app">
@@ -647,7 +643,7 @@ Vue 的 `_render` 方法是实例的一个私有方法，它用来把实例渲
 
 相当于我们编写如下 `render` 函数： 
 
-```
+```vue
 render: function (createElement) {
   return createElement('div', {
      attrs: {
@@ -656,6 +652,8 @@ render: function (createElement) {
   }, this.message)
 }
 ```
+
+
 
 再回到 `_render` 函数中的 `render` 方法的调用：
 
@@ -676,7 +674,53 @@ export function initRender (vm: Component) {
 
 
 
-`vm._render` 最终是通过执行 `createElement` 方法并返回的是 `vnode`，它是一个虚拟 Node。Vue 2.0 相比 Vue 1.0 最大的升级就是利用了 Virtual DOM。因此在分析 `createElement` 的实现前，我们先了解一下 Virtual DOM 的概念。
+render 方法的第一个参数是 `_renderProxy` 方法，那么这个方法是在哪里被定义的呢？
+
+在 `/src/core/instance/init.js` 文件里面，我们可看到下面的代码：
+
+```js
+    if (process.env.NODE_ENV !== 'production') {
+      initProxy(vm)
+    } else {
+      vm._renderProxy = vm
+    }
+```
+
+如果是在生产环境，`vm._renderProxy` 就是 `vm`，也就是`this`。如果是在开发环境，则是调用了`initProxy` 的方法， `initProxy` 方法是定义在 `src/core/instance/proxy.js` 文件中:
+
+```js
+  initProxy = function initProxy (vm) {
+    // 判断浏览器是否支持 Proxy
+    if (hasProxy) {
+      // determine which proxy handler to use
+      const options = vm.$options
+      const handlers = options.render && options.render._withStripped
+        ? getHandler
+        : hasHandler
+      vm._renderProxy = new Proxy(vm, handlers)
+    } else {
+      vm._renderProxy = vm
+    }
+  }
+```
+
+在我们这个case下，会调用 new Proxy 方法，传入 hasHandler 方法，hasHandler 方法定义如下：
+
+```js
+  const hasHandler = {
+    has (target, key) {
+      const has = key in target
+      // isAllowed 不能是js中的关键字，不能是下划线_开头的
+      const isAllowed = allowedGlobals(key) || key.charAt(0) === '_'
+      // 如果找不到，或者命名冲突了js中的关键字或者下划线_开头的，则发出警告
+      if (!has && !isAllowed) {
+        warnNonPresent(target, key)
+      }
+      return has || !isAllowed
+    }
+  }
+```
 
 
 
+接下来，我们进入下一节了解 virtual dom 的相关知识。

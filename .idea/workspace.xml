@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="7ac1e9c6-48cb-4e72-8717-b5269abe61da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/other/前端性能优化/demo/index4.html" beforeDir="false" afterPath="$PROJECT_DIR$/other/前端性能优化/demo/index4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/other/前端性能优化/深入理解浏览器渲染原理.md" beforeDir="false" afterPath="$PROJECT_DIR$/other/前端性能优化/深入理解浏览器渲染原理.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/other/前端性能优化/深入理解浏览器渲染原理——layout.md" beforeDir="false" afterPath="$PROJECT_DIR$/other/前端性能优化/深入理解浏览器渲染原理——layout.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/7月2日~7月7日.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/7月9日~7月14日工作日报.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/深入vue源码(1)-数据驱动.md" beforeDir="false" afterPath="$PROJECT_DIR$/vue/深入vue源码(1)-数据驱动.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -342,6 +342,8 @@
       <workItem from="1531223115397" duration="724000" />
       <workItem from="1531352167688" duration="442000" />
       <workItem from="1531403782877" duration="716000" />
+      <workItem from="1531564674334" duration="2000" />
+      <workItem from="1531672906001" duration="7000" />
     </task>
     <task id="LOCAL-00047" summary="&#10;add blog">
       <created>1528954632092</created>
@@ -690,7 +692,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160931000" />
+    <option name="totallyTimeSpent" value="160940000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -706,13 +708,13 @@
     <layout>
       <window_info anchor="right" id="Key Promoter X" order="3" weight="0.32832617" />
       <window_info anchor="right" id="GfmBrowser" order="4" weight="0.32971507" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28540772" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2932761" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32992327" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32948717" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.33665836" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3260606" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3260606" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
