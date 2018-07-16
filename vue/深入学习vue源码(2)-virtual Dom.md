@@ -1,8 +1,8 @@
-##  Virtual dom
+##  Virtual dom是什么
 
- Virtual DOM 这个概念相信大部分人都不会陌生，它产生的前提是浏览器中的 DOM 是很“昂贵"的，浏览器的标准就把 DOM 设计的非常复杂。当我们频繁的去做 DOM 更新，会产生一定的性能问题。
+ Virtual DOM 之所以被提出，是因为操作浏览器中的 DOM 是很“昂贵"的，会产生一定的性能问题。
 
-而 Virtual DOM 就是用一个原生的 JS 对象去描述一个 DOM 节点，所以它比创建一个 DOM 的代价要小很多。在 Vue.js 中，Virtual DOM 是用 `VNode` 这么一个 Class 去描述，它是定义在 `src/core/vdom/vnode.js` 中的。
+ Virtual DOM 本质是用原生的 JS 对象去描述 DOM 节点，因为原生的 JS操作对象，比创建一个 DOM 的代价要小很多。在 Vue.js 中，Virtual DOM 是用 `VNode` 这么一个 Class 去描述，它是定义在 `src/core/vdom/vnode.js` 中的。
 
 ```js
 export default class VNode {
@@ -78,23 +78,11 @@ export default class VNode {
 
 VNode构造函数可以接收的参数最多有七个，分别是`tag`标签名、`data`结点相关数据、`children`子结点对象数组、`text`文本内容、`elm`原生结点元素、`context`指当前元素所在的`Vue`实例、`componentOptions`保存自定义组件上部分组件属性。
 
-
-
- Vue.js 中 Virtual DOM 是借鉴了一个开源库 [snabbdom](https://github.com/snabbdom/snabbdom) 的实现，然后加入了一些 Vue.js 特色的东西。我建议大家如果想深入了解 Vue.js 的 Virtual DOM 前不妨先阅读这个库的源码，因为它更加简单和纯粹。
-
+ Vue.js 中 Virtual DOM 是借鉴了一个开源库 [snabbdom](https://github.com/snabbdom/snabbdom) 的实现，一个Vnode想要被映射到真实的 DOM 上，要经历 VNode 的 create、diff、patch 等过程。create 的过程就是通过 createElement方法来实现的
 
 
 
-
-
-
-
-
-上面只是Virtual DOM 的数据结构定义，映射到真实的 DOM 实际上要经历 VNode 的 create、diff、patch 等过程。那么在 Vue.js 中，VNode 的 create 是通过之前提到的 `createElement` 方法创建的，我们接下来分析这部分的实现。
-
-
-
-## createElement
+## VNode创建：createElement
 
  Vue.js 利用 createElement 方法创建 VNode，它定义在 `src/core/vdom/create-elemenet.js` 中：
 
@@ -107,6 +95,7 @@ export function createElement (
   normalizationType: any,
   alwaysNormalize: boolean
 ): VNode | Array<VNode> {
+  // isPrimitive 检查是否是基本类型 typeof === 'number' 'boolen' 'string' 'symbol' 
   if (Array.isArray(data) || isPrimitive(data)) {
     normalizationType = children
     children = data
@@ -119,7 +108,11 @@ export function createElement (
 }
 ```
 
-`createElement` 方法实际上是对 `_createElement`方法的封装，它允许传入的参数更加灵活，在处理这些参数后，调用真正创建 VNode 的函数 `_createElement`：
+1. 上面第9行代码，是对参数传入个数不一致的处理
+
+   假设传入的形参 data 是数组，或者 data 是个基本类型（反正 data 不是 object），则调整参数的位置
+
+2. `createElement` 方法实际上是对 `_createElement`方法的封装，它允许传入的参数更加灵活，在处理这些参数后，调用真正创建 VNode 的函数 `_createElement`，`_createElement` 方法定义在下面：
 
 ```
 export function _createElement (
@@ -129,6 +122,9 @@ export function _createElement (
   children?: any,
   normalizationType?: number
 ): VNode | Array<VNode> {
+  // 这里对data做校验
+  // isDef 判断不等于 undefined 和 null 
+  // data.__ob__ 属性如果存在，则说明data是响应式的
   if (isDef(data) && isDef((data: any).__ob__)) {
     process.env.NODE_ENV !== 'production' && warn(
       `Avoid using observed data object as vnode data: ${JSON.stringify(data)}\n` +
@@ -208,13 +204,13 @@ export function _createElement (
 }
 ```
 
-`_createElement` 方法有 5 个参数，`context` 表示 VNode 的上下文环境，它是 `Component` 类型；`tag` 表示标签，它可以是一个字符串，也可以是一个 `Component`；`data` 表示 VNode 的数据，它是一个 `VNodeData` 类型，可以在 `flow/vnode.js` 中找到它的定义，这里先不展开说；`children` 表示当前 VNode 的子节点，它是任意类型的，它接下来需要被规范为标准的 VNode 数组；`normalizationType`表示子节点规范的类型，类型不同规范的方法也就不一样，它主要是参考 `render` 函数是编译生成的还是用户手写的。
+1. `_createElement` 方法有 5 个参数，`context` 表示 VNode 的上下文环境，它是 `Component` 类型；`tag` 表示标签，它可以是一个字符串，也可以是一个 `Component`；`data` 表示 VNode 的数据，它是一个 `VNodeData` 类型，可以在 `flow/vnode.js` 中找到它的定义，这里先不展开说；`children` 表示当前 VNode 的子节点，它是任意类型的，它接下来需要被规范为标准的 VNode 数组；`normalizationType`表示子节点规范的类型，类型不同规范的方法也就不一样，它主要是参考 `render` 函数是编译生成的还是用户手写的。
+2. 第11行的代码，是拦截含有`__ob__` 属性的data, 因为含有`__ob__` 属性的data是响应式的。我们会在下面的响应式的小节里面仔细讲解。
+3. 上面代码中，比较重要的部分是`normalizeChildren`, 也就是遍历规范化Children，我们接下来看看一下 `normalizeChildren` 函数。
 
-`createElement` 函数的流程略微有点多，我们接下来主要分析 2 个重点的流程 —— `children` 的规范化以及 VNode 的创建。
 
 
-
-## children 的规范化
+## 规范化Children
 
 由于 Virtual DOM 实际上是一个树状结构，每一个 VNode 可能会有若干个子节点，这些子节点应该也是 VNode 的类型。`_createElement` 接收的第 4 个参数 children 是任意类型的，因此我们需要把它们规范成 VNode 类型。
 
@@ -231,9 +227,11 @@ export function simpleNormalizeChildren (children: any) {
 }
 ```
 
-`simpleNormalizeChildren` 方法调用场景是 `render` 函数当函数是编译生成的。理论上编译生成的 `children` 都已经是 VNode 类型的，但这里有一个例外，就是 `functional component` 函数式组件返回的是一个数组而不是一个根节点，所以会通过 `Array.prototype.concat` 方法把整个 `children`数组打平，让它的深度只有一层。
+`simpleNormalizeChildren` 方法干的活比较简单，通过 `Array.prototype.concat` 方法把整个 `children`数组打平，让它的深度只有一层。
 
+`simpleNormalizeChildren` 方法调用场景： `render` 函数是编译生成的。理论上编译生成的 `children` 都已经是 VNode 类型的，但这里有一个例外，就是 `functional component` 函数式组件返回的是一个数组而不是一个根节点，所以需要打平。
 
+另外一个方法是 normalizeChildren
 
 ```js
 export function normalizeChildren (children: any): ?Array<VNode> {
@@ -245,24 +243,30 @@ export function normalizeChildren (children: any): ?Array<VNode> {
 }
 ```
 
-`normalizeChildren` 方法的调用场景有 2 种，一个场景是 `render` 函数是用户手写的，当 `children`只有一个节点的时候，Vue.js 从接口层面允许用户把 `children` 写成基础类型用来创建单个简单的文本节点，这种情况会调用 `createTextVNode` 创建一个文本节点的 VNode；另一个场景是当编译 `slot`、`v-for` 的时候会产生嵌套数组的情况，会调用 `normalizeArrayChildren` 方法，接下来看一下它的实现：
+上面的代码，如果 children是一个简单类型，则返回 createTextNode() ，这种case 主要是用于这种情况： `render` 函数是用户手写的，用户把 `children` 写成基础类型用来创建单个简单的文本节点，此时会调用 `createTextVNode` 创建一个文本节点的 VNode；
 
-
+如果children 是数组的话，就需要调用 `normalizeArrayChildren` 方法，下面是它的实现：
 
 ```
 function normalizeArrayChildren (children: any, nestedIndex?: string): Array<VNode> {
+  // 用来存放结果
   const res = []
   let i, c, lastIndex, last
   for (i = 0; i < children.length; i++) {
+    // 遍历每一个节点
     c = children[i]
+    // 如果节点是 undifiend，或者节点类型是 'boolen', 则跳过
     if (isUndef(c) || typeof c === 'boolean') continue
+    // 数组最后一个的index
     lastIndex = res.length - 1
+    // 数组中的最后一个
     last = res[lastIndex]
-    //  nested
+    // 出现该节点也是数组的嵌套情况
     if (Array.isArray(c)) {
       if (c.length > 0) {
+        // 递归的调用该方法，得到处理后的节点
         c = normalizeArrayChildren(c, `${nestedIndex || ''}_${i}`)
-        // merge adjacent text nodes
+        // 做了一点点优化，如果 节点是数组，且节点数组的第一个，和数组的最后一个都是TEXT, 则数组的最后一个
         if (isTextNode(c[0]) && isTextNode(last)) {
           res[lastIndex] = createTextVNode(last.text + (c[0]: any).text)
           c.shift()
