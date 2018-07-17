@@ -339,16 +339,9 @@ Vue 初始化主要就干了几件事情，合并配置，初始化生命周期�
 
 ## **Vue 实例挂载的实现**
 
-Vue 中我们是通过 `$mount` 实例方法去挂载 `vm`的，`$mount` 方法在多个文件中都有定义，如 `src/platform/web/entry-runtime-with-compiler.js`、`src/platform/web/runtime/index.js`、`src/platform/weex/runtime/index.js`。因为 `$mount` 这个方法的实现是和平台、构建方式都相关的。接下来我们重点分析带 `compiler` 版本的 `$mount` 实现，因为抛开 webpack 的 vue-loader，我们在纯前端浏览器环境分析 Vue 的工作原理，有助于我们对原理理解的深入。
-
-
+Vue 中我们是通过 `$mount` 方法去挂载 `vm`的，`$mount` 方法在多个文件中都有定义，如 `src/platform/web/entry-runtime-with-compiler.js`、`src/platform/web/runtime/index.js`、`src/platform/weex/runtime/index.js`。因为 `$mount` 这个方法的实现是和平台、构建方式都相关的。接下来我们重点分析带 `compiler` 版本的 `$mount` 实现，因为抛开 webpack 的 vue-loader，我们在纯前端浏览器环境分析 Vue 的工作原理，有助于我们对原理理解的深入。
 
 我们找到 $mount方法的定义，在`node_modules/_vue@2.5.16@vue/src/platforms/web/entry-runtime-with-compiler.js`文件里面。
-
-这里的$mount方法做得事情：
-
-1. 清洗一下el, 
-2. 清洗一下template,  compileToFunction(template) 来得到render 。$option.render = render 
 
 ```js
 // 先缓存原来的$mount方法
@@ -359,7 +352,7 @@ Vue.prototype.$mount = function (
   el?: string | Element,
   hydrating?: boolean
 ): Component {
-  // query很简单，就是封装了一个document.querySelect()
+  // query方法就是封装了一个document.querySelect()
   el = el && query(el)
 
   // el 不能是html,body等根节点, 因为el会覆盖原有的挂载点，所以body和html肯定不能覆盖呀
