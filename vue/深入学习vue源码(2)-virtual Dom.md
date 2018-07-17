@@ -274,6 +274,7 @@ function normalizeArrayChildren (children: any, nestedIndex?: string): Array<VNo
         res.push.apply(res, c)
       }
     } else if (isPrimitive(c)) {
+      // 如果该节点是一个基础类型
       if (isTextNode(last)) {
         // merge adjacent text nodes
         // this is necessary for SSR hydration because text nodes are
@@ -315,21 +316,26 @@ function normalizeArrayChildren (children: any, nestedIndex?: string): Array<VNo
 
 回到 `createElement` 函数，规范化 `children`后，接下来会去创建一个 VNode 的实例：
 
-```
+```js
 let vnode, ns
+// tag有两种情况，第一种情况是 string, 第二种情况是组件，组件在后面会讲，我们这里先看string的情况
 if (typeof tag === 'string') {
   let Ctor
+  // 这是对name space 的处理，先不管
   ns = (context.$vnode && context.$vnode.ns) || config.getTagNamespace(tag)
+  // 判断tag是否是html原生的标签，大部分的情况都是走这个逻辑
+  // 可以在这里打一个断点调试一下
   if (config.isReservedTag(tag)) {
-    // platform built-in elements
+    // 传入平台保留的标签，创建一个vnode
     vnode = new VNode(
       config.parsePlatformTagName(tag), data, children,
       undefined, undefined, context
     )
   } else if (isDef(Ctor = resolveAsset(context.$options, 'components', tag))) {
-    // component
+    // 这个逻辑也是对组件的解析，在下面组件的章节去讲
     vnode = createComponent(Ctor, data, context, children, tag)
   } else {
+    // 一些不认识的节点
     // unknown or unlisted namespaced elements
     // check at runtime because it may get assigned a namespace when its
     // parent normalizes children
@@ -344,9 +350,8 @@ if (typeof tag === 'string') {
 }
 ```
 
-这里先对 `tag` 做判断，如果是 `string` 类型，则接着判断如果是内置的一些节点，则直接创建一个普通 VNode，如果是为已注册的组件名，则通过 `createComponent` 创建一个组件类型的 VNode，否则创建一个未知的标签的 VNode。 如果是 `tag` 一个 `Component` 类型，则直接调用 `createComponent` 创建一个组件类型的 VNode 节点。对于 `createComponent` 创建组件类型的 VNode 的过程，我们之后会去介绍，本质上它还是返回了一个 VNode。
+先对 `tag` 做判断，如果是 `string` 类型，则接着判断如果是内置的一些节点，则直接创建一个普通 VNode（大部分的情况走这个逻辑），如果是为已注册的组件名，则通过 `createComponent` 创建一个组件类型的 VNode，否则创建一个未知的标签的 VNode。 如果是 `tag` 一个 `Component` 类型，则直接调用 `createComponent` 创建一个组件类型的 VNode 节点。对于 `createComponent` 创建组件类型的 VNode 的过程，我们之后会去介绍，本质上它还是返回了一个 VNode。
 
 那么至此，我们大致了解了 `createElement` 创建 VNode 的过程，每个 VNode 有 `children`，`children` 每个元素也是一个 VNode，这样就形成了一个 VNode Tree，它很好的描述了我们的 DOM Tree。
 
 回到 `mountComponent` 函数的过程，我们已经知道 `vm._render` 是如何创建了一个 VNode，接下来就是要把这个 VNode 渲染成一个真实的 DOM 并渲染出来，这个过程是通过 `vm._update` 完成的，接下来分析一下这个过程。
-

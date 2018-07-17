@@ -70,12 +70,48 @@ export function initState (vm: Component) {
 }
 ```
 
-上面的代码中，调用 `initData`方法来初始化data,  我们找到`initData` 的声明如下：
+```
+  const opts = vm.$options
+```
+
+vm指向的就是该vue实例，vm.$options 是我们写的vue代码，如果我们写的vue代码是这样的：
+
+```js
+new Vue({
+  el:'#app',
+  data () {
+    return {
+      name:'dudu'
+    }
+  },
+  methods: {
+    test () {
+      
+    }
+  },
+  render (createElement) {
+    return createElement('div', {
+      atts: {
+        id: "test"
+      }
+    }, this.name + 's')
+  }
+})
+```
+
+则这里的options是这样的：
+
+![image-20180717103428079](http://p8cyzbt5x.bkt.clouddn.com/2018-07-17-023428.png)
+
+
+
+上面的代码的逻辑，走到了 `initData`方法来初始化data,  我们找到`initData` 的声明如下：
 
 ```js
 function initData (vm: Component) {
+  // 此时我们的data还是一个方法
   let data = vm.$options.data
-  // 先判断 vm._data 是否是方法
+  // 判断 vm._data 是否是方法
   data = vm._data = typeof data === 'function'
     // 如果vm._data是方法，则调用getData来拿
     ? getData(data, vm)
@@ -138,6 +174,7 @@ module.export = {
 ```js
 export function getData (data: Function, vm: Component): any {
   // #7573 disable dep collection when invoking data getters
+  // 先不管这个逻辑
   pushTarget()
   try {
      // 其实很简单，就是调用 vm.data()方法，期待会返回一个对象
