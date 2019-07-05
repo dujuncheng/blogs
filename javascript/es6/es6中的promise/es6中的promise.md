@@ -71,8 +71,6 @@ let promise = new Promise(function(resolve, reject) {
    })
    ```
 
-   
-
 2. `reject()` 可以传入任意参数，但是最好是`err`
 
 3. `executor` 干的活，可以是同步的，也可以是异步的，也就是，`resolve` 被立即执行也是可以的。
@@ -142,9 +140,6 @@ promise.then(
    console.log('2222222222')
    ```
 
-3. 
-
-  
 
 
 
