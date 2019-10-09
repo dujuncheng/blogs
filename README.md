@@ -21,6 +21,9 @@
 - css
     - [sticky footer，绝对的完美底部](https://github.com/dujuncheng/blogs/blob/master/css/sticky%20footer%EF%BC%8C%E7%BB%9D%E5%AF%B9%E7%9A%84%E5%AE%8C%E7%BE%8E%E5%BA%95%E9%83%A8/blog/sticky%20footer%2C%20%E7%BB%9D%E5%AF%B9%E7%9A%84%E5%AE%8C%E7%BE%8E%E5%BA%95%E9%83%A8.md)
 
+- 微信小程序
+    - [ megalo 小程序跨端方案原理内幕（一）](https://github.com/dujuncheng/blogs/blob/master/other/megalo%20%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%B7%A8%E7%AB%AF%E6%96%B9%E6%A1%88%E5%8E%9F%E7%90%86%E5%86%85%E5%B9%95%EF%BC%88%E4%B8%80%EF%BC%89.md)
+
 - webpack
     - [深入学习webpack(1)-前言](https://github.com/dujuncheng/blogs/blob/64e6fe7f941d849d4dc62800092c218631bbb407/webpack/%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0webpack(1).md)
     - [深入学习webpack(2)-基本概念](https://github.com/dujuncheng/blogs/blob/master/webpack/%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0webpack(2)-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.md)
