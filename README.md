@@ -6,6 +6,7 @@
 
 - 小程序
     - [微信小程序组件化解决方案](https://juejin.im/entry/5a676b3ff265da3e4f0a5215)
+    - [ megalo 小程序跨端方案原理内幕（一）](https://github.com/dujuncheng/blogs/blob/master/other/megalo%20%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%B7%A8%E7%AB%AF%E6%96%B9%E6%A1%88%E5%8E%9F%E7%90%86%E5%86%85%E5%B9%95%EF%BC%88%E4%B8%80%EF%BC%89.md)
 
 - 浏览器
     - [前端性能优化指南](https://github.com/dujuncheng/blogs/blob/2fc1b3235d0687863d1f0c8ba5ca56096d7f7f60/other/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.md)
@@ -21,8 +22,6 @@
 - css
     - [sticky footer，绝对的完美底部](https://github.com/dujuncheng/blogs/blob/master/css/sticky%20footer%EF%BC%8C%E7%BB%9D%E5%AF%B9%E7%9A%84%E5%AE%8C%E7%BE%8E%E5%BA%95%E9%83%A8/blog/sticky%20footer%2C%20%E7%BB%9D%E5%AF%B9%E7%9A%84%E5%AE%8C%E7%BE%8E%E5%BA%95%E9%83%A8.md)
 
-- 微信小程序
-    - [ megalo 小程序跨端方案原理内幕（一）](https://github.com/dujuncheng/blogs/blob/master/other/megalo%20%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%B7%A8%E7%AB%AF%E6%96%B9%E6%A1%88%E5%8E%9F%E7%90%86%E5%86%85%E5%B9%95%EF%BC%88%E4%B8%80%EF%BC%89.md)
 
 - webpack
     - [深入学习webpack(1)-前言](https://github.com/dujuncheng/blogs/blob/64e6fe7f941d849d4dc62800092c218631bbb407/webpack/%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0webpack(1).md)
