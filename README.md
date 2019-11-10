@@ -9,6 +9,7 @@
     - [ megalo 小程序跨端方案原理内幕（一）](https://github.com/dujuncheng/blogs/blob/master/other/megalo%20%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%B7%A8%E7%AB%AF%E6%96%B9%E6%A1%88%E5%8E%9F%E7%90%86%E5%86%85%E5%B9%95%EF%BC%88%E4%B8%80%EF%BC%89.md)
     - [ 微信小程序的登录体系 ](https://github.com/dujuncheng/blogs/blob/9a2636e27aa051e135e16d9b83f8a38334e8795f/mini_program/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%99%BB%E5%BD%95%E4%BD%93%E7%B3%BB.md)
     - [ 深入浅出小程序跨端框架原理 ](https://github.com/dujuncheng/blogs/blob/9a2636e27aa051e135e16d9b83f8a38334e8795f/mini_program/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%B7%A8%E7%AB%AF%E6%A1%86%E6%9E%B6%E5%8E%9F%E7%90%86.md)
+    - [ 微信小程序性能优化方案——让你的小程序如此丝滑 ](https://github.com/dujuncheng/blogs/blob/master/mini_program/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88%E2%80%94%E2%80%94%E8%AE%A9%E4%BD%A0%E7%9A%84%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%A6%82%E6%AD%A4%E4%B8%9D%E6%BB%91.md)
     
     
 - Node
