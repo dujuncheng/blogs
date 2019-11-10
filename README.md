@@ -25,6 +25,7 @@
     - [javascript解析和执行过程](https://github.com/dujuncheng/blogs/blob/b1d07ddbfb52f42634ab8481c86c1352b748cc86/javascript/js%E7%9A%84%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6%E5%AD%A6%E4%B9%A0_%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97%E3%80%81event_loop/js%E7%9A%84%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6%E5%AD%A6%E4%B9%A0_%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97%E3%80%81event_loop.md)
     - [javascript 中 AOP 那些事](https://github.com/dujuncheng/blogs/blob/9a2636e27aa051e135e16d9b83f8a38334e8795f/javascript/javascript%20%E4%B8%AD%20AOP%20%E9%82%A3%E4%BA%9B%E4%BA%8B.md)
     - [可能是目前最易理解的手写promise](https://github.com/dujuncheng/blogs/blob/9a2636e27aa051e135e16d9b83f8a38334e8795f/javascript/%E5%8F%AF%E8%83%BD%E6%98%AF%E7%9B%AE%E5%89%8D%E6%9C%80%E6%98%93%E7%90%86%E8%A7%A3%E7%9A%84%E6%89%8B%E5%86%99promise.md)
+    - [前端代码错误上报](https://github.com/dujuncheng/blogs/blob/master/javascript/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E9%94%99%E8%AF%AF%E4%B8%8A%E6%8A%A5.md)
 
 
 - es6
